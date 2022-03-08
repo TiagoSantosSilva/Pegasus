@@ -1,0 +1,668 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2773B73527D6D5D800C845DE /* PokemonListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773B73427D6D5D800C845DE /* PokemonListViewController.swift */; };
+		2773B73727D6D5E800C845DE /* PokemonListCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773B73627D6D5E800C845DE /* PokemonListCollectionViewController.swift */; };
+		2773B73B27D6D6A500C845DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773B73A27D6D6A500C845DE /* ViewController.swift */; };
+		2773B73D27D6D7F100C845DE /* PokemonListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773B73C27D6D7F100C845DE /* PokemonListCoordinator.swift */; };
+		2773B73F27D6E17B00C845DE /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773B73E27D6E17B00C845DE /* CollectionViewController.swift */; };
+		2773B74227D6E21500C845DE /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773B74127D6E21500C845DE /* UIViewController.swift */; };
+		27BB675827D6D134003098D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BB675727D6D134003098D8 /* AppDelegate.swift */; };
+		27BB676127D6D135003098D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27BB676027D6D135003098D8 /* Assets.xcassets */; };
+		27BB676427D6D135003098D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27BB676227D6D135003098D8 /* LaunchScreen.storyboard */; };
+		27BB676F27D6D135003098D8 /* PegasusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BB676E27D6D135003098D8 /* PegasusTests.swift */; };
+		27BB677927D6D135003098D8 /* PegasusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BB677827D6D135003098D8 /* PegasusUITests.swift */; };
+		27BB677B27D6D135003098D8 /* PegasusUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BB677A27D6D135003098D8 /* PegasusUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		27BB676B27D6D135003098D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27BB674C27D6D134003098D8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 27BB675327D6D134003098D8;
+			remoteInfo = Pegasus;
+		};
+		27BB677527D6D135003098D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27BB674C27D6D134003098D8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 27BB675327D6D134003098D8;
+			remoteInfo = Pegasus;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2773B73427D6D5D800C845DE /* PokemonListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListViewController.swift; sourceTree = "<group>"; };
+		2773B73627D6D5E800C845DE /* PokemonListCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListCollectionViewController.swift; sourceTree = "<group>"; };
+		2773B73A27D6D6A500C845DE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2773B73C27D6D7F100C845DE /* PokemonListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListCoordinator.swift; sourceTree = "<group>"; };
+		2773B73E27D6E17B00C845DE /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		2773B74127D6E21500C845DE /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		27BB675427D6D134003098D8 /* Pegasus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pegasus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		27BB675727D6D134003098D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		27BB676027D6D135003098D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		27BB676327D6D135003098D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		27BB676527D6D135003098D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27BB676A27D6D135003098D8 /* PegasusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PegasusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		27BB676E27D6D135003098D8 /* PegasusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PegasusTests.swift; sourceTree = "<group>"; };
+		27BB677427D6D135003098D8 /* PegasusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PegasusUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		27BB677827D6D135003098D8 /* PegasusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PegasusUITests.swift; sourceTree = "<group>"; };
+		27BB677A27D6D135003098D8 /* PegasusUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PegasusUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		27BB675127D6D134003098D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27BB676727D6D135003098D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27BB677127D6D135003098D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2773B73027D6D41500C845DE /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				27BB675727D6D134003098D8 /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		2773B73127D6D42300C845DE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				27BB676027D6D135003098D8 /* Assets.xcassets */,
+				27BB676227D6D135003098D8 /* LaunchScreen.storyboard */,
+				27BB676527D6D135003098D8 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2773B73227D6D59B00C845DE /* Contexts */ = {
+			isa = PBXGroup;
+			children = (
+				2773B73327D6D5AD00C845DE /* Pokemon List */,
+			);
+			path = Contexts;
+			sourceTree = "<group>";
+		};
+		2773B73327D6D5AD00C845DE /* Pokemon List */ = {
+			isa = PBXGroup;
+			children = (
+				2773B73627D6D5E800C845DE /* PokemonListCollectionViewController.swift */,
+				2773B73C27D6D7F100C845DE /* PokemonListCoordinator.swift */,
+				2773B73427D6D5D800C845DE /* PokemonListViewController.swift */,
+			);
+			name = "Pokemon List";
+			path = "Pokémon List";
+			sourceTree = "<group>";
+		};
+		2773B73827D6D68F00C845DE /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				2773B73927D6D69400C845DE /* UIKit */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		2773B73927D6D69400C845DE /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				2773B73E27D6E17B00C845DE /* CollectionViewController.swift */,
+				2773B73A27D6D6A500C845DE /* ViewController.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		2773B74027D6E20900C845DE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2773B74127D6E21500C845DE /* UIViewController.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		27BB674B27D6D134003098D8 = {
+			isa = PBXGroup;
+			children = (
+				27BB675627D6D134003098D8 /* Pegasus */,
+				27BB676D27D6D135003098D8 /* PegasusTests */,
+				27BB677727D6D135003098D8 /* PegasusUITests */,
+				27BB675527D6D134003098D8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		27BB675527D6D134003098D8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				27BB675427D6D134003098D8 /* Pegasus.app */,
+				27BB676A27D6D135003098D8 /* PegasusTests.xctest */,
+				27BB677427D6D135003098D8 /* PegasusUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		27BB675627D6D134003098D8 /* Pegasus */ = {
+			isa = PBXGroup;
+			children = (
+				2773B73027D6D41500C845DE /* Application */,
+				2773B73827D6D68F00C845DE /* Classes */,
+				2773B73227D6D59B00C845DE /* Contexts */,
+				2773B74027D6E20900C845DE /* Extensions */,
+				2773B73127D6D42300C845DE /* Supporting Files */,
+			);
+			path = Pegasus;
+			sourceTree = "<group>";
+		};
+		27BB676D27D6D135003098D8 /* PegasusTests */ = {
+			isa = PBXGroup;
+			children = (
+				27BB676E27D6D135003098D8 /* PegasusTests.swift */,
+			);
+			path = PegasusTests;
+			sourceTree = "<group>";
+		};
+		27BB677727D6D135003098D8 /* PegasusUITests */ = {
+			isa = PBXGroup;
+			children = (
+				27BB677827D6D135003098D8 /* PegasusUITests.swift */,
+				27BB677A27D6D135003098D8 /* PegasusUITestsLaunchTests.swift */,
+			);
+			path = PegasusUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		27BB675327D6D134003098D8 /* Pegasus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27BB677E27D6D135003098D8 /* Build configuration list for PBXNativeTarget "Pegasus" */;
+			buildPhases = (
+				27BB675027D6D134003098D8 /* Sources */,
+				27BB675127D6D134003098D8 /* Frameworks */,
+				27BB675227D6D134003098D8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Pegasus;
+			productName = Pegasus;
+			productReference = 27BB675427D6D134003098D8 /* Pegasus.app */;
+			productType = "com.apple.product-type.application";
+		};
+		27BB676927D6D135003098D8 /* PegasusTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27BB678127D6D135003098D8 /* Build configuration list for PBXNativeTarget "PegasusTests" */;
+			buildPhases = (
+				27BB676627D6D135003098D8 /* Sources */,
+				27BB676727D6D135003098D8 /* Frameworks */,
+				27BB676827D6D135003098D8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				27BB676C27D6D135003098D8 /* PBXTargetDependency */,
+			);
+			name = PegasusTests;
+			productName = PegasusTests;
+			productReference = 27BB676A27D6D135003098D8 /* PegasusTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		27BB677327D6D135003098D8 /* PegasusUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27BB678427D6D135003098D8 /* Build configuration list for PBXNativeTarget "PegasusUITests" */;
+			buildPhases = (
+				27BB677027D6D135003098D8 /* Sources */,
+				27BB677127D6D135003098D8 /* Frameworks */,
+				27BB677227D6D135003098D8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				27BB677627D6D135003098D8 /* PBXTargetDependency */,
+			);
+			name = PegasusUITests;
+			productName = PegasusUITests;
+			productReference = 27BB677427D6D135003098D8 /* PegasusUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		27BB674C27D6D134003098D8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					27BB675327D6D134003098D8 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					27BB676927D6D135003098D8 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 27BB675327D6D134003098D8;
+					};
+					27BB677327D6D135003098D8 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 27BB675327D6D134003098D8;
+					};
+				};
+			};
+			buildConfigurationList = 27BB674F27D6D134003098D8 /* Build configuration list for PBXProject "Pegasus" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 27BB674B27D6D134003098D8;
+			productRefGroup = 27BB675527D6D134003098D8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				27BB675327D6D134003098D8 /* Pegasus */,
+				27BB676927D6D135003098D8 /* PegasusTests */,
+				27BB677327D6D135003098D8 /* PegasusUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		27BB675227D6D134003098D8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27BB676427D6D135003098D8 /* LaunchScreen.storyboard in Resources */,
+				27BB676127D6D135003098D8 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27BB676827D6D135003098D8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27BB677227D6D135003098D8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		27BB675027D6D134003098D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2773B74227D6E21500C845DE /* UIViewController.swift in Sources */,
+				2773B73F27D6E17B00C845DE /* CollectionViewController.swift in Sources */,
+				2773B73727D6D5E800C845DE /* PokemonListCollectionViewController.swift in Sources */,
+				2773B73527D6D5D800C845DE /* PokemonListViewController.swift in Sources */,
+				2773B73B27D6D6A500C845DE /* ViewController.swift in Sources */,
+				2773B73D27D6D7F100C845DE /* PokemonListCoordinator.swift in Sources */,
+				27BB675827D6D134003098D8 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27BB676627D6D135003098D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27BB676F27D6D135003098D8 /* PegasusTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27BB677027D6D135003098D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27BB677927D6D135003098D8 /* PegasusUITests.swift in Sources */,
+				27BB677B27D6D135003098D8 /* PegasusUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		27BB676C27D6D135003098D8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 27BB675327D6D134003098D8 /* Pegasus */;
+			targetProxy = 27BB676B27D6D135003098D8 /* PBXContainerItemProxy */;
+		};
+		27BB677627D6D135003098D8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 27BB675327D6D134003098D8 /* Pegasus */;
+			targetProxy = 27BB677527D6D135003098D8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		27BB676227D6D135003098D8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27BB676327D6D135003098D8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		27BB677C27D6D135003098D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		27BB677D27D6D135003098D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		27BB677F27D6D135003098D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 64E8842TP6;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Pegasus/Supporting Files/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TiagoSilva.Pegasus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		27BB678027D6D135003098D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 64E8842TP6;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Pegasus/Supporting Files/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TiagoSilva.Pegasus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		27BB678227D6D135003098D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 64E8842TP6;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TiagoSilva.PegasusTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pegasus.app/Pegasus";
+			};
+			name = Debug;
+		};
+		27BB678327D6D135003098D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 64E8842TP6;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TiagoSilva.PegasusTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pegasus.app/Pegasus";
+			};
+			name = Release;
+		};
+		27BB678527D6D135003098D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 64E8842TP6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TiagoSilva.PegasusUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Pegasus;
+			};
+			name = Debug;
+		};
+		27BB678627D6D135003098D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 64E8842TP6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TiagoSilva.PegasusUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Pegasus;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		27BB674F27D6D134003098D8 /* Build configuration list for PBXProject "Pegasus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27BB677C27D6D135003098D8 /* Debug */,
+				27BB677D27D6D135003098D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27BB677E27D6D135003098D8 /* Build configuration list for PBXNativeTarget "Pegasus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27BB677F27D6D135003098D8 /* Debug */,
+				27BB678027D6D135003098D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27BB678127D6D135003098D8 /* Build configuration list for PBXNativeTarget "PegasusTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27BB678227D6D135003098D8 /* Debug */,
+				27BB678327D6D135003098D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27BB678427D6D135003098D8 /* Build configuration list for PBXNativeTarget "PegasusUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27BB678527D6D135003098D8 /* Debug */,
+				27BB678627D6D135003098D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 27BB674C27D6D134003098D8 /* Project object */;
+}
