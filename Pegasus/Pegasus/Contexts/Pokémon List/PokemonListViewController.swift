@@ -26,6 +26,14 @@ final class PokemonListViewController: ViewController {
         super.viewDidLoad()
         title = "Pegasus"
         setupSubviews()
+        
+        let engine = NetworkEngine()
+        
+        Task {
+            let data = try await engine.request(endpoint: PokemonEndpoint.list)
+            let content = String(data: data, encoding: .utf8)!
+            print("☃️: \(content)")
+        }
     }
     
     // MARK: - Setups
