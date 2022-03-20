@@ -1,8 +1,6 @@
 disabled_rules:
 - inclusive_language
-- trailing_whitespace
 - switch_case_alignment
-- block_based_kvo
 - todo
 - weak_delegate
 
@@ -41,10 +39,6 @@ type_name:
   max_length: 
     warning: 50
     error: 60
-  excluded:
-    - app
-    - T2
-    - T6
 
 function_parameter_count:
   warning: 10
@@ -54,7 +48,6 @@ cyclomatic_complexity:
   ignores_case_statements: true
 
 file_length:
-  warning: 500
+  warning: 300
   error: 1000
   ignore_comment_only_lines: true
-
