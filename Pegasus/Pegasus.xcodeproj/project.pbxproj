@@ -14,6 +14,10 @@
 		2773B73F27D6E17B00C845DE /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773B73E27D6E17B00C845DE /* CollectionViewController.swift */; };
 		2773B74227D6E21500C845DE /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773B74127D6E21500C845DE /* UIViewController.swift */; };
 		2773B74727D826A900C845DE /* NetworkEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773B74627D826A900C845DE /* NetworkEngine.swift */; };
+		27A3690E27E7737A00A837C8 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A3690D27E7737A00A837C8 /* NavigationController.swift */; };
+		27A3691027E77DB000A837C8 /* NavigationBarAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A3690F27E77DB000A837C8 /* NavigationBarAppearance.swift */; };
+		27A3691227E77DC600A837C8 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A3691127E77DC600A837C8 /* NavigationBar.swift */; };
+		27A3691527E77E4800A837C8 /* StringError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A3691427E77E4800A837C8 /* StringError.swift */; };
 		27BB675827D6D134003098D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BB675727D6D134003098D8 /* AppDelegate.swift */; };
 		27BB676127D6D135003098D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27BB676027D6D135003098D8 /* Assets.xcassets */; };
 		27BB676427D6D135003098D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27BB676227D6D135003098D8 /* LaunchScreen.storyboard */; };
@@ -47,6 +51,10 @@
 		2773B73E27D6E17B00C845DE /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		2773B74127D6E21500C845DE /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		2773B74627D826A900C845DE /* NetworkEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEngine.swift; sourceTree = "<group>"; };
+		27A3690D27E7737A00A837C8 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		27A3690F27E77DB000A837C8 /* NavigationBarAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarAppearance.swift; sourceTree = "<group>"; };
+		27A3691127E77DC600A837C8 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		27A3691427E77E4800A837C8 /* StringError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringError.swift; sourceTree = "<group>"; };
 		27BB675427D6D134003098D8 /* Pegasus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pegasus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27BB675727D6D134003098D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27BB676027D6D135003098D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -133,6 +141,9 @@
 			isa = PBXGroup;
 			children = (
 				2773B73E27D6E17B00C845DE /* CollectionViewController.swift */,
+				27A3691127E77DC600A837C8 /* NavigationBar.swift */,
+				27A3690F27E77DB000A837C8 /* NavigationBarAppearance.swift */,
+				27A3690D27E7737A00A837C8 /* NavigationController.swift */,
 				2773B73A27D6D6A500C845DE /* ViewController.swift */,
 			);
 			path = UIKit;
@@ -170,6 +181,14 @@
 			path = Enumerations;
 			sourceTree = "<group>";
 		};
+		27A3691327E77E2C00A837C8 /* Enumerations */ = {
+			isa = PBXGroup;
+			children = (
+				27A3691427E77E4800A837C8 /* StringError.swift */,
+			);
+			path = Enumerations;
+			sourceTree = "<group>";
+		};
 		27BB674B27D6D134003098D8 = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +215,7 @@
 				2773B73027D6D41500C845DE /* Application */,
 				2773B73827D6D68F00C845DE /* Classes */,
 				2773B73227D6D59B00C845DE /* Contexts */,
+				27A3691327E77E2C00A837C8 /* Enumerations */,
 				2773B74027D6E20900C845DE /* Extensions */,
 				2773B74327D8264300C845DE /* Network */,
 				2773B73127D6D42300C845DE /* Supporting Files */,
@@ -354,10 +374,14 @@
 				2773B73F27D6E17B00C845DE /* CollectionViewController.swift in Sources */,
 				2773B73727D6D5E800C845DE /* PokemonListCollectionViewController.swift in Sources */,
 				2773B73527D6D5D800C845DE /* PokemonListViewController.swift in Sources */,
+				27A3690E27E7737A00A837C8 /* NavigationController.swift in Sources */,
+				27A3691227E77DC600A837C8 /* NavigationBar.swift in Sources */,
 				2773B73B27D6D6A500C845DE /* ViewController.swift in Sources */,
 				2773B73D27D6D7F100C845DE /* PokemonListCoordinator.swift in Sources */,
 				2773B74727D826A900C845DE /* NetworkEngine.swift in Sources */,
+				27A3691527E77E4800A837C8 /* StringError.swift in Sources */,
 				27BB675827D6D134003098D8 /* AppDelegate.swift in Sources */,
+				27A3691027E77DB000A837C8 /* NavigationBarAppearance.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,12 +20,18 @@ final class PokemonListCoordinator {
     }
     
     func start() {
-        let navigationController = UINavigationController()
         let collectionViewController = PokemonListCollectionViewController()
         let viewController = PokemonListViewController(collectionViewController: collectionViewController)
-        navigationController.viewControllers = [viewController]
+        let navigationController = NavigationController(rootViewController: viewController)
         
-        navigationController.navigationBar.prefersLargeTitles = true
+//        let navBarAppearance = UINavigationBarAppearance()
+//        navBarAppearance.configureWithOpaqueBackground()
+//        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+//        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+//        navBarAppearance.backgroundColor = .red
+//        navigationController.navigationBar.standardAppearance = navBarAppearance
+//        navigationController.navigationBar.scrollEdgeAppearance = navBarAppearance
+        
         window?.rootViewController = navigationController
     }
 }

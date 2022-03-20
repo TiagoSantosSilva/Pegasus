@@ -32,7 +32,7 @@ final class PokemonListViewController: ViewController {
         Task {
             let data = try await engine.request(endpoint: PokemonEndpoint.list)
             let content = String(data: data, encoding: .utf8)!
-            print("☃️: \(content)")
+            // print("☃️: \(content)")
         }
     }
     
