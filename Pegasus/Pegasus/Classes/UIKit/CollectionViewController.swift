@@ -17,6 +17,6 @@ open class CollectionViewController: UICollectionViewController {
     
     @available(*, unavailable)
     public required init?(coder aDecoder: NSCoder) {
-        fatalError("Init through nib not supported.")
+        fatalError(StringError.coderInit)
     }
 }

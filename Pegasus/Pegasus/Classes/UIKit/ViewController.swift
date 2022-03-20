@@ -17,6 +17,6 @@ open class ViewController: UIViewController {
     
     @available(*, unavailable)
     public required init?(coder: NSCoder) {
-        fatalError("Init through nib not supported.")
+        fatalError(StringError.coderInit)
     }
 }
