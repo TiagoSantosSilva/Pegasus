@@ -11,12 +11,12 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - Properties
-    
+
     lazy var window: UIWindow? = .init(frame: UIScreen.main.bounds)
     private lazy var coordinator: PokemonListCoordinator = .init(window: window)
 
     // MARK: UISceneSession Lifecycle
-    
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         window?.makeKeyAndVisible()
@@ -24,4 +24,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 }
-

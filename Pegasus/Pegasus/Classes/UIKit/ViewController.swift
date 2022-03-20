@@ -8,13 +8,13 @@
 import UIKit
 
 open class ViewController: UIViewController {
-    
+
     // MARK: - Initialization
-    
+
     public init() {
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     @available(*, unavailable)
     public required init?(coder: NSCoder) {
         fatalError(StringError.coderInit)

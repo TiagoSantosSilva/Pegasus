@@ -18,6 +18,10 @@
 		27A3691027E77DB000A837C8 /* NavigationBarAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A3690F27E77DB000A837C8 /* NavigationBarAppearance.swift */; };
 		27A3691227E77DC600A837C8 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A3691127E77DC600A837C8 /* NavigationBar.swift */; };
 		27A3691527E77E4800A837C8 /* StringError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A3691427E77E4800A837C8 /* StringError.swift */; };
+		27A3691827E7917D00A837C8 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A3691727E7917D00A837C8 /* Endpoint.swift */; };
+		27A3691A27E7919E00A837C8 /* PokemonEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A3691927E7919E00A837C8 /* PokemonEndpoint.swift */; };
+		27A3691C27E791B400A837C8 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A3691B27E791B400A837C8 /* HTTPMethod.swift */; };
+		27A3691E27E791CC00A837C8 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A3691D27E791CC00A837C8 /* NetworkError.swift */; };
 		27BB675827D6D134003098D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BB675727D6D134003098D8 /* AppDelegate.swift */; };
 		27BB676127D6D135003098D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27BB676027D6D135003098D8 /* Assets.xcassets */; };
 		27BB676427D6D135003098D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27BB676227D6D135003098D8 /* LaunchScreen.storyboard */; };
@@ -55,6 +59,10 @@
 		27A3690F27E77DB000A837C8 /* NavigationBarAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarAppearance.swift; sourceTree = "<group>"; };
 		27A3691127E77DC600A837C8 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		27A3691427E77E4800A837C8 /* StringError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringError.swift; sourceTree = "<group>"; };
+		27A3691727E7917D00A837C8 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		27A3691927E7919E00A837C8 /* PokemonEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonEndpoint.swift; sourceTree = "<group>"; };
+		27A3691B27E791B400A837C8 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		27A3691D27E791CC00A837C8 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		27BB675427D6D134003098D8 /* Pegasus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pegasus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27BB675727D6D134003098D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27BB676027D6D135003098D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -160,6 +168,7 @@
 		2773B74327D8264300C845DE /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				27A3691627E7917300A837C8 /* Protocols */,
 				2773B74427D8265E00C845DE /* Classes */,
 				2773B74527D8266400C845DE /* Enumerations */,
 			);
@@ -177,6 +186,9 @@
 		2773B74527D8266400C845DE /* Enumerations */ = {
 			isa = PBXGroup;
 			children = (
+				27A3691B27E791B400A837C8 /* HTTPMethod.swift */,
+				27A3691D27E791CC00A837C8 /* NetworkError.swift */,
+				27A3691927E7919E00A837C8 /* PokemonEndpoint.swift */,
 			);
 			path = Enumerations;
 			sourceTree = "<group>";
@@ -187,6 +199,14 @@
 				27A3691427E77E4800A837C8 /* StringError.swift */,
 			);
 			path = Enumerations;
+			sourceTree = "<group>";
+		};
+		27A3691627E7917300A837C8 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				27A3691727E7917D00A837C8 /* Endpoint.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		27BB674B27D6D134003098D8 = {
@@ -250,6 +270,7 @@
 				27BB675027D6D134003098D8 /* Sources */,
 				27BB675127D6D134003098D8 /* Frameworks */,
 				27BB675227D6D134003098D8 /* Resources */,
+				27A3691F27E7A06200A837C8 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -365,17 +386,42 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		27A3691F27E7A06200A837C8 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		27BB675027D6D134003098D8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27A3691A27E7919E00A837C8 /* PokemonEndpoint.swift in Sources */,
+				27A3691E27E791CC00A837C8 /* NetworkError.swift in Sources */,
 				2773B74227D6E21500C845DE /* UIViewController.swift in Sources */,
 				2773B73F27D6E17B00C845DE /* CollectionViewController.swift in Sources */,
 				2773B73727D6D5E800C845DE /* PokemonListCollectionViewController.swift in Sources */,
+				27A3691827E7917D00A837C8 /* Endpoint.swift in Sources */,
 				2773B73527D6D5D800C845DE /* PokemonListViewController.swift in Sources */,
 				27A3690E27E7737A00A837C8 /* NavigationController.swift in Sources */,
 				27A3691227E77DC600A837C8 /* NavigationBar.swift in Sources */,
+				27A3691C27E791B400A837C8 /* HTTPMethod.swift in Sources */,
 				2773B73B27D6D6A500C845DE /* ViewController.swift in Sources */,
 				2773B73D27D6D7F100C845DE /* PokemonListCoordinator.swift in Sources */,
 				2773B74727D826A900C845DE /* NetworkEngine.swift in Sources */,
