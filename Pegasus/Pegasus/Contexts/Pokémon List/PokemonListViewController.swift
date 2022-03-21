@@ -12,11 +12,13 @@ final class PokemonListViewController: ViewController {
     // MARK: - Properties
 
     private let collectionViewController: PokemonListCollectionViewController
+    private let viewModel: PokemonListViewModelable
 
     // MARK: - Initialization
 
-    init(collectionViewController: PokemonListCollectionViewController) {
+    init(collectionViewController: PokemonListCollectionViewController, viewModel: PokemonListViewModelable) {
         self.collectionViewController = collectionViewController
+        self.viewModel = viewModel
         super.init()
     }
 
@@ -27,23 +29,23 @@ final class PokemonListViewController: ViewController {
         title = "Pegasus"
         setupSubviews()
 
-        let engine = NetworkEngine()
-
-        Task {
-            let data = try await engine.request(endpoint: PokemonEndpoint.list)
-            let content = String(data: data, encoding: .utf8)!
-            // print("☃️: \(content)")
+        viewModel.loadPokemon { [weak self] in
+            guard let self = self else { return }
+            switch $0 {
+            case .success:
+                self.viewModel.pokemon.forEach { pokemon in
+                    print("\(pokemon.number)")
+                }
+                self.collectionViewController.update(with: self.viewModel.pokemon)
+            case .error:
+                print("ERROR")
+            }
         }
     }
 
     // MARK: - Setups
 
     private func setupSubviews() {
-        setupCollectionViewController()
-    }
-
-    private func setupCollectionViewController() {
         add(collectionViewController)
-        collectionViewController.setup()
     }
 }

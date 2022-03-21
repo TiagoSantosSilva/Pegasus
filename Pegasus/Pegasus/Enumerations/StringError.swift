@@ -7,4 +7,5 @@
 
 enum StringError {
     static let coderInit = "Init from a XIB is not supported."
+    static let dequeueReusableCell = "Could not dequeue reusable cell."
 }

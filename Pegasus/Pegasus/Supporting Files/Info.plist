@@ -2,6 +2,21 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Networking</key>
+	<dict>
+		<key>PokemonGoAPI</key>
+		<dict>
+			<key>Host</key>
+			<string>pokemon-go1.p.rapidapi.com</string>
+		</dict>
+		<key>PokeAPI</key>
+		<dict>
+			<key>Pre-Path</key>
+			<string>/api/v2/</string>
+			<key>Host</key>
+			<string>pokeapi.co</string>
+		</dict>
+	</dict>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>UIStatusBarStyle</key>

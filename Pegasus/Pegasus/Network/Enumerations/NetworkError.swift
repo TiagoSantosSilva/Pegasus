@@ -8,4 +8,7 @@
 enum NetworkError: Error {
     case noData
     case urlBuildFail
+    case redirection
+    case client
+    case server
 }

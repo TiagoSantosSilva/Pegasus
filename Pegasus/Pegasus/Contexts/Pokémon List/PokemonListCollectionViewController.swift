@@ -7,21 +7,57 @@
 
 import UIKit
 
+final class PokemonListCell: UICollectionViewCell {
+
+    // MARK: - Subviews
+
+    private let nameLabel: UILabel = .init()
+
+    // MARK: - Functions
+
+    func configure(with viewModel: PokemonCellViewModel) {
+        backgroundColor = .orange
+        nameLabel.text = viewModel.name
+    }
+}
+
 final class PokemonListCollectionViewController: CollectionViewController {
 
     // MARK: - Properties
 
+    private var dataSource: UICollectionViewDiffableDataSource<Section, PokemonCellViewModel>!
+
+    // MARK: -
+
+    private enum Section: CaseIterable {
+        case main
+    }
+
     // MARK: - Initialization
 
-    init() {
-        let layout = UICollectionViewFlowLayout()
-        super.init(collectionViewLayout: layout)
-        self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+    override init() {
+        super.init()
+        setupController()
     }
 
     // MARK: - Functions
 
-    func setup() {
-        self.collectionView.backgroundColor = #colorLiteral(red: 0.07843137255, green: 0.07843137255, blue: 0.07843137255, alpha: 1)
+    func update(with pokemon: [PokemonCellViewModel]) {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, PokemonCellViewModel>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(pokemon, toSection: .main)
+        dataSource.apply(snapshot)
+    }
+
+    private func setupController() {
+        self.collectionView.registerCellClass(PokemonListCell.self)
+
+        self.dataSource = UICollectionViewDiffableDataSource<Section, PokemonCellViewModel>(collectionView: collectionView) { collectionView, indexPath, cellViewModel in
+            print("\(indexPath) \(cellViewModel)")
+
+            let cell: PokemonListCell = collectionView.dequeueReusableCell(for: indexPath)
+            cell.configure(with: cellViewModel)
+            return cell
+        }
     }
 }

@@ -11,6 +11,12 @@ open class CollectionViewController: UICollectionViewController {
 
     // MARK: - Initialization
 
+    public init() {
+        let layout = UICollectionViewFlowLayout()
+        super.init(collectionViewLayout: layout)
+        self.collectionView = CollectionView(frame: .zero, collectionViewLayout: layout)
+    }
+
     override public init(collectionViewLayout layout: UICollectionViewLayout) {
         super.init(collectionViewLayout: layout)
     }

@@ -21,7 +21,11 @@ final class PokemonListCoordinator {
 
     func start() {
         let collectionViewController = PokemonListCollectionViewController()
-        let viewController = PokemonListViewController(collectionViewController: collectionViewController)
+        let networkParser = NetworkResponseParser()
+        let networkEngine = NetworkEngine(parser: networkParser)
+        let loader = PokemonListLoader(networkEngine: networkEngine)
+        let viewModel = PokemonListViewModel(loader: loader)
+        let viewController = PokemonListViewController(collectionViewController: collectionViewController, viewModel: viewModel)
         let navigationController = NavigationController(rootViewController: viewController)
         window?.rootViewController = navigationController
     }

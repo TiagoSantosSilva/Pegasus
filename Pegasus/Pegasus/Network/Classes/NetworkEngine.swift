@@ -8,40 +8,43 @@
 import Foundation
 
 protocol NetworkEnginable: AnyObject {
-    func request(endpoint: Endpoint) async throws -> Data
+    func request<T: Decodable>(endpoint: Endpoint) async throws -> T
 }
 
 final class NetworkEngine: NetworkEnginable {
 
+    // MARK: - Properties
+
+    private let parser: NetworkResponseParseable
+
+    // MARK: - Initialization
+
+    init(parser: NetworkResponseParseable) {
+        self.parser = parser
+    }
+
     // MARK: - Functions
 
-    func request(endpoint: Endpoint) async throws -> Data {
+    func request<T: Decodable>(endpoint: Endpoint) async throws -> T {
         let request = try buildRequest(for: endpoint)
         let (data, response) = try await URLSession.shared.data(for: request)
-        guard let response = response as? HTTPURLResponse else {
-            throw NetworkError.urlBuildFail
-        }
-
-        //        print("☃️ Data: \(data) \nResponse: \(response.statusCode)")
-        return data
+        return try parser.parse(response: response, data: data)
     }
 
     private func buildRequest(for endpoint: Endpoint) throws -> URLRequest {
-        guard let url = URL(string: endpoint.baseURL) else {
+        var components = URLComponents()
+        components.scheme = URLScheme.https.rawValue
+        components.host = endpoint.host
+        components.path = endpoint.path.appending(endpoint.endpoint)
+        components.queryItems = endpoint.queryItems
+
+        guard let url = components.url else {
             throw NetworkError.urlBuildFail
         }
 
         var request = URLRequest(url: url)
         request.httpMethod = endpoint.method.rawValue
 
-        guard var components = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
-            throw NetworkError.urlBuildFail
-        }
-
-        components.scheme = "https"
-        components.host = "pokeapi.co"
-        components.path = "/api/v2/pokemon"
-        request.url = components.url
         return request
     }
 }
