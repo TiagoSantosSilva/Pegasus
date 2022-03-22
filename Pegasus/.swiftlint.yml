@@ -4,9 +4,7 @@ disabled_rules:
 - todo
 - weak_delegate
 - trailing_whitespace
-
-opt_in_rules: 
-- vertical_whitespace_closing_braces
+- opening_brace
 
 indentation: tabs
 

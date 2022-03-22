@@ -7,25 +7,11 @@
 
 import UIKit
 
-final class PokemonListCell: UICollectionViewCell {
-
-    // MARK: - Subviews
-
-    private let nameLabel: UILabel = .init()
-
-    // MARK: - Functions
-
-    func configure(with viewModel: PokemonCellViewModel) {
-        backgroundColor = .orange
-        nameLabel.text = viewModel.name
-    }
-}
-
 final class PokemonListCollectionViewController: CollectionViewController {
 
     // MARK: - Properties
 
-    private var dataSource: UICollectionViewDiffableDataSource<Section, PokemonCellViewModel>!
+    private let dataSource: UICollectionViewDiffableDataSource<Section, PokemonCellViewModel>
 
     // MARK: -
 
@@ -36,7 +22,11 @@ final class PokemonListCollectionViewController: CollectionViewController {
     // MARK: - Initialization
 
     override init() {
-        super.init()
+        let layout = PokemonListCollectionViewLayout()
+        let collectionView = PokemonListCollectionView(frame: .zero, collectionViewLayout: layout)
+        self.dataSource = UICollectionViewDiffableDataSource<Section, PokemonCellViewModel>(collectionView: collectionView, cellProvider: Self.cellProvider)
+        super.init(collectionViewLayout: layout)
+        self.collectionView = collectionView
         setupController()
     }
 
@@ -46,13 +36,21 @@ final class PokemonListCollectionViewController: CollectionViewController {
         var snapshot = NSDiffableDataSourceSnapshot<Section, PokemonCellViewModel>()
         snapshot.appendSections([.main])
         snapshot.appendItems(pokemon, toSection: .main)
-        dataSource.apply(snapshot)
+        DispatchQueue.main.async {
+            self.dataSource.apply(snapshot)
+        }
     }
+
+    // MARK: - Setups
 
     private func setupController() {
         self.collectionView.registerCellClass(PokemonListCell.self)
+    }
 
-        self.dataSource = UICollectionViewDiffableDataSource<Section, PokemonCellViewModel>(collectionView: collectionView) { collectionView, indexPath, cellViewModel in
+    // MARK: - Cell Provider
+
+    private static var cellProvider: ((UICollectionView, IndexPath, PokemonCellViewModel) -> UICollectionViewCell?) {
+        { collectionView, indexPath, cellViewModel in
             print("\(indexPath) \(cellViewModel)")
 
             let cell: PokemonListCell = collectionView.dequeueReusableCell(for: indexPath)

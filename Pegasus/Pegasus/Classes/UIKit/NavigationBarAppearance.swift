@@ -31,6 +31,6 @@ final class NavigationBarAppearance: UINavigationBarAppearance {
         configureWithOpaqueBackground()
         titleTextAttributes = [.foregroundColor: UIColor.white]
         largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-        backgroundColor = .red
+        backgroundColor = Color.darkGray
     }
 }
