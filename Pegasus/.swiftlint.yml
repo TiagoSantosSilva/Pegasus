@@ -1,3 +1,5 @@
+child_config: PegasusTests/.swiftlint_tests
+
 disabled_rules:
 - inclusive_language
 - switch_case_alignment

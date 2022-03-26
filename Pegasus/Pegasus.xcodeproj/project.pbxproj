@@ -25,6 +25,7 @@
 		2773B73F27D6E17B00C845DE /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773B73E27D6E17B00C845DE /* CollectionViewController.swift */; };
 		2773B74227D6E21500C845DE /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773B74127D6E21500C845DE /* UIViewController.swift */; };
 		2773B74727D826A900C845DE /* NetworkEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773B74627D826A900C845DE /* NetworkEngine.swift */; };
+		27876E3827EF574800CB8F3A /* PokemonFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27876E3727EF574800CB8F3A /* PokemonFormatterTests.swift */; };
 		27A3690E27E7737A00A837C8 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A3690D27E7737A00A837C8 /* NavigationController.swift */; };
 		27A3691027E77DB000A837C8 /* NavigationBarAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A3690F27E77DB000A837C8 /* NavigationBarAppearance.swift */; };
 		27A3691227E77DC600A837C8 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A3691127E77DC600A837C8 /* NavigationBar.swift */; };
@@ -87,6 +88,7 @@
 		2773B73E27D6E17B00C845DE /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		2773B74127D6E21500C845DE /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		2773B74627D826A900C845DE /* NetworkEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEngine.swift; sourceTree = "<group>"; };
+		27876E3727EF574800CB8F3A /* PokemonFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonFormatterTests.swift; sourceTree = "<group>"; };
 		27A3690D27E7737A00A837C8 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		27A3690F27E77DB000A837C8 /* NavigationBarAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarAppearance.swift; sourceTree = "<group>"; };
 		27A3691127E77DC600A837C8 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
@@ -261,6 +263,30 @@
 			path = Enumerations;
 			sourceTree = "<group>";
 		};
+		27876E3427EF570800CB8F3A /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				27876E3527EF571200CB8F3A /* Contexts */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		27876E3527EF571200CB8F3A /* Contexts */ = {
+			isa = PBXGroup;
+			children = (
+				27876E3627EF571A00CB8F3A /* Pokemon List */,
+			);
+			path = Contexts;
+			sourceTree = "<group>";
+		};
+		27876E3627EF571A00CB8F3A /* Pokemon List */ = {
+			isa = PBXGroup;
+			children = (
+				27876E3727EF574800CB8F3A /* PokemonFormatterTests.swift */,
+			);
+			path = "Pokemon List";
+			sourceTree = "<group>";
+		};
 		27A3691327E77E2C00A837C8 /* Enumerations */ = {
 			isa = PBXGroup;
 			children = (
@@ -309,13 +335,13 @@
 		27BB675627D6D134003098D8 /* Pegasus */ = {
 			isa = PBXGroup;
 			children = (
-				272A161F27E7F62F0057255F /* Protocols */,
 				2773B73027D6D41500C845DE /* Application */,
 				2773B73827D6D68F00C845DE /* Classes */,
 				2773B73227D6D59B00C845DE /* Contexts */,
 				27A3691327E77E2C00A837C8 /* Enumerations */,
 				2773B74027D6E20900C845DE /* Extensions */,
 				2773B74327D8264300C845DE /* Network */,
+				272A161F27E7F62F0057255F /* Protocols */,
 				27A3692727E7B1BF00A837C8 /* Structs */,
 				2773B73127D6D42300C845DE /* Supporting Files */,
 			);
@@ -325,6 +351,7 @@
 		27BB676D27D6D135003098D8 /* PegasusTests */ = {
 			isa = PBXGroup;
 			children = (
+				27876E3427EF570800CB8F3A /* Tests */,
 				27BB676E27D6D135003098D8 /* PegasusTests.swift */,
 			);
 			path = PegasusTests;
@@ -543,6 +570,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27876E3827EF574800CB8F3A /* PokemonFormatterTests.swift in Sources */,
 				27BB676F27D6D135003098D8 /* PegasusTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
