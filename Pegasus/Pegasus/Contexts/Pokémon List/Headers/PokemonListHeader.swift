@@ -1,28 +1,45 @@
 //
-//  PokemonListCell.swift
+//  PokemonListHeader.swift
 //  Pegasus
 //
-//  Created by Tiago on 21/03/2022.
+//  Created by Tiago on 27/03/2022.
 //
 
 import UIKit
 
-final class PokemonListCell: UICollectionViewCell {
-
-    // MARK: - Subviews
-
-    private let nameLabel: UILabel = .init()
+open class CollectionReusableView: UICollectionReusableView {
 
     // MARK: - Initialization
 
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
-        setupCell()
+        stylize()
     }
 
     @available(*, unavailable)
-    public required init?(coder aDecoder: NSCoder) {
+    public required init?(coder: NSCoder) {
         fatalError(StringError.coderInit)
+    }
+
+    // MARK: - Functions
+
+    private func stylize() {
+        backgroundColor = Color.background
+    }
+}
+
+final class PokemonListHeader: CollectionReusableView {
+
+    // MARK: - Properties
+
+    private let nameLabel: UILabel
+
+    // MARK: - Properties
+
+    override init(frame: CGRect) {
+        self.nameLabel = UILabel()
+        super.init(frame: frame)
+        setup()
     }
 
     // MARK: - Life Cycle
@@ -34,18 +51,14 @@ final class PokemonListCell: UICollectionViewCell {
 
     // MARK: - Functions
 
-    func configure(with viewModel: PokemonCellViewModel) {
-        nameLabel.text = viewModel.name
-    }
-
-    func configure(with pokemon: Pokemon) {
-        nameLabel.text = pokemon.name
+    func configure(with region: Region) {
+        self.nameLabel.text = region.name
     }
 
     // MARK: - Setups
 
-    private func setupCell() {
-        [nameLabel].forEach { self.contentView.addSubview($0) }
+    private func setup() {
+        addSubview(nameLabel)
 
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constraints.NameLabel.side).isActive = true
@@ -54,16 +67,13 @@ final class PokemonListCell: UICollectionViewCell {
 
         nameLabel.textColor = UIColor.label
         nameLabel.textAlignment = .center
-        nameLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-
-        round()
-        self.backgroundColor = Color.cell
+        nameLabel.font = UIFont.systemFont(ofSize: 16, weight: .bold)
     }
 }
 
 // MARK: - Constraints
 
-private extension PokemonListCell {
+private extension PokemonListHeader {
     enum Constraints {
         enum NameLabel {
             static let side: CGFloat = 8

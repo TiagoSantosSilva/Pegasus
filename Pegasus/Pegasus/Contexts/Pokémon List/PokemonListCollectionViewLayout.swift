@@ -32,8 +32,22 @@ final class PokemonListCollectionViewLayout: UICollectionViewCompositionalLayout
                                                heightDimension: .fractionalWidth(1/3))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                        subitems: [item])
+
+        let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                      heightDimension: .estimated(44))
+        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerFooterSize,
+                                                                        elementKind: Constants.headerKind,
+                                                                        alignment: .top)
+
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)
+        section.boundarySupplementaryItems = [sectionHeader]
         return section
+    }
+}
+
+extension PokemonListCollectionViewLayout {
+    enum Constants {
+        static let headerKind: String = "pokemon-list-header-kind"
     }
 }

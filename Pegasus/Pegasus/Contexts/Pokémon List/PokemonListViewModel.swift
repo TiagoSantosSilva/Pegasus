@@ -7,10 +7,12 @@
 
 import Foundation
 
-protocol PokemonListViewModelable: AnyObject {
-    var pokemon: [PokemonCellViewModel] { get }
+protocol PokemonRegionRepresentable: AnyObject {
+    var regions: [Region] { get }
+}
 
-    func loadPokemon(completion: @escaping (PokemonListResult) -> Void)
+protocol PokemonListViewModelable: PokemonRegionRepresentable {
+    func loadRegions(completion: @escaping (PokemonListResult) -> Void)
 }
 
 enum PokemonListResult {
@@ -22,7 +24,7 @@ final class PokemonListViewModel: PokemonListViewModelable {
 
     // MARK: - Properties
 
-    private(set) var pokemon: [PokemonCellViewModel] = []
+    private(set) var regions: [Region] = []
 
     private let loader: PokemonListLoadable
 
@@ -34,13 +36,12 @@ final class PokemonListViewModel: PokemonListViewModelable {
 
     // MARK: - Functions
 
-    func loadPokemon(completion: @escaping (PokemonListResult) -> Void) {
+    func loadRegions(completion: @escaping (PokemonListResult) -> Void) {
         Task {
             do {
-                let result = try await loader.loadPokemon()
-                self.pokemon = result.results.enumerated().compactMap {
-                    PokemonCellViewModel(pokemon: $0.element, number: $0.offset)
-                }
+                let result = try await loader.loadRegions()
+                self.regions = result
+                
                 completion(.success)
             } catch {
                 completion(.error)

@@ -6,6 +6,13 @@
 	<dict>
 		<key>PokemonGoAPI</key>
 		<dict>
+			<key>Headers</key>
+			<dict>
+				<key>Key</key>
+				<string>dd9d4c695amsh1afff35713a5702p152ca4jsn16763d105b8f</string>
+				<key>Host</key>
+				<string>pokemon-go1.p.rapidapi.com</string>
+			</dict>
 			<key>Host</key>
 			<string>pokemon-go1.p.rapidapi.com</string>
 		</dict>

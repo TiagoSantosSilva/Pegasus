@@ -8,7 +8,7 @@
 import Foundation
 
 protocol PokemonListLoadable {
-    func loadPokemon() async throws -> PokemonListRequestResult
+    func loadRegions() async throws -> [Region]
 }
 
 final class PokemonListLoader: PokemonListLoadable {
@@ -25,8 +25,19 @@ final class PokemonListLoader: PokemonListLoadable {
 
     // MARK: - Functions
 
-    func loadPokemon() async throws -> PokemonListRequestResult {
-        let result = try await networkEngine.request(endpoint: PokemonEndpoint.list(offset: .zero, limit: 1200)) as PokemonListRequestResult
-        return result
+    func loadRegions() async throws -> [Region] {
+        try Bundle.json(for: .pokedex)
+    }
+}
+
+enum JSONContent: String {
+    case pokedex
+}
+
+extension Bundle {
+    static func json<T: Decodable>(for content: JSONContent) throws -> T {
+        guard let path = Bundle.main.path(forResource: content.rawValue, ofType: "json") else { throw NetworkError.noData }
+        let content = try String(contentsOfFile: path)
+        return try JSONDecoder().decode(T.self, from: Data(content.utf8))
     }
 }
