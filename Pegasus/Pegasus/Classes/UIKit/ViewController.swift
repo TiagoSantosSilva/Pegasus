@@ -19,4 +19,11 @@ open class ViewController: UIViewController {
     public required init?(coder: NSCoder) {
         fatalError(StringError.coderInit)
     }
+
+    // MARK: - Life Cycle
+
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = Color.background
+    }
 }

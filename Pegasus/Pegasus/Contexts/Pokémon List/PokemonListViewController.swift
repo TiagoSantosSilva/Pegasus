@@ -27,6 +27,10 @@ final class PokemonListViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Pegasus"
+
+        let a = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal.decrease.circle"), style: .plain, target: self, action: #selector(addTapped))
+        navigationItem.setRightBarButton(a, animated: false)
+
         setupSubviews()
 
         viewModel.loadPokemon { [weak self] in
@@ -47,5 +51,9 @@ final class PokemonListViewController: ViewController {
 
     private func setupSubviews() {
         add(collectionViewController)
+    }
+
+    @objc private func addTapped() {
+        print("🤣")
     }
 }

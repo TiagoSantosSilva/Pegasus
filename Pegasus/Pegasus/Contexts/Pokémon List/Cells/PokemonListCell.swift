@@ -41,10 +41,12 @@ final class PokemonListCell: UICollectionViewCell {
         nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constraints.NameLabel.side).isActive = true
         nameLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Constraints.NameLabel.bottom).isActive = true
 
-        nameLabel.textColor = .white
+        nameLabel.textColor = UIColor.label
         nameLabel.textAlignment = .center
+        nameLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
 
-        self.backgroundColor = Color.lightGray
+        round()
+        self.backgroundColor = Color.cell
     }
 }
 

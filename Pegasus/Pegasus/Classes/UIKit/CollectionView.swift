@@ -24,6 +24,6 @@ open class CollectionView: UICollectionView {
     // MARK: - Setups
 
     private func setup() {
-        backgroundColor = Theme.dark.collectionView.backgroundColor
+        backgroundColor = Color.background
     }
 }

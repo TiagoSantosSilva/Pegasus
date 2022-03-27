@@ -29,5 +29,7 @@ final class NavigationBar: UINavigationBar {
         let appearance = NavigationBarAppearance()
         self.standardAppearance = appearance
         self.scrollEdgeAppearance = appearance
+
+        tintColor = Color.NavigationBar.tint
     }
 }

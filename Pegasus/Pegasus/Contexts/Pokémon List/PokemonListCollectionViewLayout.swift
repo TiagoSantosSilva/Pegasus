@@ -15,8 +15,9 @@ final class PokemonListCollectionViewLayout: UICollectionViewCompositionalLayout
         super.init(section: Self.section())
     }
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    @available(*, unavailable)
+    required init(coder: NSCoder) {
+        fatalError(StringError.coderInit)
     }
 
     // MARK: - Functions

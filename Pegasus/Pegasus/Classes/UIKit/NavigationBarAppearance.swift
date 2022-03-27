@@ -29,8 +29,9 @@ final class NavigationBarAppearance: UINavigationBarAppearance {
 
     private func stylize() {
         configureWithOpaqueBackground()
-        titleTextAttributes = [.foregroundColor: UIColor.white]
-        largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-        backgroundColor = Color.darkGray
+        titleTextAttributes = [.foregroundColor: UIColor.label]
+        largeTitleTextAttributes = [.foregroundColor: UIColor.label]
+        shadowColor = .clear
+        backgroundColor = Color.background
     }
 }

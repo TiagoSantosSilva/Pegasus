@@ -1,13 +1,13 @@
 //
-//  PokemonListCoordinator.swift
+//  SettingsCoordinator.swift
 //  Pegasus
 //
-//  Created by Tiago on 08/03/2022.
+//  Created by Tiago on 26/03/2022.
 //
 
 import UIKit
 
-final class PokemonListCoordinator: Coordinator, ViewControllerRepresentable {
+final class SettingsCoordinator: Coordinator, ViewControllerRepresentable {
 
     // MARK: - Internal Properties
 
@@ -20,12 +20,10 @@ final class PokemonListCoordinator: Coordinator, ViewControllerRepresentable {
     // MARK: - Initialization
 
     init(dependencies: DependencyContainable) {
-        let collectionViewController = PokemonListCollectionViewController()
-        let loader = PokemonListLoader(networkEngine: dependencies.networkEngine)
-        let viewModel = PokemonListViewModel(loader: loader)
-        let viewController = PokemonListViewController(collectionViewController: collectionViewController, viewModel: viewModel)
+        let viewModel = SettingsViewModel()
+        let collectionViewController = SettingsCollectionViewController()
+        let viewController = SettingsViewController(collectionViewController: collectionViewController, viewModel: viewModel)
         let navigationController = NavigationController(rootViewController: viewController)
-
         self.navigator = Navigator(navigationController: navigationController)
     }
 

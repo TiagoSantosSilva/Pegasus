@@ -25,7 +25,7 @@ struct PokemonCellViewModel: Hashable {
 
     init(pokemon: Pokemon, number: Int) {
         self.number = PokemonFormatter.number(for: number)
-        self.name = pokemon.name
+        self.name = pokemon.name.capitalized
     }
 }
 
