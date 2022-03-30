@@ -7,22 +7,26 @@
 
 import Foundation
 
-public typealias Coordinator = CoordinatorClass & Coordinatable
+public typealias Coordinator = CoordinatorClass & CoordinatorStartable
 
 public protocol CoordinatorDelegate: AnyObject {
-    func coordinatorDidEnd(_ coordinator: Coordinator)
+    func coordinatorDidEnd(_ coordinator: CoordinatorClass)
 }
 
-public protocol Coordinatable {
+public protocol CoordinatorStartable {
     func start()
 }
 
-open class CoordinatorClass: NSObject, CoordinatorDelegate {
+public protocol CoordinatorEndable {
+    func end()
+}
+
+open class CoordinatorClass: NSObject, CoordinatorEndable, CoordinatorDelegate {
 
     // MARK: - Properties
 
     public weak var coordinatorDelegate: CoordinatorDelegate?
-    public lazy var coordinators: [Coordinator] = []
+    public lazy var coordinators: [CoordinatorClass] = []
 
     // MARK: - Functions
 
@@ -34,9 +38,13 @@ open class CoordinatorClass: NSObject, CoordinatorDelegate {
         return coordinator
     }
 
+    public func end() {
+        coordinatorDelegate?.coordinatorDidEnd(self)
+    }
+
     // MARK: - Coordinator Delegate
     
-    public func coordinatorDidEnd(_ coordinator: Coordinator) {
+    public func coordinatorDidEnd(_ coordinator: CoordinatorClass) {
         coordinators = coordinators.filter { $0 !== coordinator }
     }
 }

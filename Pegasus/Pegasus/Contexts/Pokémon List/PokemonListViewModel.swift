@@ -7,12 +7,14 @@
 
 import Foundation
 
+typealias PokemonListViewModelable = PokemonRegionRepresentable & PokemonListViewModelLoadable
+
 protocol PokemonRegionRepresentable: AnyObject {
     var regions: [PokemonListHeaderViewModel] { get }
     var pokemon: [Int: [PokemonListCellViewModel]] { get }
 }
 
-protocol PokemonListViewModelable: PokemonRegionRepresentable {
+protocol PokemonListViewModelLoadable: AnyObject {
     func loadRegions(completion: @escaping (PokemonListResult) -> Void)
 }
 

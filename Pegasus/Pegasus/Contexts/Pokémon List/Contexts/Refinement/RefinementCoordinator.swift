@@ -37,5 +37,6 @@ final class RefinementCoordinator: Coordinator {
 extension RefinementCoordinator: RefinementViewControllerDelegate {
     func viewController(_ viewController: RefinementViewController, didTap doneButton: UIBarButtonItem) {
         navigator.dismiss()
+        end()
     }
 }

@@ -7,20 +7,30 @@
 
 import UIKit
 
+protocol PokemonListCollectionViewControllerDelegate: AnyObject {
+    func collectionViewController(_ collectionViewController: PokemonListCollectionViewController, didSelectItemAt indexPath: IndexPath)
+}
+
 final class PokemonListCollectionViewController: CollectionViewController {
+
+    // MARK: - Typealiases
+
+    private typealias Snapshot = NSDiffableDataSourceSnapshot<PokemonListHeaderViewModel, PokemonListCellViewModel>
+    private typealias DataSource = UICollectionViewDiffableDataSource<PokemonListHeaderViewModel, PokemonListCellViewModel>
 
     // MARK: - Properties
 
     weak var dataRepresentable: PokemonRegionRepresentable?
+    weak var delegate: PokemonListCollectionViewControllerDelegate?
 
-    private let dataSource: UICollectionViewDiffableDataSource<PokemonListHeaderViewModel, PokemonListCellViewModel>
+    private let dataSource: DataSource
 
     // MARK: - Initialization
 
     override init() {
         let layout = PokemonListCollectionViewLayout()
         let collectionView = PokemonListCollectionView(frame: .zero, collectionViewLayout: layout)
-        self.dataSource = UICollectionViewDiffableDataSource<PokemonListHeaderViewModel, PokemonListCellViewModel>(collectionView: collectionView, cellProvider: Self.cellProvider)
+        self.dataSource = DataSource(collectionView: collectionView, cellProvider: Self.cellProvider)
         super.init(collectionViewLayout: layout)
         self.collectionView = collectionView
         setupController()
@@ -29,7 +39,7 @@ final class PokemonListCollectionViewController: CollectionViewController {
     // MARK: - Functions
 
     func update(with regions: [PokemonListHeaderViewModel], and pokemon: [Int: [PokemonListCellViewModel]]) {
-        var snapshot = NSDiffableDataSourceSnapshot<PokemonListHeaderViewModel, PokemonListCellViewModel>()
+        var snapshot = Snapshot()
         snapshot.appendSections(regions)
         regions.enumerated().forEach {
             guard let pokemon = pokemon[$0.offset] else { return }
@@ -62,5 +72,13 @@ final class PokemonListCollectionViewController: CollectionViewController {
             cell.configure(with: cellViewModel)
             return cell
         }
+    }
+}
+
+// MARK: - Collection View Delegate
+
+extension PokemonListCollectionViewController {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.collectionViewController(self, didSelectItemAt: indexPath)
     }
 }

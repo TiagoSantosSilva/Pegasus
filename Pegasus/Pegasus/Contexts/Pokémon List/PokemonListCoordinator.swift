@@ -43,4 +43,8 @@ extension PokemonListCoordinator: PokemonListViewControllerDelegate {
     func viewController(_ viewController: PokemonListViewController, didTap refinementButton: UIBarButtonItem) {
         initiate(coordinator: RefinementCoordinator(dependencies: dependencies, navigator: navigator))
     }
+
+    func viewController(_ viewController: PokemonListViewController, didSelect pokemon: PokemonListCellViewModel) {
+        initiate(coordinator: PokemonDetailsCoordinator(dependencies: dependencies, navigator: navigator))
+    }
 }

@@ -9,6 +9,7 @@ import UIKit
 
 protocol PokemonListViewControllerDelegate: AnyObject {
     func viewController(_ viewController: PokemonListViewController, didTap refinementButton: UIBarButtonItem)
+    func viewController(_ viewController: PokemonListViewController, didSelect pokemon: PokemonListCellViewModel)
 }
 
 final class PokemonListViewController: ViewController {
@@ -26,6 +27,7 @@ final class PokemonListViewController: ViewController {
         self.collectionViewController = collectionViewController
         self.viewModel = viewModel
         super.init()
+        self.collectionViewController.delegate = self
         self.collectionViewController.dataRepresentable = viewModel
     }
 
@@ -69,5 +71,14 @@ final class PokemonListViewController: ViewController {
     
     @objc private func refinementButtonTapped(_ sender: UIBarButtonItem) {
         delegate?.viewController(self, didTap: sender)
+    }
+}
+
+// MARK: - Pokemon List Collection View Controller Delegate
+
+extension PokemonListViewController: PokemonListCollectionViewControllerDelegate {
+    func collectionViewController(_ collectionViewController: PokemonListCollectionViewController, didSelectItemAt indexPath: IndexPath) {
+        guard let pokemon = viewModel.pokemon[indexPath.section]?[indexPath.row] else { return }
+        delegate?.viewController(self, didSelect: pokemon)
     }
 }
