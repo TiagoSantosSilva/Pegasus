@@ -15,6 +15,7 @@ final class PokemonListCoordinator: Coordinator, ViewControllerRepresentable {
 
     // MARK: - Private Properties
 
+    private let dependencies: DependencyContainable
     private let navigator: Navigator
 
     // MARK: - Initialization
@@ -25,13 +26,21 @@ final class PokemonListCoordinator: Coordinator, ViewControllerRepresentable {
         let viewModel = PokemonListViewModel(loader: loader)
         let viewController = PokemonListViewController(collectionViewController: collectionViewController, viewModel: viewModel)
         let navigationController = NavigationController(rootViewController: viewController)
-
+        self.dependencies = dependencies
         self.navigator = Navigator(navigationController: navigationController)
+        super.init()
+        viewController.delegate = self
     }
 
     // MARK: - Coordinator
 
-    func start() {
+    func start() { }
+}
 
+// MARK: - Pokemon List View Controller Delegate
+
+extension PokemonListCoordinator: PokemonListViewControllerDelegate {
+    func viewController(_ viewController: PokemonListViewController, didTap refinementButton: UIBarButtonItem) {
+        initiate(coordinator: RefinementCoordinator(dependencies: dependencies, navigator: navigator))
     }
 }

@@ -63,5 +63,7 @@ final class TabBarCoordinator: Coordinator {
         tabBarController.setViewControllers(viewControllers, animated: false)
 
         window.rootViewController = tabBarController
+
+        ([listCoordinator, settingsCoordinator] as [Coordinator]).forEach { initiate(coordinator: $0) }
     }
 }

@@ -29,7 +29,5 @@ final class SettingsCoordinator: Coordinator, ViewControllerRepresentable {
 
     // MARK: - Coordinator
 
-    func start() {
-
-    }
+    func start() { }
 }

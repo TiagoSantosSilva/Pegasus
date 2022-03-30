@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol PokemonListViewControllerDelegate: AnyObject {
+    func viewController(_ viewController: PokemonListViewController, didTap refinementButton: UIBarButtonItem)
+}
+
 final class PokemonListViewController: ViewController {
 
     // MARK: - Properties
+
+    weak var delegate: PokemonListViewControllerDelegate?
 
     private let collectionViewController: PokemonListCollectionViewController
     private let viewModel: PokemonListViewModelable
@@ -61,7 +67,7 @@ final class PokemonListViewController: ViewController {
 
     // MARK: - Selectors
     
-    @objc private func refinementButtonTapped() {
-        print("🤣")
+    @objc private func refinementButtonTapped(_ sender: UIBarButtonItem) {
+        delegate?.viewController(self, didTap: sender)
     }
 }

@@ -62,7 +62,7 @@ private extension PokemonListCollectionViewLayout {
 
         enum Group {
             static let width: NSCollectionLayoutDimension = .fractionalWidth(1.0)
-            static let height: NSCollectionLayoutDimension = .fractionalHeight(1/3)
+            static let height: NSCollectionLayoutDimension = .fractionalHeight(1/6)
         }
 
         enum Header {

@@ -11,19 +11,21 @@ final class AppCoordinator: Coordinator {
 
     // MARK: - Properties
 
-    private let coordinator: TabBarCoordinator
+    private let dependencies: DependencyContainable
+    private let window: UIWindow
     
     // MARK: - Initialization
 
     init(dependencies: DependencyContainable, window: UIWindow) {
-        self.coordinator = TabBarCoordinator(dependencies: dependencies,
-                                             tabBarController: TabBarController(),
-                                             window: window)
+        self.dependencies = dependencies
+        self.window = window
     }
 
     // MARK: - Coordinator
 
     func start() {
-        coordinator.start()
+        initiate(coordinator: TabBarCoordinator(dependencies: dependencies,
+                                                tabBarController: TabBarController(),
+                                                window: window))
     }
 }
