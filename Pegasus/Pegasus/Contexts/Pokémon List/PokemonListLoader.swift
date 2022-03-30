@@ -8,7 +8,7 @@
 import Foundation
 
 protocol PokemonListLoadable {
-    func loadRegions() async throws -> [Region]
+    func loadRegions() async throws -> [PokedexRegion]
 }
 
 final class PokemonListLoader: PokemonListLoadable {
@@ -25,7 +25,7 @@ final class PokemonListLoader: PokemonListLoadable {
 
     // MARK: - Functions
 
-    func loadRegions() async throws -> [Region] {
+    func loadRegions() async throws -> [PokedexRegion] {
         try Bundle.json(for: .pokedex)
     }
 }

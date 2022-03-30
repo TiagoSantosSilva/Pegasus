@@ -7,27 +7,6 @@
 
 import UIKit
 
-open class CollectionReusableView: UICollectionReusableView {
-
-    // MARK: - Initialization
-
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        stylize()
-    }
-
-    @available(*, unavailable)
-    public required init?(coder: NSCoder) {
-        fatalError(StringError.coderInit)
-    }
-
-    // MARK: - Functions
-
-    private func stylize() {
-        backgroundColor = Color.background
-    }
-}
-
 final class PokemonListHeader: CollectionReusableView {
 
     // MARK: - Properties
@@ -46,28 +25,31 @@ final class PokemonListHeader: CollectionReusableView {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        nameLabel.text = nil
+        nameLabel.attributedText = nil
     }
 
     // MARK: - Functions
 
-    func configure(with region: Region) {
-        self.nameLabel.text = region.name
+    func configure(with region: PokemonListHeaderViewModel) {
+        self.nameLabel.attributedText = region.name
     }
 
     // MARK: - Setups
 
     private func setup() {
-        addSubview(nameLabel)
+        [nameLabel].forEach { addSubview($0) }
+        setupNameLabel()
+    }
 
+    private func setupNameLabel() {
+        // Constraints
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constraints.NameLabel.side).isActive = true
         nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constraints.NameLabel.side).isActive = true
         nameLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Constraints.NameLabel.bottom).isActive = true
 
-        nameLabel.textColor = UIColor.label
+        // Styling
         nameLabel.textAlignment = .center
-        nameLabel.font = UIFont.systemFont(ofSize: 16, weight: .bold)
     }
 }
 

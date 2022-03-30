@@ -52,7 +52,7 @@ final class PokemonListViewController: ViewController {
             guard let self = self else { return }
             switch $0 {
             case .success:
-                self.collectionViewController.update(with: self.viewModel.regions)
+                self.collectionViewController.update(with: self.viewModel.regions, and: self.viewModel.pokemon)
             case .error:
                 print("ERROR")
             }

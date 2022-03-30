@@ -34,30 +34,35 @@ final class PokemonListCell: UICollectionViewCell {
 
     // MARK: - Functions
 
-    func configure(with viewModel: PokemonCellViewModel) {
+    func configure(with viewModel: PokemonListCellViewModel) {
         nameLabel.text = viewModel.name
-    }
-
-    func configure(with pokemon: Pokemon) {
-        nameLabel.text = pokemon.name
     }
 
     // MARK: - Setups
 
     private func setupCell() {
-        [nameLabel].forEach { self.contentView.addSubview($0) }
+        [nameLabel].forEach { contentView.addSubview($0) }
+        setupStyle()
+        setupNameLabel()
+    }
 
+    private func setupStyle() {
+        round()
+        backgroundColor = Color.cell
+    }
+
+    private func setupNameLabel() {
+        // Constraints
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constraints.NameLabel.side).isActive = true
         nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constraints.NameLabel.side).isActive = true
         nameLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Constraints.NameLabel.bottom).isActive = true
 
+        // Style
+
         nameLabel.textColor = UIColor.label
         nameLabel.textAlignment = .center
         nameLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-
-        round()
-        self.backgroundColor = Color.cell
     }
 }
 
