@@ -19,16 +19,28 @@ final class PokemonListViewController: ViewController {
     weak var delegate: PokemonListViewControllerDelegate?
 
     private let collectionViewController: PokemonListCollectionViewController
+    private let searchController: PokemonListSearchController
     private let viewModel: PokemonListViewModelable
 
     // MARK: - Initialization
 
-    init(collectionViewController: PokemonListCollectionViewController, viewModel: PokemonListViewModelable) {
+    init(collectionViewController: PokemonListCollectionViewController,
+         searchController: PokemonListSearchController,
+         viewModel: PokemonListViewModelable) {
         self.collectionViewController = collectionViewController
+        self.searchController = searchController
         self.viewModel = viewModel
         super.init()
         self.collectionViewController.delegate = self
         self.collectionViewController.dataRepresentable = viewModel
+
+        self.searchController.searchResultsUpdater = self
+        self.searchController.obscuresBackgroundDuringPresentation = false
+        self.searchController.searchBar.placeholder = "Search by Pokémon Name or Number"
+        self.searchController.hidesNavigationBarDuringPresentation = false
+        self.navigationItem.searchController = searchController
+        definesPresentationContext = false
+        self.searchController.searchBar.delegate = self
     }
 
     // MARK: - Life Cycle
@@ -81,4 +93,18 @@ extension PokemonListViewController: PokemonListCollectionViewControllerDelegate
         guard let pokemon = viewModel.pokemon[indexPath.section]?[indexPath.row] else { return }
         delegate?.viewController(self, didSelect: pokemon)
     }
+}
+
+// MARK: - UI Search Results Updating
+
+extension PokemonListViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        
+    }
+}
+
+// MARK: - UI Search Bar Delegate
+
+extension PokemonListViewController: UISearchBarDelegate {
+
 }

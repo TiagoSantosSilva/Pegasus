@@ -22,9 +22,10 @@ final class PokemonListCoordinator: Coordinator, ViewControllerRepresentable {
 
     init(dependencies: DependencyContainable) {
         let collectionViewController = PokemonListCollectionViewController()
+        let searchController = PokemonListSearchController(searchResultsController: nil)
         let loader = PokemonListLoader(networkEngine: dependencies.networkEngine)
         let viewModel = PokemonListViewModel(loader: loader)
-        let viewController = PokemonListViewController(collectionViewController: collectionViewController, viewModel: viewModel)
+        let viewController = PokemonListViewController(collectionViewController: collectionViewController, searchController: searchController, viewModel: viewModel)
         let navigationController = NavigationController(rootViewController: viewController)
         self.dependencies = dependencies
         self.navigator = Navigator(navigationController: navigationController)
