@@ -41,6 +41,8 @@ final class PokemonListHeaderStringFormatterTests: XCTestCase {
     }
 }
 
+// MARK: - Constants
+
 private extension PokemonListHeaderStringFormatterTests {
     enum Values {
         static let kanto: Int = 151
