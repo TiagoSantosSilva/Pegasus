@@ -37,6 +37,9 @@
 		2754FCEF27F5E8C700F3092A /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754FCEE27F5E8C700F3092A /* SearchController.swift */; };
 		2754FCF227F5EABF00F3092A /* PokemonListHeaderStringFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754FCF127F5EABF00F3092A /* PokemonListHeaderStringFormatterTests.swift */; };
 		2754FCF427F5EC5200F3092A /* PokemonListHeaderViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754FCF327F5EC5200F3092A /* PokemonListHeaderViewModelTests.swift */; };
+		2754FCF827F5EF7500F3092A /* MockDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754FCF727F5EF7500F3092A /* MockDependencyContainer.swift */; };
+		2754FCFB27F5EFB000F3092A /* MockNetworkEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754FCFA27F5EFB000F3092A /* MockNetworkEngine.swift */; };
+		2754FCFD27F5F0FE00F3092A /* PokemonListCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754FCFC27F5F0FE00F3092A /* PokemonListCoordinatorTests.swift */; };
 		2773B73527D6D5D800C845DE /* PokemonListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773B73427D6D5D800C845DE /* PokemonListViewController.swift */; };
 		2773B73727D6D5E800C845DE /* PokemonListCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773B73627D6D5E800C845DE /* PokemonListCollectionViewController.swift */; };
 		2773B73B27D6D6A500C845DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773B73A27D6D6A500C845DE /* ViewController.swift */; };
@@ -135,6 +138,9 @@
 		2754FCEE27F5E8C700F3092A /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		2754FCF127F5EABF00F3092A /* PokemonListHeaderStringFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListHeaderStringFormatterTests.swift; sourceTree = "<group>"; };
 		2754FCF327F5EC5200F3092A /* PokemonListHeaderViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListHeaderViewModelTests.swift; sourceTree = "<group>"; };
+		2754FCF727F5EF7500F3092A /* MockDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDependencyContainer.swift; sourceTree = "<group>"; };
+		2754FCFA27F5EFB000F3092A /* MockNetworkEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkEngine.swift; sourceTree = "<group>"; };
+		2754FCFC27F5F0FE00F3092A /* PokemonListCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListCoordinatorTests.swift; sourceTree = "<group>"; };
 		2773B73427D6D5D800C845DE /* PokemonListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListViewController.swift; sourceTree = "<group>"; };
 		2773B73627D6D5E800C845DE /* PokemonListCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListCollectionViewController.swift; sourceTree = "<group>"; };
 		2773B73A27D6D6A500C845DE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -263,6 +269,31 @@
 				2754FCF327F5EC5200F3092A /* PokemonListHeaderViewModelTests.swift */,
 			);
 			path = Headers;
+			sourceTree = "<group>";
+		};
+		2754FCF527F5EF5400F3092A /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				2754FCF627F5EF6400F3092A /* Application */,
+				2754FCF927F5EFA000F3092A /* Network */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		2754FCF627F5EF6400F3092A /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				2754FCF727F5EF7500F3092A /* MockDependencyContainer.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		2754FCF927F5EFA000F3092A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				2754FCFA27F5EFB000F3092A /* MockNetworkEngine.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		2773B73027D6D41500C845DE /* Application */ = {
@@ -414,6 +445,7 @@
 			children = (
 				2754FCF027F5EAAA00F3092A /* Headers */,
 				27876E3727EF574800CB8F3A /* PokemonFormatterTests.swift */,
+				2754FCFC27F5F0FE00F3092A /* PokemonListCoordinatorTests.swift */,
 			);
 			path = "Pokemon List";
 			sourceTree = "<group>";
@@ -484,6 +516,7 @@
 		27BB676D27D6D135003098D8 /* PegasusTests */ = {
 			isa = PBXGroup;
 			children = (
+				2754FCF527F5EF5400F3092A /* Mocks */,
 				27876E3427EF570800CB8F3A /* Tests */,
 			);
 			path = PegasusTests;
@@ -757,6 +790,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2754FCF827F5EF7500F3092A /* MockDependencyContainer.swift in Sources */,
+				2754FCFB27F5EFB000F3092A /* MockNetworkEngine.swift in Sources */,
+				2754FCFD27F5F0FE00F3092A /* PokemonListCoordinatorTests.swift in Sources */,
 				27876E3827EF574800CB8F3A /* PokemonFormatterTests.swift in Sources */,
 				2754FCF227F5EABF00F3092A /* PokemonListHeaderStringFormatterTests.swift in Sources */,
 				2754FCF427F5EC5200F3092A /* PokemonListHeaderViewModelTests.swift in Sources */,
