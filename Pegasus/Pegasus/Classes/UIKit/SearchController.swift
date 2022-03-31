@@ -1,5 +1,5 @@
 //
-//  PokemonListSearchController.swift
+//  SearchController.swift
 //  Pegasus
 //
 //  Created by Tiago on 31/03/2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class PokemonListSearchController: SearchController {
+open class SearchController: UISearchController {
 
     // MARK: - Initialization
 
@@ -16,9 +16,15 @@ final class PokemonListSearchController: SearchController {
         setup()
     }
 
+    @available(*, unavailable)
+    public required init?(coder: NSCoder) {
+        fatalError(StringError.coderInit)
+    }
+
     // MARK: - Functions
 
     private func setup() {
-        searchBar.placeholder = "Search by Pokémon Name or Number"
+        obscuresBackgroundDuringPresentation = false
+        hidesNavigationBarDuringPresentation = false
     }
 }

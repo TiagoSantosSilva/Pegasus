@@ -34,20 +34,14 @@ final class PokemonListViewController: ViewController {
         self.collectionViewController.delegate = self
         self.collectionViewController.dataRepresentable = viewModel
 
-        self.searchController.searchResultsUpdater = self
-        self.searchController.obscuresBackgroundDuringPresentation = false
-        self.searchController.searchBar.placeholder = "Search by Pokémon Name or Number"
-        self.searchController.hidesNavigationBarDuringPresentation = false
-        self.navigationItem.searchController = searchController
-        definesPresentationContext = false
-        self.searchController.searchBar.delegate = self
+        setupSearchBar()
+        setupNavigationBar()
     }
 
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationBar()
         setupSubviews()
         setupData()
     }
@@ -63,18 +57,23 @@ final class PokemonListViewController: ViewController {
                                          animated: false)
     }
 
+    private func setupSearchBar() {
+        searchController.searchResultsUpdater = self
+        navigationItem.searchController = searchController
+        definesPresentationContext = false
+    }
+
     private func setupSubviews() {
         add(collectionViewController)
     }
 
     private func setupData() {
-        viewModel.loadRegions { [weak self] in
-            guard let self = self else { return }
+        viewModel.loadRegions { [unowned self] in
             switch $0 {
             case .success:
                 self.collectionViewController.update(with: self.viewModel.regions, and: self.viewModel.pokemon)
             case .error:
-                print("ERROR")
+                fatalError()
             }
         }
     }
@@ -99,12 +98,6 @@ extension PokemonListViewController: PokemonListCollectionViewControllerDelegate
 
 extension PokemonListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        
+        print("\(#function) \(String(describing: searchController.searchBar.text))")
     }
-}
-
-// MARK: - UI Search Bar Delegate
-
-extension PokemonListViewController: UISearchBarDelegate {
-
 }

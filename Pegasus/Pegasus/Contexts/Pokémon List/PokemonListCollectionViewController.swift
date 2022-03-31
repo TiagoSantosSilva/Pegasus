@@ -59,7 +59,7 @@ final class PokemonListCollectionViewController: CollectionViewController {
             header.configure(with: region)
         }
 
-        self.dataSource.supplementaryViewProvider = { (view, kind, index) in
+        self.dataSource.supplementaryViewProvider = { [unowned self] view, kind, index in
             self.collectionView.dequeueConfiguredReusableSupplementary(using: headerRegistration, for: index)
         }
     }
