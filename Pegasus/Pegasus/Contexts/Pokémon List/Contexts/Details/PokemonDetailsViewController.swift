@@ -17,16 +17,23 @@ final class PokemonDetailsViewController: ViewController {
 
     weak var delegate: PokemonDetailsViewControllerDelegate?
 
+    private let scrollView: PokemonDetailsScrollView
     private let viewModel: PokemonDetailsViewModelable
 
     // MARK: - Initialization
 
-    init(viewModel: PokemonDetailsViewModelable) {
+    init(scrollView: PokemonDetailsScrollView, viewModel: PokemonDetailsViewModelable) {
+        self.scrollView = scrollView
         self.viewModel = viewModel
         super.init()
+        navigationItem.title = viewModel.name
     }
 
     // MARK: - Functions
+
+    override func loadView() {
+        self.view = scrollView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

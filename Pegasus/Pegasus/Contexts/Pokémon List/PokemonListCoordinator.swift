@@ -45,6 +45,6 @@ extension PokemonListCoordinator: PokemonListViewControllerDelegate {
     }
 
     func viewController(_ viewController: PokemonListViewController, didSelect pokemon: PokemonListCellViewModel) {
-        initiate(coordinator: PokemonDetailsCoordinator(dependencies: dependencies, navigator: navigator))
+        initiate(coordinator: PokemonDetailsCoordinator(dependencies: dependencies, navigator: navigator, pokemon: pokemon))
     }
 }

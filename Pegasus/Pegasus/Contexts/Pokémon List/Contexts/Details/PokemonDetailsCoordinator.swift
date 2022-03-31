@@ -13,19 +13,22 @@ final class PokemonDetailsCoordinator: Coordinator {
 
     private let dependencies: DependencyContainable
     private let navigator: Navigatable
+    private let pokemon: PokemonListCellViewModel
 
     // MARK: - Initialization
 
-    init(dependencies: DependencyContainable, navigator: Navigatable) {
+    init(dependencies: DependencyContainable, navigator: Navigatable, pokemon: PokemonListCellViewModel) {
         self.dependencies = dependencies
         self.navigator = navigator
+        self.pokemon = pokemon
     }
 
     // MARK: - Functions
 
     func start() {
-        let viewModel = PokemonDetailsViewModel()
-        let viewController = PokemonDetailsViewController(viewModel: viewModel)
+        let scrollView = PokemonDetailsScrollView()
+        let viewModel = PokemonDetailsViewModel(pokemon: pokemon)
+        let viewController = PokemonDetailsViewController(scrollView: scrollView, viewModel: viewModel)
         navigator.transition(to: viewController, as: .push)
         viewController.delegate = self
     }

@@ -8,6 +8,10 @@
 import UIKit
 
 extension UIView {
+    func add(subviews: UIView...) {
+        subviews.forEach { addSubview($0) }
+    }
+
     func round() {
         clipsToBounds = true
         layer.cornerRadius = 10
