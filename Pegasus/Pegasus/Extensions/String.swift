@@ -8,9 +8,9 @@
 import Foundation
 
 extension String {
+    static var empty: String = ""
+
     var firstLetterCapitalized: String {
         prefix(1).capitalized + dropFirst()
     }
-
-    static var empty: String = ""
 }

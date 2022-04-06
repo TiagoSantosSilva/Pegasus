@@ -15,29 +15,17 @@ final class PokemonListLoader: PokemonListLoadable {
 
     // MARK: - Properties
 
-    private let networkEngine: NetworkEnginable
+    private let bundle: BundleJSONLoadable
 
     // MARK: - Initialization
 
-    init(networkEngine: NetworkEnginable) {
-        self.networkEngine = networkEngine
+    init(bundle: BundleJSONLoadable = Bundle.main) {
+        self.bundle = bundle
     }
 
     // MARK: - Functions
 
     func loadRegions() async throws -> [PokedexRegion] {
-        try Bundle.json(for: .pokedex)
-    }
-}
-
-enum JSONContent: String {
-    case pokedex
-}
-
-extension Bundle {
-    static func json<T: Decodable>(for content: JSONContent) throws -> T {
-        guard let path = Bundle.main.path(forResource: content.rawValue, ofType: "json") else { throw NetworkError.noData }
-        let content = try String(contentsOfFile: path)
-        return try JSONDecoder().decode(T.self, from: Data(content.utf8))
+        try bundle.json(for: .pokedex)
     }
 }
