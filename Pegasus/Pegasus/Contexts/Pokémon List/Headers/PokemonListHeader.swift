@@ -31,7 +31,7 @@ final class PokemonListHeader: CollectionReusableView {
     // MARK: - Functions
 
     func configure(with region: PokemonListHeaderViewModel) {
-        self.nameLabel.attributedText = region.name
+        self.nameLabel.attributedText = region.title
     }
 
     // MARK: - Setups

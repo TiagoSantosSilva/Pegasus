@@ -19,6 +19,6 @@ final class PokemonListSearchController: SearchController {
     // MARK: - Functions
 
     private func setup() {
-        searchBar.placeholder = "Search by Pokémon Name or Number"
+        searchBar.placeholder = Localizable.searchPlaceholder
     }
 }

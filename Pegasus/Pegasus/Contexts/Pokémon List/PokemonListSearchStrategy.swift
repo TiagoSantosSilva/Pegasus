@@ -8,60 +8,36 @@
 import Foundation
 
 protocol PokemonListSearchStrategyable: AnyObject {
-    var regions: [PokemonListHeaderViewModel] { get set }
-    var pokemon: [Int: [PokemonListCellViewModel]] { get set }
-
-    func search(for text: String, completion: () -> Void)
+    func search(for text: String, in groups: [PokemonListGroupViewModel], completion: ([PokemonListGroupViewModel]) -> Void)
 }
 
 final class PokemonListSearchStrategy: PokemonListSearchStrategyable {
 
-    // MARK: - Internal Properties
+    // MARK: - Closures
 
-    var pokemon: [Int: [PokemonListCellViewModel]] {
-        get {
-            searchText.isEmpty ? unfilteredPokemon : filteredPokemon
-        }
-        set {
-            unfilteredPokemon = newValue
-        }
+    private lazy var numberSearchClosure: ([PokemonListCellViewModel], String) -> [PokemonListCellViewModel] = { pokemon, text in
+        pokemon.filter { $0.number.contains(text) }
     }
 
-    var regions: [PokemonListHeaderViewModel] {
-        get {
-            searchText.isEmpty ? unfilteredRegions : filteredRegions
-        }
-        set {
-            unfilteredRegions = newValue
-        }
+    private lazy var nameSearchClosure: ([PokemonListCellViewModel], String) -> [PokemonListCellViewModel] = { pokemon, text in
+        pokemon.filter { $0.name.contains(text) }
     }
-
-    // MARK: - Private Properties
-
-    private var searchText: String = .empty
-
-    private var filteredRegions: [PokemonListHeaderViewModel] = []
-    private var unfilteredRegions: [PokemonListHeaderViewModel] = []
-
-    private var filteredPokemon: [Int: [PokemonListCellViewModel]] = [:]
-    private var unfilteredPokemon: [Int: [PokemonListCellViewModel]] = [:]
 
     // MARK: - Functions
 
-    func search(for text: String, completion: () -> Void) {
-        self.searchText = text
-        let filteredPokemonNotCompactedWithoutEmptyKeys = Dictionary(uniqueKeysWithValues: unfilteredPokemon.compactMap {
-            ($0.key, $0.value.filter { $0.name.contains(text)})
-        })
+    func search(for text: String, in groups: [PokemonListGroupViewModel], completion: ([PokemonListGroupViewModel]) -> Void) {
+        guard !text.isEmpty else { return completion(groups) }
 
-        self.filteredRegions = zip(unfilteredRegions, filteredPokemonNotCompactedWithoutEmptyKeys).compactMap { region, pokemonRegion in
-            guard !pokemonRegion.value.isEmpty else { return nil }
-            return region
+        let isSearchingForNumber = Int(text) != nil
+        let searchClosure = isSearchingForNumber ? numberSearchClosure : nameSearchClosure
+
+        let groups: [PokemonListGroupViewModel] = groups.compactMap {
+            let pokemon = searchClosure($0.pokemon, text)
+            guard !pokemon.isEmpty else { return nil }
+            let region = PokemonListHeaderViewModel(name: $0.region.name, pokemonCount: pokemon.count)
+            return PokemonListGroupViewModel(region: region, pokemon: pokemon)
         }
 
-        self.filteredPokemon = filteredPokemonNotCompactedWithoutEmptyKeys.compactMapValues { $0.filter { $0.name.contains(text) } }.filter { !$0.value.isEmpty }
-
-        print(filteredPokemon)
-        completion()
+        completion(groups)
     }
 }

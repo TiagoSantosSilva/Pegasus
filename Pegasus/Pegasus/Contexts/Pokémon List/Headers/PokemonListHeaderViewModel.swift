@@ -11,23 +11,30 @@ protocol PokemonListHeaderViewModelable: AnyObject {
 
 }
 
+protocol PokemonListGroupViewModelable: AnyObject {
+    var region: PokemonListHeaderViewModel { get }
+    var pokemon: [PokemonListCellViewModel] { get }
+}
+
 final class PokemonListHeaderViewModel: PokemonListHeaderViewModelable, Hashable {
 
     // MARK: - Properties
 
     let uuid: UUID = UUID()
 
-    let name: NSAttributedString
+    let title: NSAttributedString
+    let name: String
 
     // MARK: - Initialization
 
-    init(region: PokedexRegion) {
-        let string = NSMutableAttributedString(string: region.name, attributes: PokemonListHaderViewModelAttributer.nameAttributes)
-        let countString = NSAttributedString(string: PokemonListHeaderStringFormatter.format(count: region.pokemon.count),
+    init(name: String, pokemonCount: Int) {
+        let string = NSMutableAttributedString(string: name, attributes: PokemonListHaderViewModelAttributer.nameAttributes)
+        let countString = NSAttributedString(string: PokemonListHeaderStringFormatter.format(count: pokemonCount),
                                              attributes: PokemonListHaderViewModelAttributer.countAttributes)
         string.append(countString)
 
-        self.name = string
+        self.name = name
+        self.title = string
     }
 
     // MARK: - Functions

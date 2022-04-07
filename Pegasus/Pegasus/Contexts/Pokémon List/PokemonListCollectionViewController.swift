@@ -15,8 +15,8 @@ final class PokemonListCollectionViewController: CollectionViewController {
 
     // MARK: - Typealiases
 
-    private typealias Snapshot = NSDiffableDataSourceSnapshot<PokemonListHeaderViewModel, PokemonListCellViewModel>
-    private typealias DataSource = UICollectionViewDiffableDataSource<PokemonListHeaderViewModel, PokemonListCellViewModel>
+    private typealias Snapshot = NSDiffableDataSourceSnapshot<PokemonListGroupViewModel, PokemonListCellViewModel>
+    private typealias DataSource = UICollectionViewDiffableDataSource<PokemonListGroupViewModel, PokemonListCellViewModel>
 
     // MARK: - Properties
 
@@ -38,7 +38,7 @@ final class PokemonListCollectionViewController: CollectionViewController {
 
     // MARK: - Functions
 
-    @MainActor func update(with regions: [PokemonListHeaderViewModel], and pokemon: [Int: [PokemonListCellViewModel]]) {
+    @MainActor func update(with groups: [PokemonListGroupViewModel]) {
         let transition = CATransition()
         transition.type = CATransitionType.fade
         transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
@@ -46,12 +46,11 @@ final class PokemonListCollectionViewController: CollectionViewController {
 
         Task {
             var snapshot = Snapshot()
-            snapshot.appendSections(regions)
-            regions.enumerated().forEach {
-                guard let pokemon = pokemon[$0.offset] else { return }
-                collectionView.layer.add(transition, forKey: nil)
-                snapshot.appendItems(pokemon, toSection: regions[$0.offset])
+            snapshot.appendSections(groups)
+            groups.enumerated().forEach {
+                snapshot.appendItems($0.element.pokemon, toSection: $0.element)
             }
+            collectionView.layer.add(transition, forKey: nil)
             await dataSource.apply(snapshot, animatingDifferences: false)
         }
     }
@@ -63,7 +62,7 @@ final class PokemonListCollectionViewController: CollectionViewController {
 
         let kind = PokemonListCollectionViewLayout.ElementKinds.header
         let headerRegistration = UICollectionView.SupplementaryRegistration<PokemonListHeader>(elementKind: kind) { header, _, indexPath in
-            guard let region = self.dataRepresentable?.regions[indexPath.section] else { return }
+            guard let region = self.dataRepresentable?.groups[indexPath.section].region else { return }
             header.configure(with: region)
         }
 

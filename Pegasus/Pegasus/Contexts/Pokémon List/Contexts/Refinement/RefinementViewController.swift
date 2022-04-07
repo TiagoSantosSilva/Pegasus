@@ -21,7 +21,7 @@ final class RefinementViewController: ViewController {
 
     init(viewModel: RefinementViewModelable) {
         super.init()
-        title = "Rearrange"
+        title = Localizable.refinementTitle
         setup()
     }
 
@@ -35,7 +35,7 @@ final class RefinementViewController: ViewController {
     // MARK: - Functions
 
     private func setup() {
-        navigationItem.setRightBarButton(UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonTapped)), animated: false)
+        navigationItem.setRightBarButton(UIBarButtonItem(title: Localizable.done, style: .done, target: self, action: #selector(doneButtonTapped)), animated: false)
     }
 
     // MARK: - Selectors

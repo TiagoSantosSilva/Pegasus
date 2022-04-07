@@ -10,13 +10,12 @@ import Foundation
 typealias PokemonListViewModelable = PokemonRegionRepresentable & PokemonListViewModelLoadable
 
 protocol PokemonRegionRepresentable: AnyObject {
-    var regions: [PokemonListHeaderViewModel] { get }
-    var pokemon: [Int: [PokemonListCellViewModel]] { get }
+    var groups: [PokemonListGroupViewModel] { get }
 }
 
 protocol PokemonListViewModelLoadable: AnyObject {
     func loadRegions(completion: @escaping (PokemonListResult) -> Void)
-    func search(for text: String, completion: () -> Void)
+    func search(for text: String, completion: ([PokemonListGroupViewModel]) -> Void)
 }
 
 enum PokemonListResult {
@@ -26,18 +25,16 @@ enum PokemonListResult {
 
 final class PokemonListViewModel: PokemonListViewModelable {
 
+    // MARK: - Internal
+
+    var groups: [PokemonListGroupViewModel] = []
+
     // MARK: - Properties
-
-    var regions: [PokemonListHeaderViewModel] {
-        searchStrategy.regions
-    }
-
-    var pokemon: [Int: [PokemonListCellViewModel]] {
-        searchStrategy.pokemon
-    }
 
     private let loader: PokemonListLoadable
     private let searchStrategy: PokemonListSearchStrategyable
+
+    private var allGroups: [PokemonListGroupViewModel] = []
 
     // MARK: - Initialization
 
@@ -52,13 +49,9 @@ final class PokemonListViewModel: PokemonListViewModelable {
         Task {
             do {
                 let result = try await loader.loadRegions()
-                let filteredRegions = result.filter { !$0.pokemon.isEmpty }
-                self.searchStrategy.regions = filteredRegions.map { PokemonListHeaderViewModel(region: $0) }
-                self.searchStrategy.pokemon = Dictionary(uniqueKeysWithValues: filteredRegions.enumerated().map {
-                    ($0.offset, $0.element.pokemon.map {
-                        PokemonListCellViewModel(number: $0.number, name: $0.name)
-                    })
-                })
+                let groups = groups(for: result)
+                self.groups = groups
+                self.allGroups = groups
 
                 completion(.success)
             } catch {
@@ -67,7 +60,21 @@ final class PokemonListViewModel: PokemonListViewModelable {
         }
     }
 
-    func search(for text: String, completion: () -> Void) {
-        searchStrategy.search(for: text, completion: completion)
+    func search(for text: String, completion: ([PokemonListGroupViewModel]) -> Void) {
+        searchStrategy.search(for: text, in: allGroups) { [unowned self] in
+            self.groups = $0
+            completion($0)
+        }
+    }
+
+    // MARK: - Private Functions
+
+    private func groups(for regions: [PokedexRegion]) -> [PokemonListGroupViewModel] {
+        let filteredRegions = regions.filter { !$0.pokemon.isEmpty }
+        return filteredRegions.map {
+            let region = PokemonListHeaderViewModel(name: $0.name, pokemonCount: $0.pokemon.count)
+            let pokemon = $0.pokemon.map { PokemonListCellViewModel(number: $0.number, name: $0.name) }
+            return PokemonListGroupViewModel(region: region, pokemon: pokemon)
+        }
     }
 }

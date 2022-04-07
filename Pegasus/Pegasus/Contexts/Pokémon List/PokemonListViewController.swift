@@ -49,7 +49,7 @@ final class PokemonListViewController: ViewController {
     // MARK: - Setups
 
     private func setupNavigationBar() {
-        title = "Pegasus"
+        title = Localizable.pegasus
         navigationItem.setRightBarButton(UIBarButtonItem(image: UIImage.NavigationBar.refine,
                                                          style: .plain,
                                                          target: self,
@@ -71,7 +71,7 @@ final class PokemonListViewController: ViewController {
         viewModel.loadRegions { [unowned self] in
             switch $0 {
             case .success:
-                self.collectionViewController.update(with: self.viewModel.regions, and: self.viewModel.pokemon)
+                self.collectionViewController.update(with: self.viewModel.groups)
             case .error:
                 fatalError()
             }
@@ -89,7 +89,7 @@ final class PokemonListViewController: ViewController {
 
 extension PokemonListViewController: PokemonListCollectionViewControllerDelegate {
     func collectionViewController(_ collectionViewController: PokemonListCollectionViewController, didSelectItemAt indexPath: IndexPath) {
-        guard let pokemon = viewModel.pokemon[indexPath.section]?[indexPath.row] else { return }
+        let pokemon = viewModel.groups[indexPath.section].pokemon[indexPath.row]
         delegate?.viewController(self, didSelect: pokemon)
     }
 }
@@ -99,9 +99,8 @@ extension PokemonListViewController: PokemonListCollectionViewControllerDelegate
 extension PokemonListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
-        print("\(#function) \(String(describing: searchController.searchBar.text))")
         viewModel.search(for: text) { [unowned self] in
-            self.collectionViewController.update(with: self.viewModel.regions, and: self.viewModel.pokemon)
+            self.collectionViewController.update(with: $0)
         }
     }
 }
