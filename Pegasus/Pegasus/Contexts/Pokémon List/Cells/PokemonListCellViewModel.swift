@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct PokemonListCellViewModel: Hashable {
 
@@ -13,11 +14,20 @@ struct PokemonListCellViewModel: Hashable {
 
     let number: String
     let name: String
+    let image: UIImage
 
     // MARK: - Initialization
     
     init(number: String, name: String) {
         self.number = number
         self.name = name
+        let numberAsInt = Int(number) ?? Constants.defaultNumber
+        self.image = UIImage(named: String(describing: numberAsInt)) ?? UIImage(named: String(describing: Constants.defaultNumber))!
     }
+}
+
+// MARK: - Constants
+
+private enum Constants {
+    static let defaultNumber: Int = .zero
 }

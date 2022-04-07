@@ -8,7 +8,7 @@
 import Foundation
 
 protocol PokemonListSearchStrategyable: AnyObject {
-    func search(for text: String, in groups: [PokemonListGroupViewModel], completion: ([PokemonListGroupViewModel]) -> Void)
+    func search(for text: String, in groups: [PokemonListGroupViewModel]) -> [PokemonListGroupViewModel]
 }
 
 final class PokemonListSearchStrategy: PokemonListSearchStrategyable {
@@ -25,8 +25,8 @@ final class PokemonListSearchStrategy: PokemonListSearchStrategyable {
 
     // MARK: - Functions
 
-    func search(for text: String, in groups: [PokemonListGroupViewModel], completion: ([PokemonListGroupViewModel]) -> Void) {
-        guard !text.isEmpty else { return completion(groups) }
+    func search(for text: String, in groups: [PokemonListGroupViewModel]) -> [PokemonListGroupViewModel] {
+        guard !text.isEmpty else { return groups }
 
         let isSearchingForNumber = Int(text) != nil
         let searchClosure = isSearchingForNumber ? numberSearchClosure : nameSearchClosure
@@ -38,6 +38,6 @@ final class PokemonListSearchStrategy: PokemonListSearchStrategyable {
             return PokemonListGroupViewModel(region: region, pokemon: pokemon)
         }
 
-        completion(groups)
+        return groups
     }
 }

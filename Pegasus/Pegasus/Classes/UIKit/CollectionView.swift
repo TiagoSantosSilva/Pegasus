@@ -25,5 +25,6 @@ open class CollectionView: UICollectionView {
 
     private func setup() {
         backgroundColor = Color.background
+        keyboardDismissMode = .onDrag
     }
 }

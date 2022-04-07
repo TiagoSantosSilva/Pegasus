@@ -15,7 +15,7 @@ protocol PokemonRegionRepresentable: AnyObject {
 
 protocol PokemonListViewModelLoadable: AnyObject {
     func loadRegions(completion: @escaping (PokemonListResult) -> Void)
-    func search(for text: String, completion: ([PokemonListGroupViewModel]) -> Void)
+    func search(for text: String) -> [PokemonListGroupViewModel]
 }
 
 enum PokemonListResult {
@@ -60,11 +60,9 @@ final class PokemonListViewModel: PokemonListViewModelable {
         }
     }
 
-    func search(for text: String, completion: ([PokemonListGroupViewModel]) -> Void) {
-        searchStrategy.search(for: text, in: allGroups) { [unowned self] in
-            self.groups = $0
-            completion($0)
-        }
+    func search(for text: String) -> [PokemonListGroupViewModel] {
+        groups = searchStrategy.search(for: text, in: allGroups)
+        return groups
     }
 
     // MARK: - Private Functions
