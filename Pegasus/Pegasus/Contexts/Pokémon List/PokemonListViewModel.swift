@@ -16,6 +16,7 @@ protocol PokemonRegionRepresentable: AnyObject {
 
 protocol PokemonListViewModelLoadable: AnyObject {
     func loadRegions(completion: @escaping (PokemonListResult) -> Void)
+    func search(for text: String, completion: () -> Void)
 }
 
 enum PokemonListResult {
@@ -27,15 +28,22 @@ final class PokemonListViewModel: PokemonListViewModelable {
 
     // MARK: - Properties
 
-    private(set) var regions: [PokemonListHeaderViewModel] = []
-    private(set) var pokemon: [Int: [PokemonListCellViewModel]] = [:]
+    var regions: [PokemonListHeaderViewModel] {
+        searchStrategy.regions
+    }
+
+    var pokemon: [Int: [PokemonListCellViewModel]] {
+        searchStrategy.pokemon
+    }
 
     private let loader: PokemonListLoadable
+    private let searchStrategy: PokemonListSearchStrategyable
 
     // MARK: - Initialization
 
-    init(loader: PokemonListLoadable) {
+    init(loader: PokemonListLoadable, searchStrategy: PokemonListSearchStrategyable) {
         self.loader = loader
+        self.searchStrategy = searchStrategy
     }
 
     // MARK: - Functions
@@ -45,17 +53,21 @@ final class PokemonListViewModel: PokemonListViewModelable {
             do {
                 let result = try await loader.loadRegions()
                 let filteredRegions = result.filter { !$0.pokemon.isEmpty }
-                self.regions = filteredRegions.map { PokemonListHeaderViewModel(region: $0) }
-                self.pokemon = Dictionary(uniqueKeysWithValues: filteredRegions.enumerated().map {
+                self.searchStrategy.regions = filteredRegions.map { PokemonListHeaderViewModel(region: $0) }
+                self.searchStrategy.pokemon = Dictionary(uniqueKeysWithValues: filteredRegions.enumerated().map {
                     ($0.offset, $0.element.pokemon.map {
                         PokemonListCellViewModel(number: $0.number, name: $0.name)
                     })
                 })
-                
+
                 completion(.success)
             } catch {
                 completion(.error)
             }
         }
+    }
+
+    func search(for text: String, completion: () -> Void) {
+        searchStrategy.search(for: text, completion: completion)
     }
 }

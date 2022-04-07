@@ -98,6 +98,10 @@ extension PokemonListViewController: PokemonListCollectionViewControllerDelegate
 
 extension PokemonListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else { return }
         print("\(#function) \(String(describing: searchController.searchBar.text))")
+        viewModel.search(for: text) { [unowned self] in
+            self.collectionViewController.update(with: self.viewModel.regions, and: self.viewModel.pokemon)
+        }
     }
 }

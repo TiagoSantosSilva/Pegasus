@@ -38,14 +38,22 @@ final class PokemonListCollectionViewController: CollectionViewController {
 
     // MARK: - Functions
 
-    func update(with regions: [PokemonListHeaderViewModel], and pokemon: [Int: [PokemonListCellViewModel]]) {
-        var snapshot = Snapshot()
-        snapshot.appendSections(regions)
-        regions.enumerated().forEach {
-            guard let pokemon = pokemon[$0.offset] else { return }
-            snapshot.appendItems(pokemon, toSection: regions[$0.offset])
+    @MainActor func update(with regions: [PokemonListHeaderViewModel], and pokemon: [Int: [PokemonListCellViewModel]]) {
+        let transition = CATransition()
+        transition.type = CATransitionType.fade
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.duration = 0.2
+
+        Task {
+            var snapshot = Snapshot()
+            snapshot.appendSections(regions)
+            regions.enumerated().forEach {
+                guard let pokemon = pokemon[$0.offset] else { return }
+                collectionView.layer.add(transition, forKey: nil)
+                snapshot.appendItems(pokemon, toSection: regions[$0.offset])
+            }
+            await dataSource.apply(snapshot, animatingDifferences: false)
         }
-        dataSource.apply(snapshot)
     }
 
     // MARK: - Setups
