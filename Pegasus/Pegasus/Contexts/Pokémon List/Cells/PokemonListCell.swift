@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class PokemonListCell: UICollectionViewCell {
+final class PokemonListCell: CollectionViewCell {
 
     // MARK: - Subviews
 
@@ -19,11 +19,6 @@ final class PokemonListCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupCell()
-    }
-
-    @available(*, unavailable)
-    public required init?(coder aDecoder: NSCoder) {
-        fatalError(StringError.coderInit)
     }
 
     // MARK: - Life Cycle
@@ -52,7 +47,6 @@ final class PokemonListCell: UICollectionViewCell {
 
     private func setupStyle() {
         round()
-        backgroundColor = Color.cell
     }
 
     private func setupNameLabel() {

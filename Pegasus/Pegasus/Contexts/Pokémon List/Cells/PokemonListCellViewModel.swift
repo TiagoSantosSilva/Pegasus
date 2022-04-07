@@ -22,7 +22,7 @@ struct PokemonListCellViewModel: Hashable {
         self.number = number
         self.name = name
         let numberAsInt = Int(number) ?? Constants.defaultNumber
-        self.image = UIImage(named: String(describing: numberAsInt)) ?? UIImage(named: String(describing: Constants.defaultNumber))!
+        self.image = UIImage(named: String(describing: numberAsInt).appending("-shiny")) ?? UIImage(named: String(describing: Constants.defaultNumber))!
     }
 }
 

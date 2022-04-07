@@ -8,7 +8,7 @@
 import Foundation
 
 extension String {
-    static var empty: String = ""
+    static let empty: String = ""
 
     var firstLetterCapitalized: String {
         prefix(1).capitalized + dropFirst()

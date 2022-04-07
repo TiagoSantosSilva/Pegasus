@@ -39,18 +39,13 @@ final class PokemonListCollectionViewController: CollectionViewController {
     // MARK: - Functions
 
     @MainActor func update(with groups: [PokemonListGroupViewModel]) {
-        let transition = CATransition()
-        transition.type = CATransitionType.fade
-        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        transition.duration = 0.2
-
         Task {
             var snapshot = Snapshot()
             snapshot.appendSections(groups)
             groups.enumerated().forEach {
                 snapshot.appendItems($0.element.pokemon, toSection: $0.element)
             }
-            collectionView.layer.add(transition, forKey: nil)
+            collectionView.layer.add(CATransition.fade, forKey: nil)
             await dataSource.apply(snapshot, animatingDifferences: false)
         }
     }

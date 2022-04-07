@@ -46,11 +46,15 @@ final class PokemonListCollectionViewLayout: UICollectionViewCompositionalLayout
     }
 }
 
+// MARK: - Element Kinds
+
 extension PokemonListCollectionViewLayout {
     enum ElementKinds {
         static let header: String = "pokemon-list-header-kind"
     }
 }
+
+// MARK: - Constants
 
 private extension PokemonListCollectionViewLayout {
     enum Layout {
