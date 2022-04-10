@@ -1,13 +1,13 @@
 //
-//  PokemonListCollectionViewLayout.swift
+//  RefinementCollectionViewLayout.swift
 //  Pegasus
 //
-//  Created by Tiago on 21/03/2022.
+//  Created by Tiago on 10/04/2022.
 //
 
 import UIKit
 
-final class PokemonListCollectionViewLayout: CollectionViewCompositionalLayout {
+final class RefinementCollectionViewLayout: CollectionViewCompositionalLayout {
 
     // MARK: - Initialization
 
@@ -17,14 +17,15 @@ final class PokemonListCollectionViewLayout: CollectionViewCompositionalLayout {
 
     // MARK: - Functions
 
-    private static func section() -> NSCollectionLayoutSection {
+    static func section() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: Layout.Item.width,
                                               heightDimension: Layout.Item.height)
+
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = NSDirectionalEdgeInsets(withEqualValue: Layout.Item.contentInset)
 
         let groupSize = NSCollectionLayoutSize(widthDimension: Layout.Group.width,
                                                heightDimension: Layout.Group.height)
+
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                        subitems: [item])
 
@@ -43,30 +44,29 @@ final class PokemonListCollectionViewLayout: CollectionViewCompositionalLayout {
 
 // MARK: - Element Kinds
 
-extension PokemonListCollectionViewLayout {
+extension RefinementCollectionViewLayout {
     enum ElementKinds {
-        static let header: String = "pokemon-list-header-kind"
+        static let header: String = "refinement-header-kind"
     }
 }
 
 // MARK: - Constants
 
-private extension PokemonListCollectionViewLayout {
+private extension RefinementCollectionViewLayout {
     enum Layout {
         enum Item {
-            static let width: NSCollectionLayoutDimension = .fractionalWidth(1/3)
-            static let height: NSCollectionLayoutDimension = .fractionalHeight(1.0)
-            static let contentInset: CGFloat = 4
-        }
-
-        enum Group {
             static let width: NSCollectionLayoutDimension = .fractionalWidth(1.0)
-            static let height: NSCollectionLayoutDimension = .fractionalHeight(1/6)
+            static let height: NSCollectionLayoutDimension = .absolute(44)
         }
 
         enum Header {
             static let width: NSCollectionLayoutDimension = .fractionalWidth(1.0)
             static let height: NSCollectionLayoutDimension = .estimated(44)
+        }
+
+        enum Group {
+            static let width: NSCollectionLayoutDimension = .fractionalWidth(1.0)
+            static let height: NSCollectionLayoutDimension = .fractionalHeight(1/6)
         }
 
         enum Section {

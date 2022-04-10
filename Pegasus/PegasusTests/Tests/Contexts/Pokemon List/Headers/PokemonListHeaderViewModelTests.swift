@@ -19,11 +19,11 @@ final class PokemonListHeaderViewModelTests: XCTestCase {
 
         // When
 
-        let viewModel = PokemonListHeaderViewModel(region: region)
+        let viewModel = PokemonListHeaderViewModel(name: region.name, pokemonCount: 151)
 
         // Then
 
-        XCTAssertEqual(viewModel.name.string, Expected.Names.kanto)
+        XCTAssertEqual(viewModel.name, Expected.Names.kanto)
     }
 
     func testInitForJohto() {
@@ -33,11 +33,11 @@ final class PokemonListHeaderViewModelTests: XCTestCase {
 
         // When
 
-        let viewModel = PokemonListHeaderViewModel(region: region)
+        let viewModel = PokemonListHeaderViewModel(name: region.name, pokemonCount: 100)
 
         // Then
 
-        XCTAssertEqual(viewModel.name.string, Expected.Names.johto)
+        XCTAssertEqual(viewModel.name, Expected.Names.johto)
     }
 }
 
@@ -58,8 +58,8 @@ private extension PokemonListHeaderViewModelTests {
 
     enum Expected {
         enum Names {
-            static let kanto: String = "Kanto | \(Values.Count.kanto)"
-            static let johto: String = "Johto | \(Values.Count.johto)"
+            static let kanto: String = "Kanto"
+            static let johto: String = "Johto"
         }
     }
 }

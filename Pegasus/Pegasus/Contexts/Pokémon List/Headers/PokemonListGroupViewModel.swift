@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class PokemonListGroupViewModel: PokemonListGroupViewModelable, Hashable {
+final class PokemonListGroupViewModel: Hashable {
 
     // MARK: - Properties
 

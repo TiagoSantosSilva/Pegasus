@@ -7,16 +7,7 @@
 
 import Foundation
 
-protocol PokemonListHeaderViewModelable: AnyObject {
-
-}
-
-protocol PokemonListGroupViewModelable: AnyObject {
-    var region: PokemonListHeaderViewModel { get }
-    var pokemon: [PokemonListCellViewModel] { get }
-}
-
-final class PokemonListHeaderViewModel: PokemonListHeaderViewModelable, Hashable {
+final class PokemonListHeaderViewModel: Hashable {
 
     // MARK: - Properties
 
@@ -40,7 +31,7 @@ final class PokemonListHeaderViewModel: PokemonListHeaderViewModelable, Hashable
     // MARK: - Functions
 
     static func == (lhs: PokemonListHeaderViewModel, rhs: PokemonListHeaderViewModel) -> Bool {
-        return lhs.uuid == rhs.uuid
+        lhs.uuid == rhs.uuid
     }
 
     func hash(into hasher: inout Hasher) {

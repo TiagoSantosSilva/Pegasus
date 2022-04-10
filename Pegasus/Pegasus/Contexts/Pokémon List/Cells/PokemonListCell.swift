@@ -18,7 +18,7 @@ final class PokemonListCell: CollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupCell()
+        setup()
     }
 
     // MARK: - Life Cycle
@@ -38,8 +38,8 @@ final class PokemonListCell: CollectionViewCell {
 
     // MARK: - Setups
 
-    private func setupCell() {
-        [nameLabel, imageView].forEach { contentView.addSubview($0) }
+    private func setup() {
+        contentView.add(subviews: nameLabel, imageView)
         setupStyle()
         setupNameLabel()
         setupImageView()

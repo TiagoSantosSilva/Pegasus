@@ -32,7 +32,6 @@ final class PokemonListViewController: ViewController {
         self.viewModel = viewModel
         super.init()
         self.collectionViewController.delegate = self
-        self.collectionViewController.dataRepresentable = viewModel
 
         setupSearchBar()
         setupNavigationBar()

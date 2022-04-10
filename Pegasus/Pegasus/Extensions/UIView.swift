@@ -9,7 +9,7 @@ import UIKit
 
 extension UIView {
     func add(subviews: UIView...) {
-        subviews.forEach { addSubview($0) }
+        subviews.forEach(addSubview)
     }
 
     func round() {

@@ -1,19 +1,19 @@
 //
-//  PokemonListHeader.swift
+//  RefinementHeader.swift
 //  Pegasus
 //
-//  Created by Tiago on 27/03/2022.
+//  Created by Tiago on 10/04/2022.
 //
 
 import UIKit
 
-final class PokemonListHeader: CollectionReusableView {
+final class RefinementHeader: CollectionReusableView {
 
     // MARK: - Subviews
 
     private let nameLabel: UILabel = .init()
 
-    // MARK: - Properties
+    // MARK: - Initialization
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,16 +24,10 @@ final class PokemonListHeader: CollectionReusableView {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        nameLabel.attributedText = nil
+        nameLabel.text = nil
     }
 
     // MARK: - Functions
-
-    func configure(with region: PokemonListHeaderViewModel) {
-        self.nameLabel.attributedText = region.title
-    }
-
-    // MARK: - Setups
 
     private func setup() {
         add(subviews: nameLabel)
@@ -48,13 +42,15 @@ final class PokemonListHeader: CollectionReusableView {
         nameLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Constraints.NameLabel.bottom).isActive = true
 
         // Styling
-        nameLabel.textAlignment = .center
+        nameLabel.textAlignment = .left
+        nameLabel.textColor = .secondaryLabel
+        nameLabel.font = .nameLabel
     }
 }
 
 // MARK: - Constraints
 
-private extension PokemonListHeader {
+private extension RefinementHeader {
     enum Constraints {
         enum NameLabel {
             static let side: CGFloat = 8

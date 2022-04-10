@@ -25,14 +25,15 @@ final class RefinementCoordinator: Coordinator {
 
     func start() {
         let viewModel = RefinementViewModel(dependencies: dependencies)
-        let viewController = RefinementViewController(viewModel: viewModel)
+        let collectionViewController = RefinementCollectionViewController()
+        let viewController = RefinementViewController(collectionViewController: collectionViewController, viewModel: viewModel)
         let navigationController = NavigationController(rootViewController: viewController)
         navigator.transition(to: navigationController, as: .modal)
         viewController.delegate = self
     }
 }
 
-// MARK: - Refinement View Controller Delegate
+// MARK: - RefinementViewControllerDelegate
 
 extension RefinementCoordinator: RefinementViewControllerDelegate {
     func viewController(_ viewController: RefinementViewController, didTap doneButton: UIBarButtonItem) {

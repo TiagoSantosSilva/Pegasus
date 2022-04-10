@@ -7,13 +7,13 @@
 
 import Foundation
 
-typealias PokemonListViewModelable = PokemonRegionRepresentable & PokemonListViewModelLoadable
+typealias PokemonListViewModelable = PokemonListViewModelContentable & PokemonListViewModelLoadable
 
-protocol PokemonRegionRepresentable: AnyObject {
+protocol PokemonListViewModelContentable: AnyObject {
     var groups: [PokemonListGroupViewModel] { get }
 }
 
-protocol PokemonListViewModelLoadable: AnyObject {
+protocol PokemonListViewModelLoadable {
     func loadRegions(completion: @escaping (PokemonListResult) -> Void)
     func search(for text: String) -> [PokemonListGroupViewModel]
 }

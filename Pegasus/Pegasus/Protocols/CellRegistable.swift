@@ -21,8 +21,6 @@ public extension CellRegistable where Self: UICollectionView {
     }
 
     func register<T: UICollectionViewCell>(cellTypes: [T.Type]) {
-        cellTypes.forEach { cellType in
-            register(cellType)
-        }
+        cellTypes.forEach(register)
     }
 }

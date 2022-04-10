@@ -16,3 +16,9 @@ extension UIColor {
 private extension UIColor {
     static let divisor: CGFloat = 255
 }
+
+extension UIColor {
+    static var tint: UIColor {
+        .systemRed
+    }
+}

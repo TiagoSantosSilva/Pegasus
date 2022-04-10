@@ -20,7 +20,6 @@ final class PokemonListCollectionViewController: CollectionViewController {
 
     // MARK: - Properties
 
-    weak var dataRepresentable: PokemonRegionRepresentable?
     weak var delegate: PokemonListCollectionViewControllerDelegate?
 
     private let dataSource: DataSource
@@ -56,12 +55,12 @@ final class PokemonListCollectionViewController: CollectionViewController {
         self.collectionView.registerCellClass(PokemonListCell.self)
 
         let kind = PokemonListCollectionViewLayout.ElementKinds.header
-        let headerRegistration = UICollectionView.SupplementaryRegistration<PokemonListHeader>(elementKind: kind) { header, _, indexPath in
-            guard let region = self.dataRepresentable?.groups[indexPath.section].region else { return }
+        let headerRegistration = UICollectionView.SupplementaryRegistration<PokemonListHeader>(elementKind: kind) { [unowned self] header, _, indexPath in
+            let region = self.dataSource.snapshot().sectionIdentifiers[indexPath.section].region
             header.configure(with: region)
         }
 
-        self.dataSource.supplementaryViewProvider = { [unowned self] view, kind, index in
+        self.dataSource.supplementaryViewProvider = { [unowned self] _, _, index in
             self.collectionView.dequeueConfiguredReusableSupplementary(using: headerRegistration, for: index)
         }
     }

@@ -8,21 +8,42 @@
 import Foundation
 import UIKit
 
-struct PokemonListCellViewModel: Hashable {
+enum PokemonListCellViewModelImageVariant: String {
+    case normal
+    case shiny
+}
+
+final class PokemonListCellViewModel: Hashable {
 
     // MARK: - Properties
 
+    let uuid: UUID = UUID()
     let number: String
     let name: String
-    let image: UIImage
+    lazy var image: UIImage = Self.image(for: number, variant: .normal)
+    lazy var shinyImage: UIImage = Self.image(for: number, variant: .shiny)
 
     // MARK: - Initialization
     
     init(number: String, name: String) {
         self.number = number
         self.name = name
+    }
+
+    // MARK: - Static Functions
+
+    static func image(for number: String, variant: PokemonListCellViewModelImageVariant) -> UIImage {
         let numberAsInt = Int(number) ?? Constants.defaultNumber
-        self.image = UIImage(named: String(describing: numberAsInt).appending("-shiny")) ?? UIImage(named: String(describing: Constants.defaultNumber))!
+        let name = String(describing: numberAsInt).appending("-").appending(variant.rawValue)
+        return UIImage(named: name) ?? UIImage(named: String(describing: Constants.defaultNumber))!
+    }
+
+    static func == (lhs: PokemonListCellViewModel, rhs: PokemonListCellViewModel) -> Bool {
+        lhs.uuid == rhs.uuid
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(uuid)
     }
 }
 
