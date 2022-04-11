@@ -15,8 +15,9 @@ final class PokemonListCollectionViewController: CollectionViewController {
 
     // MARK: - Typealiases
 
-    private typealias Snapshot = NSDiffableDataSourceSnapshot<PokemonListGroupViewModel, PokemonListCellViewModel>
+    private typealias CellRegistration = UICollectionView.CellRegistration<PokemonListCell, PokemonListCellViewModel>
     private typealias DataSource = UICollectionViewDiffableDataSource<PokemonListGroupViewModel, PokemonListCellViewModel>
+    private typealias Snapshot = NSDiffableDataSourceSnapshot<PokemonListGroupViewModel, PokemonListCellViewModel>
 
     // MARK: - Properties
 
@@ -52,8 +53,6 @@ final class PokemonListCollectionViewController: CollectionViewController {
     // MARK: - Setups
 
     private func setupController() {
-        self.collectionView.registerCellClass(PokemonListCell.self)
-
         let kind = PokemonListCollectionViewLayout.ElementKinds.header
         let headerRegistration = UICollectionView.SupplementaryRegistration<PokemonListHeader>(elementKind: kind) { [unowned self] header, _, indexPath in
             let region = self.dataSource.snapshot().sectionIdentifiers[indexPath.section].region
@@ -68,10 +67,14 @@ final class PokemonListCollectionViewController: CollectionViewController {
     // MARK: - Cell Provider
 
     private static var cellProvider: ((UICollectionView, IndexPath, PokemonListCellViewModel) -> UICollectionViewCell?) {
-        { collectionView, indexPath, cellViewModel in
-            let cell: PokemonListCell = collectionView.dequeueReusableCell(for: indexPath)
+        let cellRegistration = CellRegistration { cell, _, cellViewModel in
             cell.configure(with: cellViewModel)
-            return cell
+        }
+
+        return { collectionView, indexPath, cellViewModel in
+            collectionView.dequeueConfiguredReusableCell(using: cellRegistration,
+                                                         for: indexPath,
+                                                         item: cellViewModel)
         }
     }
 }

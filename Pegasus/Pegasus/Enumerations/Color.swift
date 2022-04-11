@@ -15,10 +15,6 @@ enum Color {
     static var background: UIColor {
         .systemGray6
     }
-
-    static var tint: UIColor {
-        .systemRed
-    }
 }
 
 // MARK: - Neutral Tones
@@ -54,7 +50,7 @@ extension Color {
         }
 
         static var tint: UIColor {
-            Color.tint
+            .tint
         }
 
         static var unselectedItemTint: UIColor {
@@ -72,7 +68,7 @@ extension Color {
 extension Color {
     enum NavigationBar {
         static var tint: UIColor {
-            Color.tint
+            .tint
         }
     }
 }
