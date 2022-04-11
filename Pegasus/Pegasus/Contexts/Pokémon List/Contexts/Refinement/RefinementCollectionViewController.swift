@@ -27,10 +27,7 @@ final class RefinementCollectionViewController: CollectionViewController {
     // MARK: - Initialization
 
     override init() {
-        var layout = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
-        layout.headerMode = .supplementary
-        layout.footerMode = .none
-        let listLayout = UICollectionViewCompositionalLayout.list(using: layout)
+        let listLayout = CollectionViewCompositionalLayoutFactory.makeHeader()
         let collectionView = RefinementCollectionView(frame: .zero, collectionViewLayout: listLayout)
         self.dataSource = DataSource(collectionView: collectionView, cellProvider: Self.cellProvider)
         super.init(collectionViewLayout: listLayout)

@@ -43,7 +43,7 @@ final class RefinementViewController: ViewController {
         let button = UIBarButtonItem(title: Localizable.done, style: .done, target: self, action: #selector(doneButtonTapped))
         navigationItem.setRightBarButton(button, animated: false)
         navigationController?.navigationBar.prefersLargeTitles = false
-        title = Localizable.refinementTitle
+        title = Localizable.refineTitle
     }
 
     private func setupSubviews() {

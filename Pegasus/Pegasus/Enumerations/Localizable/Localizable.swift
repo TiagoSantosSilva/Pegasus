@@ -7,8 +7,9 @@
 
 enum Localizable {
     static let pegasus: String = "Pegasus"
+    static let gallery: String = "Gallery"
     static let settings: String = "Settings"
     static let searchPlaceholder: String = "Search by Pokémon Name or Number"
-    static let refinementTitle: String = "Rearrange"
+    static let refineTitle: String = "Refine"
     static let done: String = "Done"
 }

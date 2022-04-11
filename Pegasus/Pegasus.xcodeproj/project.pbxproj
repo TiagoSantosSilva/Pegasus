@@ -49,6 +49,12 @@
 		2754FD0627F5F64F00F3092A /* MockBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754FD0527F5F64F00F3092A /* MockBundle.swift */; };
 		2754FD0827F5F6AD00F3092A /* BundleJSONLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754FD0727F5F6AD00F3092A /* BundleJSONLoadable.swift */; };
 		2754FD0A27F5F70700F3092A /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754FD0927F5F70700F3092A /* Bundle.swift */; };
+		276751E12804E3AD00BC82FB /* CollectionViewCompositionalLayoutFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276751E02804E3AD00BC82FB /* CollectionViewCompositionalLayoutFactory.swift */; };
+		276751E42804E59F00BC82FB /* GalleryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276751E32804E59F00BC82FB /* GalleryCoordinator.swift */; };
+		276751E62804E5A700BC82FB /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276751E52804E5A700BC82FB /* GalleryViewController.swift */; };
+		276751E82804E5AE00BC82FB /* GalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276751E72804E5AE00BC82FB /* GalleryViewModel.swift */; };
+		276751EA2804E5B700BC82FB /* GalleryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276751E92804E5B700BC82FB /* GalleryCollectionViewController.swift */; };
+		276751EC2804E73A00BC82FB /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276751EB2804E73A00BC82FB /* TabBarController.swift */; };
 		2773B73527D6D5D800C845DE /* PokemonListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773B73427D6D5D800C845DE /* PokemonListViewController.swift */; };
 		2773B73727D6D5E800C845DE /* PokemonListCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773B73627D6D5E800C845DE /* PokemonListCollectionViewController.swift */; };
 		2773B73B27D6D6A500C845DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773B73A27D6D6A500C845DE /* ViewController.swift */; };
@@ -175,6 +181,12 @@
 		2754FD0527F5F64F00F3092A /* MockBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBundle.swift; sourceTree = "<group>"; };
 		2754FD0727F5F6AD00F3092A /* BundleJSONLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleJSONLoadable.swift; sourceTree = "<group>"; };
 		2754FD0927F5F70700F3092A /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
+		276751E02804E3AD00BC82FB /* CollectionViewCompositionalLayoutFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCompositionalLayoutFactory.swift; sourceTree = "<group>"; };
+		276751E32804E59F00BC82FB /* GalleryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCoordinator.swift; sourceTree = "<group>"; };
+		276751E52804E5A700BC82FB /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		276751E72804E5AE00BC82FB /* GalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewModel.swift; sourceTree = "<group>"; };
+		276751E92804E5B700BC82FB /* GalleryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewController.swift; sourceTree = "<group>"; };
+		276751EB2804E73A00BC82FB /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		2773B73427D6D5D800C845DE /* PokemonListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListViewController.swift; sourceTree = "<group>"; };
 		2773B73627D6D5E800C845DE /* PokemonListCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListCollectionViewController.swift; sourceTree = "<group>"; };
 		2773B73A27D6D6A500C845DE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -294,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				2724B542280397580070B6D8 /* HeaderCollectionViewListCell.swift */,
+				276751EB2804E73A00BC82FB /* TabBarController.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -395,6 +408,25 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
+		276751DF2804E3A000BC82FB /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				276751E02804E3AD00BC82FB /* CollectionViewCompositionalLayoutFactory.swift */,
+			);
+			path = Factories;
+			sourceTree = "<group>";
+		};
+		276751E22804E57C00BC82FB /* Gallery */ = {
+			isa = PBXGroup;
+			children = (
+				276751E32804E59F00BC82FB /* GalleryCoordinator.swift */,
+				276751E52804E5A700BC82FB /* GalleryViewController.swift */,
+				276751E72804E5AE00BC82FB /* GalleryViewModel.swift */,
+				276751E92804E5B700BC82FB /* GalleryCollectionViewController.swift */,
+			);
+			path = Gallery;
+			sourceTree = "<group>";
+		};
 		2773B73027D6D41500C845DE /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -421,8 +453,9 @@
 		2773B73227D6D59B00C845DE /* Contexts */ = {
 			isa = PBXGroup;
 			children = (
-				27876E4527EF7EF600CB8F3A /* Settings */,
+				276751E22804E57C00BC82FB /* Gallery */,
 				2773B73327D6D5AD00C845DE /* Pokemon List */,
+				27876E4527EF7EF600CB8F3A /* Settings */,
 			);
 			path = Contexts;
 			sourceTree = "<group>";
@@ -620,6 +653,7 @@
 				2773B73227D6D59B00C845DE /* Contexts */,
 				27A3691327E77E2C00A837C8 /* Enumerations */,
 				2773B74027D6E20900C845DE /* Extensions */,
+				276751DF2804E3A000BC82FB /* Factories */,
 				2773B74327D8264300C845DE /* Network */,
 				272A161F27E7F62F0057255F /* Protocols */,
 				2773B73127D6D42300C845DE /* Supporting Files */,
@@ -851,6 +885,7 @@
 				2773B74227D6E21500C845DE /* UIViewController.swift in Sources */,
 				27EED02127E94631002FB119 /* CollectionViewFlowLayout.swift in Sources */,
 				27276AF627F50EAF00F890B8 /* PokemonDetailsViewModel.swift in Sources */,
+				276751E42804E59F00BC82FB /* GalleryCoordinator.swift in Sources */,
 				2781D75027FF98DC001CF6CC /* UIFont.swift in Sources */,
 				27EED01D27E945B9002FB119 /* PokemonListCollectionView.swift in Sources */,
 				27876E4D27EF7FAE00CB8F3A /* SettingsViewController.swift in Sources */,
@@ -858,6 +893,7 @@
 				2754FD0127F5F5EB00F3092A /* JSONContent.swift in Sources */,
 				27876E4427EF7C3300CB8F3A /* TabBarCoordinator.swift in Sources */,
 				27276AF427F50EA000F890B8 /* PokemonDetailsViewController.swift in Sources */,
+				276751E62804E5A700BC82FB /* GalleryViewController.swift in Sources */,
 				27276ADB27F4B6AD00F890B8 /* PokemonListHeaderViewModel.swift in Sources */,
 				272A161A27E7F0C30057255F /* Int.swift in Sources */,
 				27A56AC828035FFF00093A4B /* RefinementSection.swift in Sources */,
@@ -895,6 +931,7 @@
 				27A3692B27E7B2E600A837C8 /* UIColor.swift in Sources */,
 				27876E4727EF7F0300CB8F3A /* SettingsCoordinator.swift in Sources */,
 				2724B543280397580070B6D8 /* HeaderCollectionViewListCell.swift in Sources */,
+				276751E12804E3AD00BC82FB /* CollectionViewCompositionalLayoutFactory.swift in Sources */,
 				27276AE727F4C1BD00F890B8 /* NSDirectionalEdgeInsets.swift in Sources */,
 				272A162527E7F6760057255F /* Identifiable.swift in Sources */,
 				27A56ACA2803604700093A4B /* RefinementItemCellViewModelMappable.swift in Sources */,
@@ -911,10 +948,13 @@
 				2724B53D2803934B0070B6D8 /* RefinementCollectionView.swift in Sources */,
 				27A56AD0280374C100093A4B /* RefinementItemCellViewModel.swift in Sources */,
 				27A3692F27E7B88100A837C8 /* Pokemon.swift in Sources */,
+				276751E82804E5AE00BC82FB /* GalleryViewModel.swift in Sources */,
 				27A3691527E77E4800A837C8 /* StringError.swift in Sources */,
 				27BB675827D6D134003098D8 /* AppDelegate.swift in Sources */,
 				2781D74E27FF7DA6001CF6CC /* Localizable.swift in Sources */,
 				2781D74B27FF7C3B001CF6CC /* PokemonListGroupViewModel.swift in Sources */,
+				276751EA2804E5B700BC82FB /* GalleryCollectionViewController.swift in Sources */,
+				276751EC2804E73A00BC82FB /* TabBarController.swift in Sources */,
 				27876E3C27EF782B00CB8F3A /* AppCoordinator.swift in Sources */,
 				272A160E27E7CE0A0057255F /* NetworkManifest.swift in Sources */,
 				27A3691027E77DB000A837C8 /* NavigationBarAppearance.swift in Sources */,

@@ -15,7 +15,8 @@ extension UIImage {
 
 extension UIImage {
     enum TabBar {
-        static let magazine: UIImage = UIImage(systemName: "magazine")!
-        static let gear: UIImage = UIImage(systemName: "gear")!
+        static let magazine: UIImage = .init(systemName: "magazine")!
+        static let gear: UIImage = .init(systemName: "gear")!
+        static let photo: UIImage = .init(systemName: "photo.on.rectangle.angled")!
     }
 }
