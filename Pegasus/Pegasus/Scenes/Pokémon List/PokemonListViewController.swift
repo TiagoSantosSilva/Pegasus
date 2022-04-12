@@ -12,7 +12,11 @@ protocol PokemonListViewControllerDelegate: AnyObject {
     func viewController(_ viewController: PokemonListViewController, didSelect pokemon: PokemonListCellViewModel)
 }
 
-final class PokemonListViewController: ViewController {
+protocol PokemonListViewControllable: AnyObject {
+    func applyRefinement(with choices: RefinementChoices)
+}
+
+final class PokemonListViewController: ViewController, PokemonListViewControllable {
 
     // MARK: - Properties
 
@@ -43,6 +47,13 @@ final class PokemonListViewController: ViewController {
         super.viewDidLoad()
         setupSubviews()
         setupData()
+    }
+
+    // MARK: - Functions
+
+    func applyRefinement(with choices: RefinementChoices) {
+        let groups = viewModel.refine(with: choices)
+        collectionViewController.update(with: groups)
     }
 
     // MARK: - Setups

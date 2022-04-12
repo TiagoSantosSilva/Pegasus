@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol RefinementCoordinatorDelegate: AnyObject {
+    func coordinator(_ coordinator: RefinementCoordinator, didDismissWith choices: RefinementChoices)
+}
+
 final class RefinementCoordinator: Coordinator {
 
     // MARK: - Properties
+
+    weak var delegate: RefinementCoordinatorDelegate?
 
     private let dependencies: DependencyContainable
     private let navigator: Navigatable
@@ -36,7 +42,8 @@ final class RefinementCoordinator: Coordinator {
 // MARK: - RefinementViewControllerDelegate
 
 extension RefinementCoordinator: RefinementViewControllerDelegate {
-    func viewController(_ viewController: RefinementViewController, didTap doneButton: UIBarButtonItem) {
+    func viewController(_ viewController: RefinementViewController, didTap doneButton: UIBarButtonItem, with choices: RefinementChoices) {
+        delegate?.coordinator(self, didDismissWith: choices)
         navigator.dismiss()
         end()
     }

@@ -31,7 +31,7 @@ final class TabBarCoordinator: Coordinator {
         let settingsCoordinator = SettingsCoordinator(dependencies: dependencies)
         let viewControllers = ([listCoordinator, galleryCoordinator, settingsCoordinator] as [ViewControllerRepresentable]).map { $0.viewController }
 
-        let items: [UITabBarItem] = [.init(title: Localizable.pegasus, image: .TabBar.magazine, selectedImage: .TabBar.magazine),
+        let items: [UITabBarItem] = [.init(title: Localizable.pegasus, image: .TabBar.display, selectedImage: .TabBar.display),
                                      .init(title: Localizable.gallery, image: .TabBar.photo, selectedImage: .TabBar.photo),
                                      .init(title: Localizable.settings, image: .TabBar.gear, selectedImage: .TabBar.gear)]
 

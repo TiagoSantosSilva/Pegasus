@@ -13,13 +13,15 @@ final class RefinementItemCellViewModel: Hashable {
 
     let uuid: UUID = UUID()
     let name: String
+    let type: Any.Type
     var isSelected: Bool
 
     // MARK: - Initialization
 
-    init(name: String, isSelected: Bool) {
+    init(name: String, type: Any.Type, isSelected: Bool) {
         self.name = name
         self.isSelected = isSelected
+        self.type = type
     }
 
     // MARK: - Functions

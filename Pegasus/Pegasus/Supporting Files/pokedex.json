@@ -1,6 +1,7 @@
 [
     {
         "name":"Kanto",
+        "generation": 1,
         "pokemon":[
             {
                 "number":"001",
@@ -610,6 +611,7 @@
     },
     {
         "name":"Johto",
+        "generation": 2,
         "pokemon":[
             {
                 "number":"152",
@@ -1015,6 +1017,7 @@
     },
     {
         "name":"Hoenn",
+        "generation": 3,
         "pokemon":[
             {
                 "number":"252",
@@ -1560,6 +1563,7 @@
     },
     {
         "name":"Sinnoh",
+        "generation": 4,
         "pokemon":[
             {
                 "number":"387",
@@ -1997,6 +2001,7 @@
     },
     {
         "name":"Unova",
+        "generation": 5,
         "pokemon":[
             {
                 "number":"495",
@@ -2622,6 +2627,7 @@
     },
     {
         "name":"Kalos",
+        "generation": 6,
         "pokemon":[
             {
                 "number":"650",
@@ -2915,6 +2921,7 @@
     },
     {
         "name":"Alola",
+        "generation": 7,
         "pokemon":[
             {
                 "number":"722",
@@ -3272,6 +3279,7 @@
     },
     {
         "name":"Galar",
+        "generation": 8,
         "pokemon":[
             {
                 "number":"810",
@@ -3633,6 +3641,7 @@
     },
     {
         "name":"Spain",
+        "generation": 9,
         "pokemon":[
 
         ]

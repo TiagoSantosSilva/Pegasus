@@ -21,6 +21,24 @@ extension RefinementVariant {
     }
 }
 
+enum RefinementOrder: String, CaseIterable, RefinementItemCellViewModelMappable {
+    case nameAscending = "Name Ascending"
+    case nameDescending = "Name Descending"
+    case numberAscending = "Number Ascending"
+    case numberDescending = "Number Descending"
+}
+
+extension RefinementOrder {
+    var isSelected: Bool {
+        switch self {
+        case .numberAscending: return true
+        case .numberDescending,
+                .nameAscending,
+                .nameDescending: return false
+        }
+    }
+}
+
 enum RefinementRegion: String, CaseIterable, RefinementItemCellViewModelMappable {
     case kanto
     case johto
@@ -48,8 +66,8 @@ extension RefinementAvailability {
     var isSelected: Bool {
         switch self {
         case .all: return true
-        case .available: return false
-        case .unavailable: return false
+        case .available,
+                .unavailable: return false
         }
     }
 }

@@ -17,6 +17,7 @@ final class PokemonListCoordinator: Coordinator, ViewControllerRepresentable {
 
     private let dependencies: DependencyContainable
     private let navigator: Navigator
+    private weak var listViewController: PokemonListViewControllable?
 
     // MARK: - Initialization
 
@@ -24,12 +25,18 @@ final class PokemonListCoordinator: Coordinator, ViewControllerRepresentable {
         let collectionViewController = PokemonListCollectionViewController()
         let searchController = PokemonListSearchController(searchResultsController: nil)
         let loader = PokemonListLoader()
+        let orderStrategy = PokemonListOrderStrategy()
         let searchStrategy = PokemonListSearchStrategy()
-        let viewModel = PokemonListViewModel(loader: loader, searchStrategy: searchStrategy)
-        let viewController = PokemonListViewController(collectionViewController: collectionViewController, searchController: searchController, viewModel: viewModel)
+        let viewModel = PokemonListViewModel(loader: loader,
+                                             orderStrategy: orderStrategy,
+                                             searchStrategy: searchStrategy)
+        let viewController = PokemonListViewController(collectionViewController: collectionViewController,
+                                                       searchController: searchController,
+                                                       viewModel: viewModel)
         let navigationController = NavigationController(rootViewController: viewController)
         self.dependencies = dependencies
         self.navigator = Navigator(navigationController: navigationController)
+        self.listViewController = viewController
         super.init()
         viewController.delegate = self
     }
@@ -39,14 +46,24 @@ final class PokemonListCoordinator: Coordinator, ViewControllerRepresentable {
     func start() { }
 }
 
-// MARK: - Pokemon List View Controller Delegate
+// MARK: - PokemonListViewControllerDelegate
 
 extension PokemonListCoordinator: PokemonListViewControllerDelegate {
     func viewController(_ viewController: PokemonListViewController, didTap refinementButton: UIBarButtonItem) {
-        initiate(coordinator: RefinementCoordinator(dependencies: dependencies, navigator: navigator))
+        let coordinator = RefinementCoordinator(dependencies: dependencies, navigator: navigator)
+        coordinator.delegate = self
+        initiate(coordinator: coordinator)
     }
 
     func viewController(_ viewController: PokemonListViewController, didSelect pokemon: PokemonListCellViewModel) {
         initiate(coordinator: PokemonDetailsCoordinator(dependencies: dependencies, navigator: navigator, pokemon: pokemon))
+    }
+}
+
+// MARK: - RefinementCoordinatorDelegate
+
+extension PokemonListCoordinator: RefinementCoordinatorDelegate {
+    func coordinator(_ coordinator: RefinementCoordinator, didDismissWith choices: RefinementChoices) {
+        listViewController?.applyRefinement(with: choices)
     }
 }

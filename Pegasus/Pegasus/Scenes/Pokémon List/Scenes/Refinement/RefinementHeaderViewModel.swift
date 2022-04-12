@@ -13,6 +13,7 @@ struct RefinementHeaderViewModel: Hashable {
 
     let uuid: UUID = UUID()
     let name: String
+    let type: RefinementSection
     let isMultipleSelectable: Bool
     let items: [RefinementItemCellViewModel]
 

@@ -8,7 +8,9 @@
 import UIKit
 
 protocol RefinementViewControllerDelegate: AnyObject {
-    func viewController(_ viewController: RefinementViewController, didTap doneButton: UIBarButtonItem)
+    func viewController(_ viewController: RefinementViewController,
+                        didTap doneButton: UIBarButtonItem,
+                        with choices: RefinementChoices)
 }
 
 final class RefinementViewController: ViewController {
@@ -54,7 +56,7 @@ final class RefinementViewController: ViewController {
     // MARK: - Selectors
 
     @objc private func doneButtonTapped(_ sender: UIBarButtonItem) {
-        delegate?.viewController(self, didTap: sender)
+        delegate?.viewController(self, didTap: sender, with: viewModel.modeledChoices())
     }
 }
 

@@ -19,7 +19,7 @@ final class PokemonListHeaderViewModelTests: XCTestCase {
 
         // When
 
-        let viewModel = PokemonListHeaderViewModel(name: region.name, pokemonCount: 151)
+        let viewModel = PokemonListHeaderViewModel(name: region.name, generation: region.generation, pokemonCount: 151)
 
         // Then
 
@@ -33,7 +33,7 @@ final class PokemonListHeaderViewModelTests: XCTestCase {
 
         // When
 
-        let viewModel = PokemonListHeaderViewModel(name: region.name, pokemonCount: 100)
+        let viewModel = PokemonListHeaderViewModel(name: region.name, generation: region.generation, pokemonCount: 100)
 
         // Then
 
@@ -51,8 +51,8 @@ private extension PokemonListHeaderViewModelTests {
         }
 
         enum Regions {
-            static let kanto: PokedexRegion = .init(name: "Kanto", pokemon: Array(repeating: PokedexPokemon(number: "001", name: "Bulbasaur"), count: Count.kanto))
-            static let johto: PokedexRegion = .init(name: "Johto", pokemon: Array(repeating: PokedexPokemon(number: "152", name: "Chikorita"), count: Count.johto))
+            static let kanto: PokedexRegion = .init(generation: 1, name: "Kanto", pokemon: Array(repeating: PokedexPokemon(number: "001", name: "Bulbasaur"), count: Count.kanto))
+            static let johto: PokedexRegion = .init(generation: 2, name: "Johto", pokemon: Array(repeating: PokedexPokemon(number: "152", name: "Chikorita"), count: Count.johto))
         }
     }
 

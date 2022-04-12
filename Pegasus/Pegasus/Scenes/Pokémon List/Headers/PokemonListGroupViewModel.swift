@@ -12,12 +12,12 @@ final class PokemonListGroupViewModel: Hashable {
     // MARK: - Properties
 
     let uuid: UUID = UUID()
-    let region: PokemonListHeaderViewModel
+    let region: PokemonListHeaderViewModel?
     let pokemon: [PokemonListCellViewModel]
 
     // MARK: - Initialization
 
-    init(region: PokemonListHeaderViewModel, pokemon: [PokemonListCellViewModel]) {
+    init(region: PokemonListHeaderViewModel?, pokemon: [PokemonListCellViewModel]) {
         self.region = region
         self.pokemon = pokemon
     }

@@ -28,11 +28,13 @@ final class PokemonListCollectionViewController: CollectionViewController {
     // MARK: - Initialization
 
     override init() {
-        let layout = PokemonListCollectionViewLayout()
+        let proxy = PokemonListCollectionViewLayoutProxy()
+        let layout = proxy.layout
         let collectionView = PokemonListCollectionView(frame: .zero, collectionViewLayout: layout)
         self.dataSource = DataSource(collectionView: collectionView, cellProvider: Self.cellProvider)
         super.init(collectionViewLayout: layout)
         self.collectionView = collectionView
+        proxy.delegate = self
         setupController()
     }
 
@@ -53,9 +55,9 @@ final class PokemonListCollectionViewController: CollectionViewController {
     // MARK: - Setups
 
     private func setupController() {
-        let kind = PokemonListCollectionViewLayout.ElementKinds.header
+        let kind = PokemonListCollectionViewLayoutProxy.ElementKinds.header
         let headerRegistration = UICollectionView.SupplementaryRegistration<PokemonListHeader>(elementKind: kind) { [unowned self] header, _, indexPath in
-            let region = self.dataSource.snapshot().sectionIdentifiers[indexPath.section].region
+            guard let region = self.dataSource.snapshot().sectionIdentifiers[indexPath.section].region else { return }
             header.configure(with: region)
         }
 
@@ -84,5 +86,13 @@ final class PokemonListCollectionViewController: CollectionViewController {
 extension PokemonListCollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.collectionViewController(self, didSelectItemAt: indexPath)
+    }
+}
+
+// MARK: -
+
+extension PokemonListCollectionViewController: PokemonListCollectionViewLayoutProxyDelegate {
+    func layout(_ layout: PokemonListCollectionViewLayoutProxy, shouldHaveHeaderAt section: Int) -> Bool {
+        section > 0 
     }
 }

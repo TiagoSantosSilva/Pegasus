@@ -34,8 +34,9 @@ final class PokemonListSearchStrategy: PokemonListSearchStrategyable {
         let groups: [PokemonListGroupViewModel] = groups.compactMap {
             let pokemon = searchClosure($0.pokemon, text)
             guard !pokemon.isEmpty else { return nil }
-            let region = PokemonListHeaderViewModel(name: $0.region.name, pokemonCount: pokemon.count)
-            return PokemonListGroupViewModel(region: region, pokemon: pokemon)
+            guard let region = $0.region else { return PokemonListGroupViewModel(region: nil, pokemon: pokemon) }
+            let headerViewModel = PokemonListHeaderViewModel(name: region.name, number: region.number, pokemonCount: pokemon.count)
+            return PokemonListGroupViewModel(region: headerViewModel, pokemon: pokemon)
         }
 
         return groups

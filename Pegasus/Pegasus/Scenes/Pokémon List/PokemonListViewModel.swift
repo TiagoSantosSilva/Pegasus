@@ -16,6 +16,7 @@ protocol PokemonListViewModelContentable: AnyObject {
 protocol PokemonListViewModelLoadable {
     func loadRegions(completion: @escaping (PokemonListResult) -> Void)
     func search(for text: String) -> [PokemonListGroupViewModel]
+    func refine(with choices: RefinementChoices) -> [PokemonListGroupViewModel]
 }
 
 enum PokemonListResult {
@@ -32,14 +33,18 @@ final class PokemonListViewModel: PokemonListViewModelable {
     // MARK: - Properties
 
     private let loader: PokemonListLoadable
+    private let orderStrategy: PokemonListOrderStrategyable
     private let searchStrategy: PokemonListSearchStrategyable
 
     private var allGroups: [PokemonListGroupViewModel] = []
 
     // MARK: - Initialization
 
-    init(loader: PokemonListLoadable, searchStrategy: PokemonListSearchStrategyable) {
+    init(loader: PokemonListLoadable,
+         orderStrategy: PokemonListOrderStrategyable,
+         searchStrategy: PokemonListSearchStrategyable) {
         self.loader = loader
+        self.orderStrategy = orderStrategy
         self.searchStrategy = searchStrategy
     }
 
@@ -65,12 +70,17 @@ final class PokemonListViewModel: PokemonListViewModelable {
         return groups
     }
 
+    func refine(with choices: RefinementChoices) -> [PokemonListGroupViewModel] {
+        groups = orderStrategy.order(groups: groups, by: choices.order)
+        return groups
+    }
+
     // MARK: - Private Functions
 
     private func groups(for regions: [PokedexRegion]) -> [PokemonListGroupViewModel] {
         let filteredRegions = regions.filter { !$0.pokemon.isEmpty }
         return filteredRegions.map {
-            let region = PokemonListHeaderViewModel(name: $0.name, pokemonCount: $0.pokemon.count)
+            let region = PokemonListHeaderViewModel(name: $0.name, number: $0.generation, pokemonCount: $0.pokemon.count)
             let pokemon = $0.pokemon.map { PokemonListCellViewModel(number: $0.number, name: $0.name) }
             return PokemonListGroupViewModel(region: region, pokemon: pokemon)
         }

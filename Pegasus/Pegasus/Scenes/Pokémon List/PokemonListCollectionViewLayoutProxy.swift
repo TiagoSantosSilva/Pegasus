@@ -1,5 +1,5 @@
 //
-//  PokemonListCollectionViewLayout.swift
+//  PokemonListCollectionViewLayoutProxy.swift
 //  Pegasus
 //
 //  Created by Tiago on 21/03/2022.
@@ -7,17 +7,26 @@
 
 import UIKit
 
-final class PokemonListCollectionViewLayout: CollectionViewCompositionalLayout {
+protocol PokemonListCollectionViewLayoutProxyDelegate: AnyObject {
+    func layout(_ layout: PokemonListCollectionViewLayoutProxy, shouldHaveHeaderAt section: Int) -> Bool
+}
 
-    // MARK: - Initialization
+final class PokemonListCollectionViewLayoutProxy {
 
-    init() {
-        super.init(section: Self.section())
-    }
+    // MARK: - Properties
+
+    weak var delegate: PokemonListCollectionViewLayoutProxyDelegate?
+
+    lazy var layout: UICollectionViewCompositionalLayout = {
+        UICollectionViewCompositionalLayout { section, _ in
+            print("🤣🤣")
+            return self.layoutSection(at: section)
+        }
+    }()
 
     // MARK: - Functions
 
-    private static func section() -> NSCollectionLayoutSection {
+    private func layoutSection(at section: Int) -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: Layout.Item.width,
                                               heightDimension: Layout.Item.height)
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -28,22 +37,26 @@ final class PokemonListCollectionViewLayout: CollectionViewCompositionalLayout {
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                        subitems: [item])
 
+        let layoutSection = NSCollectionLayoutSection(group: group)
+        layoutSection.contentInsets = NSDirectionalEdgeInsets(withEqualValue: Layout.Section.contentInset)
+        layoutSection.boundarySupplementaryItems = boundarySupplementaryItems(at: section)
+        return layoutSection
+    }
+
+    private func boundarySupplementaryItems(at section: Int) -> [NSCollectionLayoutBoundarySupplementaryItem] {
+        guard let shouldHaveHeader = delegate?.layout(self, shouldHaveHeaderAt: section), shouldHaveHeader else { return [] }
         let header = NSCollectionLayoutSize(widthDimension: Layout.Header.width,
                                             heightDimension: Layout.Header.height)
         let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: header,
                                                                         elementKind: ElementKinds.header,
                                                                         alignment: .top)
-
-        let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(withEqualValue: Layout.Section.contentInset)
-        section.boundarySupplementaryItems = [sectionHeader]
-        return section
+        return [sectionHeader]
     }
 }
 
 // MARK: - Element Kinds
 
-extension PokemonListCollectionViewLayout {
+extension PokemonListCollectionViewLayoutProxy {
     enum ElementKinds {
         static let header: String = "pokemon-list-header-kind"
     }
@@ -51,7 +64,7 @@ extension PokemonListCollectionViewLayout {
 
 // MARK: - Constants
 
-private extension PokemonListCollectionViewLayout {
+private extension PokemonListCollectionViewLayoutProxy {
     enum Layout {
         enum Item {
             static let width: NSCollectionLayoutDimension = .fractionalWidth(1/3)

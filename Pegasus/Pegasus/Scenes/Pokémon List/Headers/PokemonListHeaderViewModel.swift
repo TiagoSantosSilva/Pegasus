@@ -15,16 +15,18 @@ final class PokemonListHeaderViewModel: Hashable {
 
     let title: NSAttributedString
     let name: String
+    let number: Int
 
     // MARK: - Initialization
 
-    init(name: String, pokemonCount: Int) {
+    init(name: String, number: Int, pokemonCount: Int) {
         let string = NSMutableAttributedString(string: name, attributes: PokemonListHaderViewModelAttributer.nameAttributes)
         let countString = NSAttributedString(string: PokemonListHeaderStringFormatter.format(count: pokemonCount),
                                              attributes: PokemonListHaderViewModelAttributer.countAttributes)
         string.append(countString)
 
         self.name = name
+        self.number = number
         self.title = string
     }
 

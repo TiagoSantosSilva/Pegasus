@@ -15,6 +15,6 @@ protocol RefinementItemCellViewModelMappable: CaseIterable, RawRepresentable whe
 
 extension RefinementItemCellViewModelMappable {
     static var refinementItems: [RefinementItemCellViewModel] {
-        allCases.map { RefinementItemCellViewModel(name: $0.rawValue.firstLetterCapitalized, isSelected: $0.isSelected) }
+        allCases.map { RefinementItemCellViewModel(name: $0.rawValue.firstLetterCapitalized, type: Self.self, isSelected: $0.isSelected) }
     }
 }

@@ -12,12 +12,14 @@ struct PokedexRegion: Hashable, Decodable {
     // MARK: - Properties
 
     let uuid: UUID = UUID()
+    let generation: Int
     let name: String
     let pokemon: [PokedexPokemon]
 
     // MARK: - Coding Keys
 
     private enum CodingKeys: String, CodingKey {
+        case generation
         case name
         case pokemon
     }
