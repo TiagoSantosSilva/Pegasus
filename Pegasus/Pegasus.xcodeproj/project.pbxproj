@@ -38,6 +38,8 @@
 		272A162127E7F6460057255F /* CellDequeuable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272A162027E7F6460057255F /* CellDequeuable.swift */; };
 		272A162327E7F65D0057255F /* CellRegistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272A162227E7F65D0057255F /* CellRegistable.swift */; };
 		272A162527E7F6760057255F /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272A162427E7F6760057255F /* Identifiable.swift */; };
+		272B19F0280CCF8800977AFE /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272B19EF280CCF8800977AFE /* Sequence.swift */; };
+		272B19F2280CD04800977AFE /* PokemonListRegionStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272B19F1280CD04800977AFE /* PokemonListRegionStrategy.swift */; };
 		2754FCEF27F5E8C700F3092A /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754FCEE27F5E8C700F3092A /* SearchController.swift */; };
 		2754FCF227F5EABF00F3092A /* PokemonListHeaderStringFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754FCF127F5EABF00F3092A /* PokemonListHeaderStringFormatterTests.swift */; };
 		2754FCF427F5EC5200F3092A /* PokemonListHeaderViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754FCF327F5EC5200F3092A /* PokemonListHeaderViewModelTests.swift */; };
@@ -171,6 +173,8 @@
 		272A162027E7F6460057255F /* CellDequeuable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellDequeuable.swift; sourceTree = "<group>"; };
 		272A162227E7F65D0057255F /* CellRegistable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellRegistable.swift; sourceTree = "<group>"; };
 		272A162427E7F6760057255F /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
+		272B19EF280CCF8800977AFE /* Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
+		272B19F1280CD04800977AFE /* PokemonListRegionStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListRegionStrategy.swift; sourceTree = "<group>"; };
 		2754FCEE27F5E8C700F3092A /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		2754FCF127F5EABF00F3092A /* PokemonListHeaderStringFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListHeaderStringFormatterTests.swift; sourceTree = "<group>"; };
 		2754FCF327F5EC5200F3092A /* PokemonListHeaderViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListHeaderViewModelTests.swift; sourceTree = "<group>"; };
@@ -515,6 +519,7 @@
 				2781FCBB27F0CC190060EF60 /* UIImage+System.swift */,
 				2781FCBD27F0E01E0060EF60 /* UIView.swift */,
 				2773B74127D6E21500C845DE /* UIViewController.swift */,
+				272B19EF280CCF8800977AFE /* Sequence.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -716,6 +721,7 @@
 			children = (
 				2781D74827FE5721001CF6CC /* PokemonListSearchStrategy.swift */,
 				27F74CF2280607B3002DD56A /* PokemonListOrderStrategy.swift */,
+				272B19F1280CD04800977AFE /* PokemonListRegionStrategy.swift */,
 			);
 			path = Strategies;
 			sourceTree = "<group>";
@@ -956,12 +962,14 @@
 				27276AEF27F4CBB500F890B8 /* RefinementViewModel.swift in Sources */,
 				2773B73D27D6D7F100C845DE /* PokemonListCoordinator.swift in Sources */,
 				2773B74727D826A900C845DE /* NetworkEngine.swift in Sources */,
+				272B19F0280CCF8800977AFE /* Sequence.swift in Sources */,
 				2781FCC027F0E67B0060EF60 /* HTTPHeader.swift in Sources */,
 				2724B53D2803934B0070B6D8 /* RefinementCollectionView.swift in Sources */,
 				27A56AD0280374C100093A4B /* RefinementItemCellViewModel.swift in Sources */,
 				27A3692F27E7B88100A837C8 /* Pokemon.swift in Sources */,
 				276751E82804E5AE00BC82FB /* GalleryViewModel.swift in Sources */,
 				27A3691527E77E4800A837C8 /* StringError.swift in Sources */,
+				272B19F2280CD04800977AFE /* PokemonListRegionStrategy.swift in Sources */,
 				27BB675827D6D134003098D8 /* AppDelegate.swift in Sources */,
 				2781D74E27FF7DA6001CF6CC /* Localizable.swift in Sources */,
 				2781D74B27FF7C3B001CF6CC /* PokemonListGroupViewModel.swift in Sources */,

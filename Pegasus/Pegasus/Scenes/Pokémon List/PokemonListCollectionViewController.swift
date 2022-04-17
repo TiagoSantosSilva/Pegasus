@@ -9,6 +9,7 @@ import UIKit
 
 protocol PokemonListCollectionViewControllerDelegate: AnyObject {
     func collectionViewController(_ collectionViewController: PokemonListCollectionViewController, didSelectItemAt indexPath: IndexPath)
+    func collectionViewController(_ collectionViewController: PokemonListCollectionViewController, shouldHaveHeaderAt section: Int) -> Bool
 }
 
 final class PokemonListCollectionViewController: CollectionViewController {
@@ -89,10 +90,10 @@ extension PokemonListCollectionViewController {
     }
 }
 
-// MARK: -
+// MARK: - PokemonListCollectionViewLayoutProxyDelegate
 
 extension PokemonListCollectionViewController: PokemonListCollectionViewLayoutProxyDelegate {
     func layout(_ layout: PokemonListCollectionViewLayoutProxy, shouldHaveHeaderAt section: Int) -> Bool {
-        section > 0 
+        delegate?.collectionViewController(self, shouldHaveHeaderAt: section) ?? false
     }
 }

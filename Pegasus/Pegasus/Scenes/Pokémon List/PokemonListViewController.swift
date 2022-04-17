@@ -102,6 +102,10 @@ extension PokemonListViewController: PokemonListCollectionViewControllerDelegate
         let pokemon = viewModel.groups[indexPath.section].pokemon[indexPath.row]
         delegate?.viewController(self, didSelect: pokemon)
     }
+
+    func collectionViewController(_ collectionViewController: PokemonListCollectionViewController, shouldHaveHeaderAt section: Int) -> Bool {
+        viewModel.isOrderingForNumber
+    }
 }
 
 // MARK: - UI Search Results Updating

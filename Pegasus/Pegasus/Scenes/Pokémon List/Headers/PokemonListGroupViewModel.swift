@@ -29,6 +29,6 @@ final class PokemonListGroupViewModel: Hashable {
     }
     
     static func == (lhs: PokemonListGroupViewModel, rhs: PokemonListGroupViewModel) -> Bool {
-        return lhs.uuid == rhs.uuid
+        lhs.uuid == rhs.uuid
     }
 }

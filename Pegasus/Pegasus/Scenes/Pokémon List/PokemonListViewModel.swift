@@ -14,6 +14,8 @@ protocol PokemonListViewModelContentable: AnyObject {
 }
 
 protocol PokemonListViewModelLoadable {
+    var isOrderingForNumber: Bool { get }
+
     func loadRegions(completion: @escaping (PokemonListResult) -> Void)
     func search(for text: String) -> [PokemonListGroupViewModel]
     func refine(with choices: RefinementChoices) -> [PokemonListGroupViewModel]
@@ -28,12 +30,14 @@ final class PokemonListViewModel: PokemonListViewModelable {
 
     // MARK: - Internal
 
-    var groups: [PokemonListGroupViewModel] = []
+    private(set) var groups: [PokemonListGroupViewModel] = []
+    private(set) var isOrderingForNumber: Bool = true
 
     // MARK: - Properties
 
     private let loader: PokemonListLoadable
     private let orderStrategy: PokemonListOrderStrategyable
+    private let regionStrategy: PokemonListRegionStrategiable
     private let searchStrategy: PokemonListSearchStrategyable
 
     private var allGroups: [PokemonListGroupViewModel] = []
@@ -42,9 +46,11 @@ final class PokemonListViewModel: PokemonListViewModelable {
 
     init(loader: PokemonListLoadable,
          orderStrategy: PokemonListOrderStrategyable,
+         regionStrategy: PokemonListRegionStrategiable,
          searchStrategy: PokemonListSearchStrategyable) {
         self.loader = loader
         self.orderStrategy = orderStrategy
+        self.regionStrategy = regionStrategy
         self.searchStrategy = searchStrategy
     }
 
@@ -71,11 +77,18 @@ final class PokemonListViewModel: PokemonListViewModelable {
     }
 
     func refine(with choices: RefinementChoices) -> [PokemonListGroupViewModel] {
-        groups = orderStrategy.order(groups: groups, by: choices.order)
+        groups = orderStrategy.order(groups: allGroups, by: choices.order)
+        assertVariables(for: choices.order)
+
+        groups = regionStrategy.regions(in: groups, using: choices.regions)
         return groups
     }
 
     // MARK: - Private Functions
+
+    private func assertVariables(for order: RefinementOrder) {
+        isOrderingForNumber = order == .numberAscending || order == .numberDescending
+    }
 
     private func groups(for regions: [PokedexRegion]) -> [PokemonListGroupViewModel] {
         let filteredRegions = regions.filter { !$0.pokemon.isEmpty }

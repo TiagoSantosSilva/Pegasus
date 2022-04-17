@@ -34,7 +34,9 @@ final class PokemonListCellViewModel: Hashable {
 
     static func image(for number: String, variant: PokemonListCellViewModelImageVariant) -> UIImage {
         let numberAsInt = Int(number) ?? Constants.defaultNumber
-        let name = String(describing: numberAsInt).appending("-").appending(variant.rawValue)
+        let name = String(describing: numberAsInt)
+            .appending(String.dash)
+            .appending(variant.rawValue)
         return UIImage(named: name) ?? UIImage(named: String(describing: Constants.defaultNumber))!
     }
 

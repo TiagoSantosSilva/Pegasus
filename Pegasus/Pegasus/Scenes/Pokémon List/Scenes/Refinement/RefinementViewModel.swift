@@ -55,11 +55,15 @@ final class RefinementViewModel: RefinementViewModelable {
         let item = order.items.firstIndex { $0.isSelected }!
         let orderChoice = RefinementOrder.allCases[item]
 
-        dump(orderChoice)
+        let regions = sections.first { $0.type == .region }!
+        let regionItems = regions.items.filter { $0.isSelected }
+        let regionChoices = regionItems.compactMap { RefinementRegion(rawValue: $0.name.lowercased()) }
+
+        dump(regionChoices)
 
         return RefinementChoices(order: orderChoice,
                                  availability: .all,
                                  variant: .shiny,
-                                 regions: [])
+                                 regions: regionChoices)
     }
 }

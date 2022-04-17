@@ -26,9 +26,11 @@ final class PokemonListCoordinator: Coordinator, ViewControllerRepresentable {
         let searchController = PokemonListSearchController(searchResultsController: nil)
         let loader = PokemonListLoader()
         let orderStrategy = PokemonListOrderStrategy()
+        let regionStrategy = PokemonListRegionStrategy()
         let searchStrategy = PokemonListSearchStrategy()
         let viewModel = PokemonListViewModel(loader: loader,
                                              orderStrategy: orderStrategy,
+                                             regionStrategy: regionStrategy,
                                              searchStrategy: searchStrategy)
         let viewController = PokemonListViewController(collectionViewController: collectionViewController,
                                                        searchController: searchController,

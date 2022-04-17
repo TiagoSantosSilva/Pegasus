@@ -9,6 +9,7 @@ import Foundation
 
 extension String {
     static let empty: String = ""
+    static let dash: String = "-"
 
     var firstLetterCapitalized: String {
         prefix(1).capitalized + dropFirst()

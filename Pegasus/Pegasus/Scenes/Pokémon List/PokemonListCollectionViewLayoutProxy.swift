@@ -19,7 +19,6 @@ final class PokemonListCollectionViewLayoutProxy {
 
     lazy var layout: UICollectionViewCompositionalLayout = {
         UICollectionViewCompositionalLayout { section, _ in
-            print("🤣🤣")
             return self.layoutSection(at: section)
         }
     }()
