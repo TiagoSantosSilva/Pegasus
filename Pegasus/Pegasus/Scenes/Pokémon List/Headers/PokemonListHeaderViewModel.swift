@@ -40,3 +40,7 @@ final class PokemonListHeaderViewModel: Hashable {
         hasher.combine(uuid)
     }
 }
+
+extension PokemonListHeaderViewModel {
+    static let none: PokemonListHeaderViewModel = .init(name: .empty, number: 0, pokemonCount: 0)
+}

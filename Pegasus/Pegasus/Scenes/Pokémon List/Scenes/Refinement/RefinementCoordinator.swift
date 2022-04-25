@@ -19,18 +19,22 @@ final class RefinementCoordinator: Coordinator {
 
     private let dependencies: DependencyContainable
     private let navigator: Navigatable
+    private let choices: RefinementChoices
+    private let defaultChoices: RefinementChoices
 
     // MARK: - Initialization
 
-    init(dependencies: DependencyContainable, navigator: Navigatable) {
+    init(dependencies: DependencyContainable, navigator: Navigatable, choices: RefinementChoices, defaultChoices: RefinementChoices) {
         self.dependencies = dependencies
         self.navigator = navigator
+        self.choices = choices
+        self.defaultChoices = defaultChoices
     }
 
     // MARK: - Coordinator
 
     func start() {
-        let viewModel = RefinementViewModel(dependencies: dependencies)
+        let viewModel = RefinementViewModel(dependencies: dependencies, choices: choices, defaultChoices: defaultChoices)
         let collectionViewController = RefinementCollectionViewController()
         let viewController = RefinementViewController(collectionViewController: collectionViewController, viewModel: viewModel)
         let navigationController = NavigationController(rootViewController: viewController)

@@ -42,7 +42,7 @@ final class RefinementCollectionViewController: CollectionViewController {
         var dataSourceSnapshot = Snapshot()
         dataSourceSnapshot.appendSections(sections)
         sections.forEach { dataSourceSnapshot.appendItems($0.items, toSection: $0) }
-        dataSource.apply(dataSourceSnapshot, animatingDifferences: true)
+        dataSource.apply(dataSourceSnapshot, animatingDifferences: false)
     }
 
     func update(items: [RefinementItemCellViewModel]) {

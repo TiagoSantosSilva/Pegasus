@@ -14,7 +14,10 @@ protocol PokemonListViewModelContentable: AnyObject {
 }
 
 protocol PokemonListViewModelLoadable {
+    var isApplyingRefinement: Bool { get }
     var isOrderingForNumber: Bool { get }
+    var defaultChoices: RefinementChoices { get }
+    var refinementChoices: RefinementChoices { get }
 
     func loadRegions(completion: @escaping (PokemonListResult) -> Void)
     func search(for text: String) -> [PokemonListGroupViewModel]
@@ -30,8 +33,16 @@ final class PokemonListViewModel: PokemonListViewModelable {
 
     // MARK: - Internal
 
+    let defaultChoices: RefinementChoices = Constants.Defaults.refinementChoices
+
+    var isApplyingRefinement: Bool {
+        refinementChoices != Constants.Defaults.refinementChoices
+    }
+
     private(set) var groups: [PokemonListGroupViewModel] = []
     private(set) var isOrderingForNumber: Bool = true
+    private(set) var refinementChoices: RefinementChoices = Constants.Defaults.refinementChoices
+    private(set) var searchedText: String = .empty
 
     // MARK: - Properties
 
@@ -41,6 +52,7 @@ final class PokemonListViewModel: PokemonListViewModelable {
     private let searchStrategy: PokemonListSearchStrategyable
 
     private var allGroups: [PokemonListGroupViewModel] = []
+    private lazy var nonSearchedGroups: [PokemonListGroupViewModel] = allGroups
 
     // MARK: - Initialization
 
@@ -71,16 +83,20 @@ final class PokemonListViewModel: PokemonListViewModelable {
         }
     }
 
-    func search(for text: String) -> [PokemonListGroupViewModel] {
-        groups = searchStrategy.search(for: text, in: allGroups)
-        return groups
-    }
-
     func refine(with choices: RefinementChoices) -> [PokemonListGroupViewModel] {
+        refinementChoices = choices
         groups = orderStrategy.order(groups: allGroups, by: choices.order)
         assertVariables(for: choices.order)
 
-        groups = regionStrategy.regions(in: groups, using: choices.regions)
+        let filteredGroups = filterForRegion(in: groups, using: choices.regions)
+        groups = searchStrategy.search(for: searchedText, in: filteredGroups)
+        nonSearchedGroups = filteredGroups
+        return groups
+    }
+
+    func search(for text: String) -> [PokemonListGroupViewModel] {
+        searchedText = text
+        groups = searchStrategy.search(for: text, in: nonSearchedGroups)
         return groups
     }
 
@@ -90,6 +106,11 @@ final class PokemonListViewModel: PokemonListViewModelable {
         isOrderingForNumber = order == .numberAscending || order == .numberDescending
     }
 
+    private func filterForRegion(in groups: [PokemonListGroupViewModel], using regions: [RefinementRegion]) -> [PokemonListGroupViewModel] {
+        guard isOrderingForNumber else { return groups }
+        return regionStrategy.regions(in: groups, using: regions)
+    }
+
     private func groups(for regions: [PokedexRegion]) -> [PokemonListGroupViewModel] {
         let filteredRegions = regions.filter { !$0.pokemon.isEmpty }
         return filteredRegions.map {
@@ -97,5 +118,16 @@ final class PokemonListViewModel: PokemonListViewModelable {
             let pokemon = $0.pokemon.map { PokemonListCellViewModel(number: $0.number, name: $0.name) }
             return PokemonListGroupViewModel(region: region, pokemon: pokemon)
         }
+    }
+}
+
+// MARK: - Constants
+
+private enum Constants {
+    enum Defaults {
+        static let refinementChoices: RefinementChoices = .init(order: .numberAscending,
+                                                                availability: .all,
+                                                                variant: .normal,
+                                                                regions: RefinementRegion.allCases)
     }
 }

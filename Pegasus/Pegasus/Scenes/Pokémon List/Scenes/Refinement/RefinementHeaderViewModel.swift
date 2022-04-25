@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RefinementHeaderViewModel: Hashable {
+final class RefinementHeaderViewModel: Hashable {
 
     // MARK: - Properties
 
@@ -16,6 +16,15 @@ struct RefinementHeaderViewModel: Hashable {
     let type: RefinementSection
     let isMultipleSelectable: Bool
     let items: [RefinementItemCellViewModel]
+
+    // MARK: - Initialization
+
+    init(name: String, type: RefinementSection, isMultipleSelectable: Bool, items: [RefinementItemCellViewModel]) {
+        self.name = name
+        self.type = type
+        self.isMultipleSelectable = isMultipleSelectable
+        self.items = items
+    }
 
     // MARK: - Functions
 

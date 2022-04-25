@@ -9,7 +9,8 @@ import UIKit
 
 extension UIImage {
     enum NavigationBar {
-        static let refine: UIImage = UIImage(systemName: "line.3.horizontal.decrease.circle")!
+        static let refineEmpty: UIImage = UIImage(systemName: "line.3.horizontal.decrease.circle")!
+        static let refineFilled: UIImage = UIImage(systemName: "line.3.horizontal.decrease.circle.fill")!
     }
 }
 

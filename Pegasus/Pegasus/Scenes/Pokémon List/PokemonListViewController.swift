@@ -8,7 +8,10 @@
 import UIKit
 
 protocol PokemonListViewControllerDelegate: AnyObject {
-    func viewController(_ viewController: PokemonListViewController, didTap refinementButton: UIBarButtonItem)
+    func viewController(_ viewController: PokemonListViewController,
+                        didTap refinementButton: UIBarButtonItem,
+                        with choices: RefinementChoices,
+                        defaultChoices: RefinementChoices)
     func viewController(_ viewController: PokemonListViewController, didSelect pokemon: PokemonListCellViewModel)
 }
 
@@ -54,13 +57,19 @@ final class PokemonListViewController: ViewController, PokemonListViewControllab
     func applyRefinement(with choices: RefinementChoices) {
         let groups = viewModel.refine(with: choices)
         collectionViewController.update(with: groups)
+        setRightBarButtonItem(isRefinementButtonFilled: viewModel.isApplyingRefinement)
     }
 
     // MARK: - Setups
 
     private func setupNavigationBar() {
         title = Localizable.pegasus
-        navigationItem.setRightBarButton(UIBarButtonItem(image: UIImage.NavigationBar.refine,
+        setRightBarButtonItem()
+    }
+
+    private func setRightBarButtonItem(isRefinementButtonFilled: Bool = false) {
+        let image: UIImage = isRefinementButtonFilled ? .NavigationBar.refineFilled : .NavigationBar.refineEmpty
+        navigationItem.setRightBarButton(UIBarButtonItem(image: image,
                                                          style: .plain,
                                                          target: self,
                                                          action: #selector(refinementButtonTapped)),
@@ -91,7 +100,9 @@ final class PokemonListViewController: ViewController, PokemonListViewControllab
     // MARK: - Selectors
     
     @objc private func refinementButtonTapped(_ sender: UIBarButtonItem) {
-        delegate?.viewController(self, didTap: sender)
+        delegate?.viewController(self, didTap: sender,
+                                 with: viewModel.refinementChoices,
+                                 defaultChoices: viewModel.defaultChoices)
     }
 }
 

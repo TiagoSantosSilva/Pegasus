@@ -105,7 +105,6 @@
 		27A3692D27E7B80800A837C8 /* PokemonListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A3692C27E7B80800A837C8 /* PokemonListViewModel.swift */; };
 		27A3692F27E7B88100A837C8 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A3692E27E7B88100A837C8 /* Pokemon.swift */; };
 		27A56AC828035FFF00093A4B /* RefinementSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A56AC728035FFF00093A4B /* RefinementSection.swift */; };
-		27A56ACA2803604700093A4B /* RefinementItemCellViewModelMappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A56AC92803604700093A4B /* RefinementItemCellViewModelMappable.swift */; };
 		27A56ACC2803606100093A4B /* Refinement+Sections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A56ACB2803606100093A4B /* Refinement+Sections.swift */; };
 		27A56ACE280362A100093A4B /* RefinementHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A56ACD280362A100093A4B /* RefinementHeader.swift */; };
 		27A56AD0280374C100093A4B /* RefinementItemCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A56ACF280374C100093A4B /* RefinementItemCellViewModel.swift */; };
@@ -240,7 +239,6 @@
 		27A3692C27E7B80800A837C8 /* PokemonListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListViewModel.swift; sourceTree = "<group>"; };
 		27A3692E27E7B88100A837C8 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		27A56AC728035FFF00093A4B /* RefinementSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefinementSection.swift; sourceTree = "<group>"; };
-		27A56AC92803604700093A4B /* RefinementItemCellViewModelMappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefinementItemCellViewModelMappable.swift; sourceTree = "<group>"; };
 		27A56ACB2803606100093A4B /* Refinement+Sections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Refinement+Sections.swift"; sourceTree = "<group>"; };
 		27A56ACD280362A100093A4B /* RefinementHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefinementHeader.swift; sourceTree = "<group>"; };
 		27A56ACF280374C100093A4B /* RefinementItemCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefinementItemCellViewModel.swift; sourceTree = "<group>"; };
@@ -337,7 +335,6 @@
 				27A56ACD280362A100093A4B /* RefinementHeader.swift */,
 				27A56AD1280374D900093A4B /* RefinementHeaderViewModel.swift */,
 				27A56ACF280374C100093A4B /* RefinementItemCellViewModel.swift */,
-				27A56AC92803604700093A4B /* RefinementItemCellViewModelMappable.swift */,
 				2724B53E280393AE0070B6D8 /* RefinementListCell.swift */,
 				27A56AC728035FFF00093A4B /* RefinementSection.swift */,
 				27276AEA27F4CB9500F890B8 /* RefinementViewController.swift */,
@@ -511,6 +508,7 @@
 				278FD06C27FFA6D000B73461 /* CATransition.swift */,
 				272A161927E7F0C20057255F /* Int.swift */,
 				27276AE627F4C1BD00F890B8 /* NSDirectionalEdgeInsets.swift */,
+				272B19EF280CCF8800977AFE /* Sequence.swift */,
 				2781FCB527EFBB390060EF60 /* String.swift */,
 				272A161B27E7F5E30057255F /* UICollectionView.swift */,
 				272A161D27E7F5FA0057255F /* UICollectionViewCell.swift */,
@@ -519,7 +517,6 @@
 				2781FCBB27F0CC190060EF60 /* UIImage+System.swift */,
 				2781FCBD27F0E01E0060EF60 /* UIView.swift */,
 				2773B74127D6E21500C845DE /* UIViewController.swift */,
-				272B19EF280CCF8800977AFE /* Sequence.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -951,7 +948,6 @@
 				276751E12804E3AD00BC82FB /* CollectionViewCompositionalLayoutFactory.swift in Sources */,
 				27276AE727F4C1BD00F890B8 /* NSDirectionalEdgeInsets.swift in Sources */,
 				272A162527E7F6760057255F /* Identifiable.swift in Sources */,
-				27A56ACA2803604700093A4B /* RefinementItemCellViewModelMappable.swift in Sources */,
 				27A3692127E7AC1C00A837C8 /* CollectionView.swift in Sources */,
 				27A3692627E7B16A00A837C8 /* Color.swift in Sources */,
 				27A3691C27E791B400A837C8 /* HTTPMethod.swift in Sources */,

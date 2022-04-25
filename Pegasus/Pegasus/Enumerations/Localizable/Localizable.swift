@@ -12,4 +12,5 @@ enum Localizable {
     static let searchPlaceholder: String = "Search by Pokémon Name or Number"
     static let refineTitle: String = "Refine"
     static let done: String = "Done"
+    static let reset: String = "Reset"
 }

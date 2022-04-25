@@ -13,12 +13,21 @@ enum PokemonListCellViewModelImageVariant: String {
     case shiny
 }
 
+typealias PokemonListCellViewModelNumber = String
+
+extension PokemonListCellViewModelNumber {
+    static func < (lhs: PokemonListCellViewModelNumber, rhs: PokemonListCellViewModelNumber) -> Bool {
+        guard let firstNumber = Int(lhs), let secondNumber = Int(rhs) else { return false }
+        return firstNumber < secondNumber
+    }
+}
+
 final class PokemonListCellViewModel: Hashable {
 
     // MARK: - Properties
 
     let uuid: UUID = UUID()
-    let number: String
+    let number: PokemonListCellViewModelNumber
     let name: String
     lazy var image: UIImage = Self.image(for: number, variant: .normal)
     lazy var shinyImage: UIImage = Self.image(for: number, variant: .shiny)

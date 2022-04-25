@@ -58,7 +58,7 @@ final class PokemonListCollectionViewController: CollectionViewController {
     private func setupController() {
         let kind = PokemonListCollectionViewLayoutProxy.ElementKinds.header
         let headerRegistration = UICollectionView.SupplementaryRegistration<PokemonListHeader>(elementKind: kind) { [unowned self] header, _, indexPath in
-            guard let region = self.dataSource.snapshot().sectionIdentifiers[indexPath.section].region else { return }
+            let region = self.dataSource.snapshot().sectionIdentifiers[indexPath.section].region
             header.configure(with: region)
         }
 

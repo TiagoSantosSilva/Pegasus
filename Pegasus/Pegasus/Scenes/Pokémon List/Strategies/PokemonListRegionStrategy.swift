@@ -18,7 +18,7 @@ struct PokemonListRegionStrategy: PokemonListRegionStrategiable {
     func regions(in groups: [PokemonListGroupViewModel], using regions: [RefinementRegion]) -> [PokemonListGroupViewModel] {
         let mappedRegions = regions.map { $0.rawValue }
         return groups.filter {
-            guard let regionName = $0.region?.name.lowercased() else { return false }
+            let regionName = $0.region.name.lowercased()
             return mappedRegions.contains(regionName)
         }
     }

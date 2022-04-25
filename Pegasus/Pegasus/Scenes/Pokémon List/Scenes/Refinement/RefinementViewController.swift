@@ -42,8 +42,11 @@ final class RefinementViewController: ViewController {
     // MARK: - Functions
 
     private func setupNavigationBar() {
-        let button = UIBarButtonItem(title: Localizable.done, style: .done, target: self, action: #selector(doneButtonTapped))
-        navigationItem.setRightBarButton(button, animated: false)
+        let resetButton = UIBarButtonItem(title: Localizable.reset, style: .done, target: self, action: #selector(resetButtonTapped))
+        navigationItem.setLeftBarButton(resetButton, animated: false)
+        let doneButton = UIBarButtonItem(title: Localizable.done, style: .done, target: self, action: #selector(doneButtonTapped))
+        navigationItem.setRightBarButton(doneButton, animated: false)
+
         navigationController?.navigationBar.prefersLargeTitles = false
         title = Localizable.refineTitle
     }
@@ -57,6 +60,12 @@ final class RefinementViewController: ViewController {
 
     @objc private func doneButtonTapped(_ sender: UIBarButtonItem) {
         delegate?.viewController(self, didTap: sender, with: viewModel.modeledChoices())
+    }
+
+    @objc private func resetButtonTapped(_ sender: UIBarButtonItem) {
+        viewModel.resetChoices {
+            collectionViewController.setup(with: $0)
+        }
     }
 }
 

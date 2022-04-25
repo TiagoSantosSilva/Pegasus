@@ -51,8 +51,11 @@ final class PokemonListCoordinator: Coordinator, ViewControllerRepresentable {
 // MARK: - PokemonListViewControllerDelegate
 
 extension PokemonListCoordinator: PokemonListViewControllerDelegate {
-    func viewController(_ viewController: PokemonListViewController, didTap refinementButton: UIBarButtonItem) {
-        let coordinator = RefinementCoordinator(dependencies: dependencies, navigator: navigator)
+    func viewController(_ viewController: PokemonListViewController,
+                        didTap refinementButton: UIBarButtonItem,
+                        with choices: RefinementChoices,
+                        defaultChoices: RefinementChoices) {
+        let coordinator = RefinementCoordinator(dependencies: dependencies, navigator: navigator, choices: choices, defaultChoices: defaultChoices)
         coordinator.delegate = self
         initiate(coordinator: coordinator)
     }

@@ -15,30 +15,7 @@ enum RefinementSection: String, CaseIterable {
 }
 
 extension RefinementSection {
-    // MARK: - Static Properties
-
-    static var headers: [RefinementHeaderViewModel] {
-        allCases.map { RefinementHeaderViewModel(name: $0.rawValue.firstLetterCapitalized, type: $0, isMultipleSelectable: $0.isMultipleSelectable, items: $0.items) }
-    }
-
     // MARK: - Properties
-    
-    var header: RefinementHeaderViewModel {
-        RefinementHeaderViewModel(name: rawValue.firstLetterCapitalized, type: self, isMultipleSelectable: isMultipleSelectable, items: items)
-    }
-
-    var items: [RefinementItemCellViewModel] {
-        switch self {
-        case .variant:
-            return RefinementVariant.refinementItems
-        case .availability:
-            return RefinementAvailability.refinementItems
-        case .order:
-            return RefinementOrder.refinementItems
-        case .region:
-            return RefinementRegion.refinementItems
-        }
-    }
 
     var isMultipleSelectable: Bool {
         switch self {

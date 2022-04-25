@@ -10,11 +10,12 @@ import Foundation
 protocol RefinementViewModelable: AnyObject {
     var sections: [RefinementHeaderViewModel] { get }
 
+    func resetChoices(completion: ([RefinementHeaderViewModel]) -> Void)
     func modeledChoices() -> RefinementChoices
     func toggle(at indexPath: IndexPath, itemsReconfiguredHandler: ([RefinementItemCellViewModel]) -> Void)
 }
 
-struct RefinementChoices {
+struct RefinementChoices: Equatable {
     let order: RefinementOrder
     let availability: RefinementAvailability
     let variant: RefinementVariant
@@ -25,15 +26,23 @@ final class RefinementViewModel: RefinementViewModelable {
 
     // MARK: - Properties
 
-    let sections: [RefinementHeaderViewModel] = RefinementSection.headers
+    private(set) var sections: [RefinementHeaderViewModel]
+
+    private let defaultChoices: RefinementChoices
 
     // MARK: - Initialization
 
-    init(dependencies: DependencyContainable) {
-
+    init(dependencies: DependencyContainable, choices: RefinementChoices, defaultChoices: RefinementChoices) {
+        self.sections = Self.sections(for: choices)
+        self.defaultChoices = defaultChoices
     }
 
     // MARK: - Functions
+
+    func resetChoices(completion: ([RefinementHeaderViewModel]) -> Void) {
+        sections = Self.sections(for: defaultChoices)
+        completion(sections)
+    }
 
     func toggle(at indexPath: IndexPath, itemsReconfiguredHandler: ([RefinementItemCellViewModel]) -> Void) {
         let section = sections[indexPath.section]
@@ -51,19 +60,60 @@ final class RefinementViewModel: RefinementViewModelable {
     }
 
     func modeledChoices() -> RefinementChoices {
-        let order = sections.first { $0.type == .order }!
-        let item = order.items.firstIndex { $0.isSelected }!
-        let orderChoice = RefinementOrder.allCases[item]
+        let chosenOrderIndex = selectedIndex(of: .order, in: sections)
+        let chosenOrder = RefinementOrder.allCases[chosenOrderIndex]
 
-        let regions = sections.first { $0.type == .region }!
-        let regionItems = regions.items.filter { $0.isSelected }
-        let regionChoices = regionItems.compactMap { RefinementRegion(rawValue: $0.name.lowercased()) }
+        let regionSection = sections.first { $0.type == .region }!
+        let chosenRegions = regionSection.items.filter { $0.isSelected }
+        let regionChoices = chosenRegions.compactMap { RefinementRegion(rawValue: $0.name.lowercased()) }
 
-        dump(regionChoices)
+        let chosenVariantIndex = selectedIndex(of: .variant, in: sections)
+        let chosenVariant = RefinementVariant.allCases[chosenVariantIndex]
 
-        return RefinementChoices(order: orderChoice,
-                                 availability: .all,
-                                 variant: .shiny,
+        let chosenAvailabilityIndex = selectedIndex(of: .availability, in: sections)
+        let chosenAvailability = RefinementAvailability.allCases[chosenAvailabilityIndex]
+
+        return RefinementChoices(order: chosenOrder,
+                                 availability: chosenAvailability,
+                                 variant: chosenVariant,
                                  regions: regionChoices)
+    }
+
+    private func selectedIndex(of type: RefinementSection, in sections: [RefinementHeaderViewModel]) -> Int {
+        return sections.first { $0.type == type }!.items.firstIndex { $0.isSelected }!
+    }
+
+    // MARK: - Private Static Functions
+
+    private static func sections(for choices: RefinementChoices) -> [RefinementHeaderViewModel] {
+        RefinementSection.allCases.map {
+            let items = Self.items(for: $0, with: choices)
+            return RefinementHeaderViewModel(name: $0.rawValue.firstLetterCapitalized, type: $0, isMultipleSelectable: $0.isMultipleSelectable, items: items)
+        }
+    }
+
+    private static func items(for section: RefinementSection, with choices: RefinementChoices) -> [RefinementItemCellViewModel] {
+        switch section {
+        case .variant:
+            return RefinementVariant.allCases.map {
+                let isSelected = choices.variant == $0
+                return RefinementItemCellViewModel(name: $0.name, type: RefinementVariant.self, isSelected: isSelected)
+            }
+        case .availability:
+            return RefinementAvailability.allCases.map {
+                let isSelected = choices.availability == $0
+                return RefinementItemCellViewModel(name: $0.name, type: RefinementAvailability.self, isSelected: isSelected)
+            }
+        case .order:
+            return RefinementOrder.allCases.map {
+                let isSelected = choices.order == $0
+                return RefinementItemCellViewModel(name: $0.name, type: RefinementOrder.self, isSelected: isSelected)
+            }
+        case .region:
+            return RefinementRegion.allCases.map {
+                let isSelected = choices.regions.contains($0)
+                return RefinementItemCellViewModel(name: $0.name, type: RefinementRegion.self, isSelected: isSelected)
+            }
+        }
     }
 }
