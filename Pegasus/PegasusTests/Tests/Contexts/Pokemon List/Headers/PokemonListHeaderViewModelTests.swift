@@ -19,7 +19,7 @@ final class PokemonListHeaderViewModelTests: XCTestCase {
 
         // When
 
-        let viewModel = PokemonListHeaderViewModel(name: region.name, generation: region.generation, pokemonCount: 151)
+        let viewModel = PokemonListHeaderViewModel(name: region.name, number: region.generation, pokemonCount: 151)
 
         // Then
 
@@ -33,7 +33,7 @@ final class PokemonListHeaderViewModelTests: XCTestCase {
 
         // When
 
-        let viewModel = PokemonListHeaderViewModel(name: region.name, generation: region.generation, pokemonCount: 100)
+        let viewModel = PokemonListHeaderViewModel(name: region.name, number: region.generation, pokemonCount: 100)
 
         // Then
 
