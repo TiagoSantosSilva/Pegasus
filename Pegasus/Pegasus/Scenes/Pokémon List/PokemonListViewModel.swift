@@ -85,11 +85,18 @@ final class PokemonListViewModel: PokemonListViewModelable {
 
     func refine(with choices: RefinementChoices) -> [PokemonListGroupViewModel] {
         refinementChoices = choices
+
+        /// Order
         groups = orderStrategy.order(groups: allGroups, by: choices.order)
         assertVariables(for: choices.order)
 
+        /// Region
         let filteredGroups = filterForRegion(in: groups, using: choices.regions)
         groups = searchStrategy.search(for: searchedText, in: filteredGroups)
+
+        /// Variant
+        groups.configure(for: variant(from: choices.variant))
+
         nonSearchedGroups = filteredGroups
         return groups
     }
@@ -118,6 +125,10 @@ final class PokemonListViewModel: PokemonListViewModelable {
             let pokemon = $0.pokemon.map { PokemonListCellViewModel(number: $0.number, name: $0.name) }
             return PokemonListGroupViewModel(region: region, pokemon: pokemon)
         }
+    }
+
+    private func variant(from refinementVariant: RefinementVariant) -> PokemonListCellViewModelImageVariant {
+        PokemonListCellViewModelImageVariant(from: refinementVariant)
     }
 }
 

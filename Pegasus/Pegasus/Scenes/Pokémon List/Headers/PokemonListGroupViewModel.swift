@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class PokemonListGroupViewModel: Hashable {
+final class PokemonListGroupViewModel {
 
     // MARK: - Properties
 
@@ -21,13 +21,15 @@ final class PokemonListGroupViewModel: Hashable {
         self.region = region
         self.pokemon = pokemon
     }
+}
 
-    // MARK: - Functions
+// MARK: - Hashable
 
+extension PokemonListGroupViewModel: Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(uuid)
     }
-    
+
     static func == (lhs: PokemonListGroupViewModel, rhs: PokemonListGroupViewModel) -> Bool {
         lhs.uuid == rhs.uuid
     }

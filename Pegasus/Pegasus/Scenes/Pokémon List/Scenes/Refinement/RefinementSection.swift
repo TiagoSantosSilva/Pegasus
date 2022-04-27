@@ -9,7 +9,7 @@ import Foundation
 
 enum RefinementSection: String, CaseIterable {
     case variant
-    case availability
+    case availability = "Availability 🍒"
     case order
     case region
 }
