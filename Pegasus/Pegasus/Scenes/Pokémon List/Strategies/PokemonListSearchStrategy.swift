@@ -20,7 +20,7 @@ final class PokemonListSearchStrategy: PokemonListSearchStrategyable {
     }
 
     private lazy var nameSearchClosure: ([PokemonListCellViewModel], String) -> [PokemonListCellViewModel] = { pokemon, text in
-        pokemon.filter { $0.name.contains(text) }
+        pokemon.filter { $0.name.localizedCaseInsensitiveContains(text) }
     }
 
     // MARK: - Functions

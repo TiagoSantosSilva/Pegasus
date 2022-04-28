@@ -18,5 +18,4 @@ extension PokedexPokemon {
     static let rowlet: PokedexPokemon = PokedexPokemon(number: "722", name: "Rowlet")
     static let grookey: PokedexPokemon = PokedexPokemon(number: "810", name: "Grookey")
     static let sprigatito: PokedexPokemon = PokedexPokemon(number: "???", name: "Sprigatito")
-
 }

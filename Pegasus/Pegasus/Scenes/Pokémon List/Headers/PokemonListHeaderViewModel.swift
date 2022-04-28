@@ -41,6 +41,14 @@ final class PokemonListHeaderViewModel: Hashable {
     }
 }
 
+// MARK: - Equalable
+
+extension PokemonListHeaderViewModel: Equalable {
+    func isEqual(to other: PokemonListHeaderViewModel) -> Bool {
+        title.string == other.title.string && name == other.name && number == other.number
+    }
+}
+
 extension PokemonListHeaderViewModel {
     static let none: PokemonListHeaderViewModel = .init(name: .empty, number: 0, pokemonCount: 0)
 }

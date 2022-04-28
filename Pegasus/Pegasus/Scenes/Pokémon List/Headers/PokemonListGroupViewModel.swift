@@ -34,3 +34,11 @@ extension PokemonListGroupViewModel: Hashable {
         lhs.uuid == rhs.uuid
     }
 }
+
+// MARK: - Equalable
+
+extension PokemonListGroupViewModel: Equalable {
+    func isEqual(to other: PokemonListGroupViewModel) -> Bool {
+        region.isEqual(to: other.region) && pokemon.isEqual(to: other.pokemon)
+    }
+}

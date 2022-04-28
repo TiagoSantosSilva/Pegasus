@@ -79,6 +79,12 @@ extension PokemonListCellViewModel: Hashable {
     }
 }
 
+extension PokemonListCellViewModel: Equalable {
+    func isEqual(to other: PokemonListCellViewModel) -> Bool {
+        number == other.number && name == other.name
+    }
+}
+
 // MARK: - PokemonListCellViewModelNumber
 
 extension PokemonListCellViewModelNumber {
