@@ -22,9 +22,9 @@ struct PokemonListOrderStrategy: PokemonListOrderStrategyable {
         case .numberDescending:
             return byNumber(groups: groups, orderingRegions: >, orderingPokemon: >)
         case .nameAscending:
-            return byName(groups: groups, using: <)
+            return byName(groups: groups, using: .orderedAscending)
         case .nameDescending:
-            return byName(groups: groups, using: >)
+            return byName(groups: groups, using: .orderedDescending)
         }
     }
 
@@ -39,10 +39,10 @@ struct PokemonListOrderStrategy: PokemonListOrderStrategyable {
     }
 
     private func byName(groups: [PokemonListGroupViewModel],
-                        using comparator: @escaping (String, String) -> Bool) -> [PokemonListGroupViewModel] {
+                        using comparisonResult: ComparisonResult) -> [PokemonListGroupViewModel] {
         let pokemon = groups.reduce([PokemonListCellViewModel]()) { partialResult, group in
             partialResult + group.pokemon
-        }.sorted(by: \.name, using: comparator)
+        }.sorted { $0.name.compare($1.name, options: [.diacriticInsensitive, .caseInsensitive]) == comparisonResult }
         
         return [.init(region: .none, pokemon: pokemon)]
     }

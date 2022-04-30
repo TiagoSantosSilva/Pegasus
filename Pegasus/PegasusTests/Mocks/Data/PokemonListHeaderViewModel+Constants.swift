@@ -11,4 +11,5 @@ import Foundation
 extension PokemonListHeaderViewModel {
     static let kanto: PokemonListHeaderViewModel = .init(name: "Kanto", number: 1, pokemonCount: 151)
     static let johto: PokemonListHeaderViewModel = .init(name: "Johto", number: 2, pokemonCount: 100)
+    static let hoenn: PokemonListHeaderViewModel = .init(name: "Hoenn", number: 3, pokemonCount: 100)
 }

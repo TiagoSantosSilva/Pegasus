@@ -11,6 +11,7 @@ import Foundation
 extension PokemonListGroupViewModel {
     static let kanto: PokemonListGroupViewModel = .init(region: .kanto, pokemon: [.bulbasaur, .charmander, .squirtle])
     static let johto: PokemonListGroupViewModel = .init(region: .johto, pokemon: [.chikorita, .cyndaquill, .totodile])
+    static let hoenn: PokemonListGroupViewModel = .init(region: .hoenn, pokemon: [.treecko, .torchic, .mudkip])
 }
 
 extension PokemonListGroupViewModel {
