@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol SettingsViewControllerDelegate: AnyObject {
+    func viewController(_ viewController: SettingsViewController, didSelect item: SettingsItemCellViewModel)
+}
+
 final class SettingsViewController: ViewController {
 
     // MARK: - Properties
+
+    weak var delegate: SettingsViewControllerDelegate?
 
     private let collectionViewController: SettingsCollectionViewController
     private let viewModel: SettingsViewModelable
@@ -26,7 +32,18 @@ final class SettingsViewController: ViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationBar()
+        setupSubviews()
+    }
 
+    // MARK: - Functions
+
+    private func setupNavigationBar() {
         title = Localizable.settings
+    }
+
+    private func setupSubviews() {
+        add(collectionViewController)
+        collectionViewController.setup(with: viewModel.groups)
     }
 }

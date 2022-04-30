@@ -12,6 +12,10 @@ enum Color {
         .systemGray5
     }
 
+    static var highlightedCell: UIColor {
+        .systemGray3
+    }
+
     static var background: UIColor {
         .systemGray6
     }

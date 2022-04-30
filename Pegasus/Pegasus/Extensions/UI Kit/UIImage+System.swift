@@ -20,4 +20,14 @@ extension UIImage {
         static let gear: UIImage = .init(systemName: "gear")!
         static let photo: UIImage = .init(systemName: "photo.on.rectangle.angled")!
     }
+
+    enum Settings {
+        static let icon: UIImage = .init(systemName: "sparkles")!
+        static let theme: UIImage = .init(systemName: "paintbrush")!
+        static let review: UIImage = .init(systemName: "star")!
+        static let feedback: UIImage = .init(systemName: "arrowshape.turn.up.right")!
+        static let bug: UIImage = .init(systemName: "ant")!
+        static let instagram: UIImage = .init(named: "instagram")!
+        static let twitter: UIImage = .init(named: "twitter")!
+    }
 }

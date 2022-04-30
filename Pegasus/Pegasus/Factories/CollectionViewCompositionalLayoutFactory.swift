@@ -13,6 +13,7 @@ enum CollectionViewCompositionalLayoutFactory {
         var layout = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
         layout.headerMode = .supplementary
         layout.footerMode = .none
+        layout.backgroundColor = Color.background
         return .list(using: layout)
     }
 }

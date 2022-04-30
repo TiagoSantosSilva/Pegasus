@@ -8,9 +8,20 @@
 import Foundation
 
 protocol SettingsViewModelable: AnyObject {
-
+    var groups: [SettingsItemGroupViewModel] { get }
 }
 
 final class SettingsViewModel: SettingsViewModelable {
 
+    // MARK: - Properties
+
+    private(set) var groups: [SettingsItemGroupViewModel]
+
+    // MARK: - Initialization
+
+    init() {
+        self.groups = SettingsSection.allCases.map {
+            SettingsItemGroupViewModel(header: SettingsItemHeaderViewModel(name: $0.rawValue), items: $0.items)
+        }
+    }
 }
