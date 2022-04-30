@@ -67,13 +67,6 @@ final class SettingsCollectionViewController: CollectionViewController {
     private static var cellProvider: ((UICollectionView, IndexPath, SettingsItemCellViewModel) -> UICollectionViewCell?) {
         let cellRegistration = CellRegistration { cell, _, cellViewModel in
             cell.configure(with: cellViewModel)
-//            var config = UIListContentConfiguration.valueCell()
-//            config.text = cellViewModel.name
-//            config.image = cellViewModel.image
-//            var bg = UIBackgroundConfiguration.listGroupedCell()
-//            bg.backgroundColor = Color.cell
-//            cell.backgroundConfiguration = bg
-//            cell.contentConfiguration = config
         }
 
         return { collectionView, indexPath, cellViewModel in

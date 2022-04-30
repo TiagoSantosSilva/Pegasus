@@ -21,6 +21,7 @@ final class TabBarCoordinator: Coordinator {
         self.dependencies = dependencies
         self.tabBarController = tabBarController
         self.window = window
+        super.init()
     }
 
     // MARK: -
@@ -28,7 +29,9 @@ final class TabBarCoordinator: Coordinator {
     func start() {
         let listCoordinator = PokemonListCoordinator(dependencies: dependencies)
         let galleryCoordinator = GalleryCoordinator(dependencies: dependencies)
-        let settingsCoordinator = SettingsCoordinator(dependencies: dependencies)
+
+        let settingsReducer = SettingsSceneReducer()
+        let settingsCoordinator = SettingsCoordinator(dependencies: dependencies, reducer: settingsReducer)
         let viewControllers = ([listCoordinator, galleryCoordinator, settingsCoordinator] as [ViewControllerRepresentable]).map { $0.viewController }
 
         let items: [UITabBarItem] = [.init(title: Localizable.pegasus, image: .TabBar.display, selectedImage: .TabBar.display),

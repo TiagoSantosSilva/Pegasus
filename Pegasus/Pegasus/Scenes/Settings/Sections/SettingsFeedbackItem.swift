@@ -7,13 +7,24 @@
 
 import UIKit
 
-enum SettingsFeedbackItem: String, CaseIterable, SettingsItemCellViewModelMappable {
-    case review = "Leave us a review"
-    case suggestFeature = "Suggest a new feature"
-    case reportBug = "Report a bug"
+enum SettingsFeedbackItem: Int, CaseIterable, SettingsItemCellViewModelMappable {
+    case review
+    case suggestFeature
+    case reportBug
 }
 
 extension SettingsFeedbackItem {
+    var name: String {
+        switch self {
+        case .review:
+            return "Leave us a review"
+        case .suggestFeature:
+            return "Suggest a New Feature or Improvement"
+        case .reportBug:
+            return "Report a Problem"
+        }
+    }
+
     var image: UIImage {
         switch self {
         case .review:

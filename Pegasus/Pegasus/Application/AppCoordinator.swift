@@ -19,6 +19,7 @@ final class AppCoordinator: Coordinator {
     init(dependencies: DependencyContainable, window: UIWindow) {
         self.dependencies = dependencies
         self.window = window
+        super.init()
     }
 
     // MARK: - Coordinator

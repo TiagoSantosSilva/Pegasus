@@ -29,6 +29,7 @@ final class RefinementCoordinator: Coordinator {
         self.navigator = navigator
         self.choices = choices
         self.defaultChoices = defaultChoices
+        super.init()
     }
 
     // MARK: - Coordinator

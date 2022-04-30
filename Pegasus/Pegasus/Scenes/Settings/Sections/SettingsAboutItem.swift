@@ -7,12 +7,21 @@
 
 import UIKit
 
-enum SettingsAboutItem: String, CaseIterable, SettingsItemCellViewModelMappable {
-    case instagram = "Instagram"
-    case twitter = "Twitter"
+enum SettingsAboutItem: Int, CaseIterable, SettingsItemCellViewModelMappable {
+    case instagram
+    case twitter
 }
 
 extension SettingsAboutItem {
+    var name: String {
+        switch self {
+        case .instagram:
+            return "Instagram"
+        case .twitter:
+            return "Twitter"
+        }
+    }
+
     var image: UIImage {
         switch self {
         case .instagram:

@@ -25,6 +25,7 @@ final class GalleryCoordinator: Coordinator, ViewControllerRepresentable {
         let viewController = GalleryViewController(collectionViewController: collectionViewController, viewModel: viewModel)
         let navigationController = NavigationController(rootViewController: viewController)
         self.navigator = Navigator(navigationController: navigationController)
+        super.init()
     }
 
     // MARK: - Coordinator

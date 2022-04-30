@@ -21,7 +21,7 @@ final class SettingsViewModel: SettingsViewModelable {
 
     init() {
         self.groups = SettingsSection.allCases.map {
-            SettingsItemGroupViewModel(header: SettingsItemHeaderViewModel(name: $0.rawValue), items: $0.items)
+            SettingsItemGroupViewModel(header: SettingsItemHeaderViewModel(name: $0.name), items: $0.items)
         }
     }
 }

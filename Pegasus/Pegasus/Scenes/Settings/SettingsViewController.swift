@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SettingsViewControllerDelegate: AnyObject {
-    func viewController(_ viewController: SettingsViewController, didSelect item: SettingsItemCellViewModel)
+    func viewController(_ viewController: SettingsViewController, didSelect indexPath: IndexPath)
 }
 
 final class SettingsViewController: ViewController {
@@ -26,6 +26,7 @@ final class SettingsViewController: ViewController {
         self.collectionViewController = collectionViewController
         self.viewModel = viewModel
         super.init()
+        collectionViewController.delegate = self
     }
 
     // MARK: - Life Cycle
@@ -45,5 +46,13 @@ final class SettingsViewController: ViewController {
     private func setupSubviews() {
         add(collectionViewController)
         collectionViewController.setup(with: viewModel.groups)
+    }
+}
+
+// MARK: - SettingsCollectionViewControllerDelegate
+
+extension SettingsViewController: SettingsCollectionViewControllerDelegate {
+    func collectionViewController(_ collectionViewController: SettingsCollectionViewController, didSelectItemAt indexPath: IndexPath) {
+        delegate?.viewController(self, didSelect: indexPath)
     }
 }

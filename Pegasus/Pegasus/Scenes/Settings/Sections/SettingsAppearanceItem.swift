@@ -7,12 +7,21 @@
 
 import UIKit
 
-enum SettingsAppearanceItem: String, CaseIterable, SettingsItemCellViewModelMappable {
-    case icon = "Application Icon"
-    case theme = "Theme"
+enum SettingsAppearanceItem: Int, CaseIterable, SettingsItemCellViewModelMappable {
+    case icon
+    case theme
 }
 
 extension SettingsAppearanceItem {
+    var name: String {
+        switch self {
+        case .icon:
+            return "Application Icon"
+        case .theme:
+            return "Theme"
+        }
+    }
+
     var image: UIImage {
         switch self {
         case .icon:

@@ -7,13 +7,27 @@
 
 import UIKit
 
-enum SettingsSection: String, CaseIterable {
+enum SettingsSection: Int, CaseIterable {
     case appearance
     case feedback
     case about
 }
 
-protocol SettingsItemCellViewModelMappable: CaseIterable, RawRepresentable where RawValue == String {
+extension SettingsSection {
+    var name: String {
+        switch self {
+        case .appearance:
+            return "Appearance"
+        case .feedback:
+            return "Feedback"
+        case .about:
+            return "About"
+        }
+    }
+}
+
+protocol SettingsItemCellViewModelMappable: CaseIterable {
+    var name: String { get }
     var image: UIImage { get }
     var cellViewModel: SettingsItemCellViewModel { get }
     static var cellViewModels: [SettingsItemCellViewModel] { get }
@@ -25,7 +39,7 @@ extension SettingsItemCellViewModelMappable {
     }
 
     var cellViewModel: SettingsItemCellViewModel {
-        SettingsItemCellViewModel(name: rawValue, image: image)
+        SettingsItemCellViewModel(name: name, image: image)
     }
 }
 

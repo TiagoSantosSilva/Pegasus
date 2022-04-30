@@ -21,6 +21,7 @@ final class PokemonDetailsCoordinator: Coordinator {
         self.dependencies = dependencies
         self.navigator = navigator
         self.pokemon = pokemon
+        super.init()
     }
 
     // MARK: - Functions
