@@ -11,6 +11,7 @@ final class PokemonDetailsScrollView: ScrollView {
 
     // MARK: - Subviews
 
+    private let imageView: UIImageView = .init()
     private let weightLabel: UILabel = .init()
     private let heightLabel: UILabel = .init()
 
@@ -24,14 +25,24 @@ final class PokemonDetailsScrollView: ScrollView {
     // MARK: - Functions
 
     private func setup() {
-        add(subviews: weightLabel, heightLabel)
+        add(subviews: imageView, weightLabel, heightLabel)
+        setupImageView()
         setupWeightLabel()
         setupHeightLabel()
     }
 
+    private func setupImageView() {
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        imageView.contentMode = .scaleAspectFit
+        imageView.backgroundColor = .systemIndigo
+    }
+
     private func setupWeightLabel() {
         weightLabel.translatesAutoresizingMaskIntoConstraints = false
-        weightLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16).isActive = true
+        weightLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 16).isActive = true
         weightLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
 
         weightLabel.text = "WEIGHT: 6.9 kg"
