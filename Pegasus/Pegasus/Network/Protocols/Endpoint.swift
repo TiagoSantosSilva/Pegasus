@@ -12,5 +12,5 @@ protocol Endpoint {
     var path: String { get }
     var endpoint: String { get }
     var method: HTTPMethod { get }
-    var queryItems: [URLQueryItem] { get }
+    var queryItems: [URLQueryItem]? { get }
 }

@@ -8,6 +8,7 @@
 import Foundation
 
 protocol NetworkEnginable: AnyObject {
+    func request(endpoint: Endpoint) async throws -> Data
     func request<T: Decodable>(endpoint: Endpoint) async throws -> T
 }
 
@@ -15,36 +16,30 @@ final class NetworkEngine: NetworkEnginable {
 
     // MARK: - Properties
 
+    private let builder: NetworkRequestBuildable
     private let parser: NetworkResponseParseable
 
     // MARK: - Initialization
 
-    init(parser: NetworkResponseParseable) {
+    init(builder: NetworkRequestBuildable, parser: NetworkResponseParseable) {
+        self.builder = builder
         self.parser = parser
     }
 
     // MARK: - Functions
 
-    func request<T: Decodable>(endpoint: Endpoint) async throws -> T {
-        let request = try buildRequest(for: endpoint)
-        let (data, response) = try await URLSession.shared.data(for: request)
+    func request(endpoint: Endpoint) async throws -> Data {
+        let (data, response) = try await request(endpoint: endpoint)
         return try parser.parse(response: response, data: data)
     }
 
-    private func buildRequest(for endpoint: Endpoint) throws -> URLRequest {
-        var components = URLComponents()
-        components.scheme = URLScheme.https.rawValue
-        components.host = endpoint.host
-        components.path = endpoint.path.appending(endpoint.endpoint)
-        components.queryItems = endpoint.queryItems
+    func request<T: Decodable>(endpoint: Endpoint) async throws -> T {
+        let (data, response) = try await request(endpoint: endpoint)
+        return try parser.parse(response: response, data: data)
+    }
 
-        guard let url = components.url else {
-            throw NetworkError.urlBuildFail
-        }
-
-        var request = URLRequest(url: url)
-        request.httpMethod = endpoint.method.rawValue
-
-        return request
+    private func request(endpoint: Endpoint) async throws -> (Data, URLResponse) {
+        let request = try builder.buildRequest(for: endpoint)
+        return try await URLSession.shared.data(for: request)
     }
 }

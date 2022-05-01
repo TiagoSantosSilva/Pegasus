@@ -28,7 +28,8 @@ final class PokemonDetailsCoordinator: Coordinator {
 
     func start() {
         let scrollView = PokemonDetailsScrollView()
-        let viewModel = PokemonDetailsViewModel(pokemon: pokemon)
+        let loader = PokemonDetailsLoader(dependencies: dependencies)
+        let viewModel = PokemonDetailsViewModel(pokemon: pokemon, loader: loader)
         let viewController = PokemonDetailsViewController(scrollView: scrollView, viewModel: viewModel)
         navigator.transition(to: viewController, as: .push)
         viewController.delegate = self

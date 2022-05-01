@@ -4,6 +4,13 @@
 <dict>
 	<key>Networking</key>
 	<dict>
+		<key>ImageAPI</key>
+		<dict>
+			<key>Pre-Path</key>
+			<string>/TiagoSantosSilva/Pegasus.Sprites/main/</string>
+			<key>Host</key>
+			<string>raw.githubusercontent.com</string>
+		</dict>
 		<key>PokemonGoAPI</key>
 		<dict>
 			<key>Headers</key>

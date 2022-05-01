@@ -8,6 +8,7 @@
 import Foundation
 
 protocol NetworkResponseParseable: AnyObject {
+    func parse(response: URLResponse, data: Data) throws -> Data
     func parse<T: Decodable>(response: URLResponse, data: Data) throws -> T
 }
 
@@ -22,6 +23,15 @@ final class NetworkResponseParser: NetworkResponseParseable {
     init() { }
 
     // MARK: - Internal Functions
+
+    func parse(response: URLResponse, data: Data) throws -> Data {
+        guard let response = response as? HTTPURLResponse else {
+            throw NetworkError.urlBuildFail
+        }
+
+        guard isResponseSuccessful(response) else { throw NetworkError.noData }
+        return data
+    }
 
     func parse<T: Decodable>(response: URLResponse, data: Data) throws -> T {
         guard let response = response as? HTTPURLResponse else {

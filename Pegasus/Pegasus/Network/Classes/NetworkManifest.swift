@@ -28,6 +28,13 @@ enum NetworkManifest {
         static let dictionary: String = "PokemonGoAPI"
     }
 
+    enum ImageAPI: String, BundleDictionaryRepresentable {
+        case host = "Host"
+        case prePath = "Pre-Path"
+
+        var dictionary: String { "ImageAPI" }
+    }
+
     enum PokemonGoAPIHeader: String, BundleDictionaryRepresentable {
         case host = "Host"
         case key = "Key"

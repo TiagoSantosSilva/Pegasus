@@ -37,9 +37,16 @@ final class PokemonDetailsViewController: ViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        Task {
+            let image = await viewModel.loadImage()
+            scrollView.configure(with: image)
+        }
     }
 
     deinit {
         delegate?.viewControllerDidPop(self)
     }
+
+    // MARK: - Functions
+
 }

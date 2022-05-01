@@ -13,10 +13,13 @@ final class MockDependencyContainer: DependencyContainable {
     // MARK: - Properties
 
     let networkEngine: NetworkEnginable
+    let themeEnvironment: ThemeEnvironmentable
 
     // MARK: - Initialization
 
-    init(networkEngine: NetworkEnginable = MockNetworkEngine()) {
+    init(networkEngine: NetworkEnginable = MockNetworkEngine(),
+         themeEnvironment: ThemeEnvironmentable = MockThemeEnvironment()) {
         self.networkEngine = networkEngine
+        self.themeEnvironment = themeEnvironment
     }
 }
