@@ -23,6 +23,7 @@ final class SettingsCell: CollectionViewListCell {
         configuration.text = item.name
         configuration.image = item.image
         contentConfiguration = configuration
+        tintColor = .tint
     }
 
     // MARK: - Setups

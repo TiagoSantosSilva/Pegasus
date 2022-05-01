@@ -22,7 +22,7 @@ final class RefinementListCell: CollectionViewListCell {
         var configuration = defaultContentConfiguration()
         configuration.text = item.name
         contentConfiguration = configuration
-        self.accessories = item.isSelected ? [.checkmark()] : []
+        accessories = item.isSelected ? [.checkmark()] : []
     }
 
     // MARK: - Setups

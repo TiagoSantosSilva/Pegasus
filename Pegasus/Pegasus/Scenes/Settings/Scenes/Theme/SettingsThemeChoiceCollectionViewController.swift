@@ -11,27 +11,27 @@ protocol SettingsThemeChoiceCollectionViewControllerDelegate: AnyObject {
     func collectionViewController(_ collectionViewController: SettingsThemeChoiceCollectionViewController, didSelectItemAt indexPath: IndexPath)
 }
 
-final class SettingsThemeChoiceCollectionViewController: CollectionViewController {
+final class SettingsThemeChoiceCollectionViewController: CollectionViewController, SnapshotReloadable {
 
     // MARK: - Typealiases
 
-    private typealias CellRegistration = UICollectionView.CellRegistration<SettingsThemeChoiceCell,
-                                                                           SettingsThemeChoiceCellViewModel>
-    private typealias Snapshot = NSDiffableDataSourceSnapshot<SettingsThemeChoiceGroupViewModel,
-                                                              SettingsThemeChoiceCellViewModel>
-    private typealias DataSource = UICollectionViewDiffableDataSource<SettingsThemeChoiceGroupViewModel,
-                                                                      SettingsThemeChoiceCellViewModel>
+    typealias SectionIdentifierType = SettingsThemeChoiceGroupViewModel
+    typealias ItemIdentifierType = SettingsThemeChoiceCellViewModel
+    typealias DataSource = UICollectionViewDiffableDataSource<SectionIdentifierType, ItemIdentifierType>
+
+    private typealias CellRegistration = UICollectionView.CellRegistration<SettingsThemeChoiceCell, ItemIdentifierType>
+    private typealias Snapshot = NSDiffableDataSourceSnapshot<SectionIdentifierType, ItemIdentifierType>
 
     // MARK: - Properties
 
     weak var delegate: SettingsThemeChoiceCollectionViewControllerDelegate?
 
-    private let dataSource: DataSource
+    let dataSource: DataSource
 
     // MARK: - Initialization
 
     override init() {
-        let listLayout = CollectionViewCompositionalLayoutFactory.makeHeader()
+        let listLayout = CollectionViewCompositionalLayoutFactory.makeClean()
         let collectionView = SettingsThemeChoiceCollectionView(frame: .zero, collectionViewLayout: listLayout)
         self.dataSource = DataSource(collectionView: collectionView, cellProvider: Self.cellProvider)
         super.init(collectionViewLayout: listLayout)
@@ -41,12 +41,11 @@ final class SettingsThemeChoiceCollectionViewController: CollectionViewControlle
 
     // MARK: - Functions
 
-    func setup(with sections: [SettingsThemeChoiceGroupViewModel]) {
-        guard !sections.isEmpty else { return }
-        var dataSourceSnapshot = Snapshot()
-        dataSourceSnapshot.appendSections(sections)
-        sections.forEach { dataSourceSnapshot.appendItems($0.items, toSection: $0) }
-        dataSource.apply(dataSourceSnapshot, animatingDifferences: false)
+    func setup(with section: SettingsThemeChoiceGroupViewModel) {
+        var snapshot = Snapshot()
+        snapshot.appendSections([section])
+        snapshot.appendItems(section.items)
+        dataSource.apply(snapshot, animatingDifferences: false)
     }
 
     // MARK: - Cell Provider

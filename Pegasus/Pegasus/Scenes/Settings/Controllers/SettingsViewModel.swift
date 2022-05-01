@@ -9,6 +9,8 @@ import Foundation
 
 protocol SettingsViewModelable: AnyObject {
     var groups: [SettingsItemGroupViewModel] { get }
+
+    func reloadGroups()
 }
 
 final class SettingsViewModel: SettingsViewModelable {
@@ -20,8 +22,12 @@ final class SettingsViewModel: SettingsViewModelable {
     // MARK: - Initialization
 
     init() {
-        self.groups = SettingsSection.allCases.map {
-            SettingsItemGroupViewModel(header: SettingsItemHeaderViewModel(name: $0.name), items: $0.items)
-        }
+        self.groups = SettingsItemGroupViewModelFactory.makeGroups()
+    }
+
+    // MARK: - Functions
+
+    func reloadGroups() {
+        self.groups = SettingsItemGroupViewModelFactory.makeGroups()
     }
 }

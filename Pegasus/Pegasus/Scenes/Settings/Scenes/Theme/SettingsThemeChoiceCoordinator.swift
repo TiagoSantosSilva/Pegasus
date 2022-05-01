@@ -11,11 +11,13 @@ final class SettingsThemeChoiceCoordinator: Coordinator {
 
     // MARK: - Dependencies
 
+    private let dependencies: DependencyContainable
     private let navigator: Navigatable
 
     // MARK: - Initialization
 
     init(dependencies: DependencyContainable, navigator: Navigatable) {
+        self.dependencies = dependencies
         self.navigator = navigator
         super.init()
     }
@@ -23,18 +25,10 @@ final class SettingsThemeChoiceCoordinator: Coordinator {
     // MARK: - Coordinator
 
     func start() {
-        let viewModel = SettingsThemeChoiceViewModel()
+        let themeApplier = SettingsThemeChoiceApplier(environment: dependencies.themeEnvironment)
+        let viewModel = SettingsThemeChoiceViewModel(applier: themeApplier)
         let collectionViewController = SettingsThemeChoiceCollectionViewController()
         let viewController = SettingsThemeChoiceViewController(collectionViewController: collectionViewController, viewModel: viewModel)
-        viewController.delegate = self
         navigator.transition(to: viewController, as: .push)
-    }
-}
-
-// MARK: - SettingsViewControllerDelegate
-
-extension SettingsThemeChoiceCoordinator: SettingsThemeChoiceViewControllerDelegate {
-    func viewController(_ viewController: SettingsThemeChoiceViewController, didSelect indexPath: IndexPath) {
-        print(indexPath)
     }
 }

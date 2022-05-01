@@ -22,11 +22,14 @@ final class SettingsViewController: ViewController {
 
     // MARK: - Initialization
 
-    init(collectionViewController: SettingsCollectionViewController, viewModel: SettingsViewModelable) {
+    init(dependencies: DependencyContainable,
+         collectionViewController: SettingsCollectionViewController,
+         viewModel: SettingsViewModelable) {
         self.collectionViewController = collectionViewController
         self.viewModel = viewModel
         super.init()
         collectionViewController.delegate = self
+        dependencies.themeEnvironment.subscribe(self)
     }
 
     // MARK: - Life Cycle
@@ -54,5 +57,14 @@ final class SettingsViewController: ViewController {
 extension SettingsViewController: SettingsCollectionViewControllerDelegate {
     func collectionViewController(_ collectionViewController: SettingsCollectionViewController, didSelectItemAt indexPath: IndexPath) {
         delegate?.viewController(self, didSelect: indexPath)
+    }
+}
+
+// MARK: - ThemeEnvironmentDelegate
+
+extension SettingsViewController: ThemeEnvironmentDelegate {
+    func themeEnvironment(_ themeEnvironment: ThemeEnvironment, didChangeColor color: UIColor) {
+        viewModel.reloadGroups()
+        collectionViewController.reload()
     }
 }

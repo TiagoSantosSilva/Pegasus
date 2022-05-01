@@ -7,15 +7,9 @@
 
 import UIKit
 
-protocol SettingsThemeChoiceViewControllerDelegate: AnyObject {
-    func viewController(_ viewController: SettingsThemeChoiceViewController, didSelect indexPath: IndexPath)
-}
-
 final class SettingsThemeChoiceViewController: ViewController {
 
     // MARK: - Properties
-
-    weak var delegate: SettingsThemeChoiceViewControllerDelegate?
 
     private let collectionViewController: SettingsThemeChoiceCollectionViewController
     private let viewModel: SettingsThemeChoiceViewModelable
@@ -46,6 +40,7 @@ final class SettingsThemeChoiceViewController: ViewController {
 
     private func setupSubviews() {
         add(collectionViewController)
+        collectionViewController.setup(with: viewModel.group)
     }
 }
 
@@ -54,6 +49,7 @@ final class SettingsThemeChoiceViewController: ViewController {
 extension SettingsThemeChoiceViewController: SettingsThemeChoiceCollectionViewControllerDelegate {
     func collectionViewController(_ collectionViewController: SettingsThemeChoiceCollectionViewController,
                                   didSelectItemAt indexPath: IndexPath) {
-        delegate?.viewController(self, didSelect: indexPath)
+        viewModel.didSelect(itemAt: indexPath.row)
+        collectionViewController.reload()
     }
 }

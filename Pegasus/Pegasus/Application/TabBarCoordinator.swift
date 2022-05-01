@@ -12,16 +12,17 @@ final class TabBarCoordinator: Coordinator {
     // MARK: - Properties
 
     private let dependencies: DependencyContainable
-    private let tabBarController: UITabBarController
+    private let tabBarController: TabBarController
     private let window: UIWindow
 
     // MARK: - Initalization
 
-    init(dependencies: DependencyContainable, tabBarController: UITabBarController, window: UIWindow) {
+    init(dependencies: DependencyContainable, tabBarController: TabBarController, window: UIWindow) {
         self.dependencies = dependencies
         self.tabBarController = tabBarController
         self.window = window
         super.init()
+        dependencies.themeEnvironment.subscribe(self)
     }
 
     // MARK: - Functions
@@ -53,5 +54,13 @@ final class TabBarCoordinator: Coordinator {
                                    emailSceneController: emailSceneController,
                                    reducer: reducer,
                                    universalLinkController: universalLinkController)
+    }
+}
+
+// MARK: - ThemeEnvironmentDelegate
+
+extension TabBarCoordinator: ThemeEnvironmentDelegate {
+    func themeEnvironment(_ themeEnvironment: ThemeEnvironment, didChangeColor color: UIColor) {
+        tabBarController.apply(tint: color)
     }
 }

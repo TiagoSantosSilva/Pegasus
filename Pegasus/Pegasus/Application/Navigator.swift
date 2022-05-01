@@ -16,8 +16,6 @@ enum NavigatorTransition {
 protocol Navigatable {
     var navigationController: NavigationController { get }
 
-    init(navigationController: NavigationController)
-
     func dismiss()
     func pop(animated: Bool)
     func transition(to viewController: UIViewController, as transitionType: NavigatorTransition, animated: Bool)
@@ -41,8 +39,9 @@ final class Navigator: Navigatable {
 
     // MARK: - Initialization
 
-    init(navigationController: NavigationController) {
+    init(dependencies: DependencyContainable, navigationController: NavigationController) {
         self.navigationController = navigationController
+        dependencies.themeEnvironment.subscribe(self)
     }
 
     // MARK: - Public Functions
@@ -64,5 +63,13 @@ final class Navigator: Navigatable {
         case .modal:
             navigationController.present(viewController, animated: animated, completion: nil)
         }
+    }
+}
+
+// MARK: - ThemeEnvironmentDelegate
+
+extension Navigator: ThemeEnvironmentDelegate {
+    func themeEnvironment(_ themeEnvironment: ThemeEnvironment, didChangeColor color: UIColor) {
+        navigationController.apply(tint: color)
     }
 }

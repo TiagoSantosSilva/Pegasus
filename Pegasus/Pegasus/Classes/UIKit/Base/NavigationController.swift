@@ -20,4 +20,10 @@ final class NavigationController: UINavigationController {
     required init?(coder aDecoder: NSCoder) {
         fatalError(StringError.coderInit)
     }
+
+    // MARK: - Functions
+
+    func apply(tint tintColor: UIColor) {
+        navigationBar.tintColor = tintColor
+    }
 }

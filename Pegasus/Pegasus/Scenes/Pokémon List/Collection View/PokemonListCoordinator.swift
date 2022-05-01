@@ -37,7 +37,7 @@ final class PokemonListCoordinator: Coordinator, ViewControllerRepresentable {
                                                        viewModel: viewModel)
         let navigationController = NavigationController(rootViewController: viewController)
         self.dependencies = dependencies
-        self.navigator = Navigator(navigationController: navigationController)
+        self.navigator = Navigator(dependencies: dependencies, navigationController: navigationController)
         self.listViewController = viewController
         super.init()
         viewController.delegate = self

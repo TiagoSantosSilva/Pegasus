@@ -19,6 +19,6 @@ private extension UIColor {
 
 extension UIColor {
     static var tint: UIColor {
-        .systemRed
+        ThemeEnvironment.shared.theme.color
     }
 }

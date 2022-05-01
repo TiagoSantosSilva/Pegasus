@@ -11,19 +11,22 @@ protocol SettingsCollectionViewControllerDelegate: AnyObject {
     func collectionViewController(_ collectionViewController: SettingsCollectionViewController, didSelectItemAt indexPath: IndexPath)
 }
 
-final class SettingsCollectionViewController: CollectionViewController {
+final class SettingsCollectionViewController: CollectionViewController, SnapshotReloadable {
 
     // MARK: - Typealiases
 
-    private typealias CellRegistration = UICollectionView.CellRegistration<SettingsCell, SettingsItemCellViewModel>
-    private typealias Snapshot = NSDiffableDataSourceSnapshot<SettingsItemGroupViewModel, SettingsItemCellViewModel>
-    private typealias DataSource = UICollectionViewDiffableDataSource<SettingsItemGroupViewModel, SettingsItemCellViewModel>
+    typealias SectionIdentifierType = SettingsItemGroupViewModel
+    typealias ItemIdentifierType = SettingsItemCellViewModel
+    typealias DataSource = UICollectionViewDiffableDataSource<SectionIdentifierType, ItemIdentifierType>
+
+    private typealias CellRegistration = UICollectionView.CellRegistration<SettingsCell, ItemIdentifierType>
+    private typealias Snapshot = NSDiffableDataSourceSnapshot<SectionIdentifierType, ItemIdentifierType>
 
     // MARK: - Properties
 
     weak var delegate: SettingsCollectionViewControllerDelegate?
 
-    private let dataSource: DataSource
+    let dataSource: DataSource
 
     // MARK: - Initialization
 

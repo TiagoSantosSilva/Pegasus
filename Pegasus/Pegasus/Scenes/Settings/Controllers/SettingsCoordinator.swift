@@ -29,9 +29,9 @@ final class SettingsCoordinator: Coordinator, ViewControllerRepresentable {
          universalLinkController: SettingsUniversalLinkControllable) {
         let viewModel = SettingsViewModel()
         let collectionViewController = SettingsCollectionViewController()
-        let viewController = SettingsViewController(collectionViewController: collectionViewController, viewModel: viewModel)
+        let viewController = SettingsViewController(dependencies: dependencies, collectionViewController: collectionViewController, viewModel: viewModel)
         let navigationController = NavigationController(rootViewController: viewController)
-        self.navigator = Navigator(navigationController: navigationController)
+        self.navigator = Navigator(dependencies: dependencies, navigationController: navigationController)
         self.dependencies = dependencies
         self.reducer = reducer
         self.emailSceneController = emailSceneController

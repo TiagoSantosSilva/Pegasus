@@ -8,7 +8,6 @@
 import Foundation
 
 protocol SettingsApplicationIconChoiceViewModelable {
-
     var groups: [SettingsApplicationIconChoiceGroupViewModel] { get }
 }
 

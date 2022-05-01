@@ -30,4 +30,8 @@ final class TabBarController: UITabBarController {
         tabBar.isTranslucent = false
         tabBar.backgroundColor = Color.TabBar.background
     }
+
+    func apply(tint tintColor: UIColor) {
+        tabBar.tintColor = tintColor
+    }
 }
