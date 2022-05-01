@@ -5,6 +5,7 @@
 //  Created by Tiago on 26/03/2022.
 //
 
+import Combine
 import UIKit
 
 protocol SettingsViewControllerDelegate: AnyObject {
@@ -29,7 +30,8 @@ final class SettingsViewController: ViewController {
         self.viewModel = viewModel
         super.init()
         collectionViewController.delegate = self
-        dependencies.themeEnvironment.subscribe(self)
+        
+        setupThemeChangeHandling(dependencies: dependencies)
     }
 
     // MARK: - Life Cycle
@@ -50,6 +52,13 @@ final class SettingsViewController: ViewController {
         add(collectionViewController)
         collectionViewController.setup(with: viewModel.groups)
     }
+
+    private func setupThemeChangeHandling(dependencies: DependencyContainable) {
+        dependencies.themeEnvironment.themeSubject.sink { [weak self] _ in
+            self?.viewModel.reloadGroups()
+            self?.collectionViewController.reload()
+        }.store(in: &CancellableStorage.shared.cancellables)
+    }
 }
 
 // MARK: - SettingsCollectionViewControllerDelegate
@@ -57,14 +66,5 @@ final class SettingsViewController: ViewController {
 extension SettingsViewController: SettingsCollectionViewControllerDelegate {
     func collectionViewController(_ collectionViewController: SettingsCollectionViewController, didSelectItemAt indexPath: IndexPath) {
         delegate?.viewController(self, didSelect: indexPath)
-    }
-}
-
-// MARK: - ThemeEnvironmentDelegate
-
-extension SettingsViewController: ThemeEnvironmentDelegate {
-    func themeEnvironment(_ themeEnvironment: ThemeEnvironment, didChangeColor color: UIColor) {
-        viewModel.reloadGroups()
-        collectionViewController.reload()
     }
 }

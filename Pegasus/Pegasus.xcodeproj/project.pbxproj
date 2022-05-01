@@ -120,6 +120,7 @@
 		279634A9281EFF2500BB0BFD /* SnapshotReloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279634A8281EFF2500BB0BFD /* SnapshotReloadable.swift */; };
 		279634AB281F003600BB0BFD /* TopScrollable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279634AA281F003600BB0BFD /* TopScrollable.swift */; };
 		279634AD281F027E00BB0BFD /* ViewControllerTopScrollable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279634AC281F027E00BB0BFD /* ViewControllerTopScrollable.swift */; };
+		279634AF281F307B00BB0BFD /* CancellableStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279634AE281F307B00BB0BFD /* CancellableStorage.swift */; };
 		279D5AEB2803472F00A9206E /* RefinementCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279D5AEA2803472F00A9206E /* RefinementCollectionViewController.swift */; };
 		279D5AED2803487500A9206E /* RefinementCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279D5AEC2803487500A9206E /* RefinementCollectionViewLayout.swift */; };
 		279D5AEF2803496C00A9206E /* CollectionViewCompositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279D5AEE2803496C00A9206E /* CollectionViewCompositionalLayout.swift */; };
@@ -307,6 +308,7 @@
 		279634A8281EFF2500BB0BFD /* SnapshotReloadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotReloadable.swift; sourceTree = "<group>"; };
 		279634AA281F003600BB0BFD /* TopScrollable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScrollable.swift; sourceTree = "<group>"; };
 		279634AC281F027E00BB0BFD /* ViewControllerTopScrollable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTopScrollable.swift; sourceTree = "<group>"; };
+		279634AE281F307B00BB0BFD /* CancellableStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancellableStorage.swift; sourceTree = "<group>"; };
 		279D5AEA2803472F00A9206E /* RefinementCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefinementCollectionViewController.swift; sourceTree = "<group>"; };
 		279D5AEC2803487500A9206E /* RefinementCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefinementCollectionViewLayout.swift; sourceTree = "<group>"; };
 		279D5AEE2803496C00A9206E /* CollectionViewCompositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCompositionalLayout.swift; sourceTree = "<group>"; };
@@ -772,6 +774,7 @@
 		2796349C281EDEAB00BB0BFD /* Environment */ = {
 			isa = PBXGroup;
 			children = (
+				279634AE281F307B00BB0BFD /* CancellableStorage.swift */,
 				279634A4281EEB6000BB0BFD /* MulticastDelegate.swift */,
 				2796349D281EDEB800BB0BFD /* ThemeEnvironment.swift */,
 			);
@@ -1266,6 +1269,7 @@
 				2773B73B27D6D6A500C845DE /* ViewController.swift in Sources */,
 				27276AEF27F4CBB500F890B8 /* RefinementViewModel.swift in Sources */,
 				2773B73D27D6D7F100C845DE /* PokemonListCoordinator.swift in Sources */,
+				279634AF281F307B00BB0BFD /* CancellableStorage.swift in Sources */,
 				2773B74727D826A900C845DE /* NetworkEngine.swift in Sources */,
 				272B19F0280CCF8800977AFE /* Sequence.swift in Sources */,
 				27963475281EB6FF00BB0BFD /* SettingsApplicationIconChoiceViewModel.swift in Sources */,

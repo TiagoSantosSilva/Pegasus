@@ -41,7 +41,8 @@ final class Navigator: Navigatable {
 
     init(dependencies: DependencyContainable, navigationController: NavigationController) {
         self.navigationController = navigationController
-        dependencies.themeEnvironment.subscribe(self)
+        
+        setupThemeChangeHandling(dependencies: dependencies)
     }
 
     // MARK: - Public Functions
@@ -64,12 +65,12 @@ final class Navigator: Navigatable {
             navigationController.present(viewController, animated: animated, completion: nil)
         }
     }
-}
 
-// MARK: - ThemeEnvironmentDelegate
+    // MARK: - Private Functions
 
-extension Navigator: ThemeEnvironmentDelegate {
-    func themeEnvironment(_ themeEnvironment: ThemeEnvironment, didChangeColor color: UIColor) {
-        navigationController.apply(tint: color)
+    func setupThemeChangeHandling(dependencies: DependencyContainable) {
+        dependencies.themeEnvironment.themeSubject.sink { [weak self] in
+            self?.navigationController.apply(tint: $0.color)
+        }.store(in: &CancellableStorage.shared.cancellables)
     }
 }

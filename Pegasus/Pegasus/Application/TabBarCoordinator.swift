@@ -22,7 +22,8 @@ final class TabBarCoordinator: Coordinator {
         self.tabBarController = tabBarController
         self.window = window
         super.init()
-        dependencies.themeEnvironment.subscribe(self)
+        
+        setupThemeChangeHandling()
     }
 
     // MARK: - Functions
@@ -46,6 +47,12 @@ final class TabBarCoordinator: Coordinator {
 
     // MARK: - Private Functions
 
+    private func setupThemeChangeHandling() {
+        dependencies.themeEnvironment.themeSubject.sink { [weak self] in
+            self?.tabBarController.apply(tint: $0.color)
+        }.store(in: &CancellableStorage.shared.cancellables)
+    }
+
     private func createSettingsCoordinator() -> SettingsCoordinator {
         let emailSceneController = SettingsEmailSceneController()
         let reducer = SettingsSceneReducer()
@@ -54,13 +61,5 @@ final class TabBarCoordinator: Coordinator {
                                    emailSceneController: emailSceneController,
                                    reducer: reducer,
                                    universalLinkController: universalLinkController)
-    }
-}
-
-// MARK: - ThemeEnvironmentDelegate
-
-extension TabBarCoordinator: ThemeEnvironmentDelegate {
-    func themeEnvironment(_ themeEnvironment: ThemeEnvironment, didChangeColor color: UIColor) {
-        tabBarController.apply(tint: color)
     }
 }
