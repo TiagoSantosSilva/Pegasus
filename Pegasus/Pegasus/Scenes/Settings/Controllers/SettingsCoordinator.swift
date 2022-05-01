@@ -17,19 +17,24 @@ final class SettingsCoordinator: Coordinator, ViewControllerRepresentable {
     // MARK: - Private Properties
 
     private let navigator: Navigator
+    private let emailSceneController: SettingsEmailSceneControllable
     private let reducer: SettingsSceneReducer
-    private let mailComposeController: EmailOpeningController
+    private let universalLinkController: SettingsUniversalLinkControllable
 
     // MARK: - Initialization
 
-    init(dependencies: DependencyContainable, reducer: SettingsSceneReducer) {
+    init(dependencies: DependencyContainable,
+         emailSceneController: SettingsEmailSceneControllable,
+         reducer: SettingsSceneReducer,
+         universalLinkController: SettingsUniversalLinkControllable) {
         let viewModel = SettingsViewModel()
         let collectionViewController = SettingsCollectionViewController()
         let viewController = SettingsViewController(collectionViewController: collectionViewController, viewModel: viewModel)
         let navigationController = NavigationController(rootViewController: viewController)
         self.navigator = Navigator(navigationController: navigationController)
         self.reducer = reducer
-        self.mailComposeController = EmailOpeningController()
+        self.emailSceneController = emailSceneController
+        self.universalLinkController = universalLinkController
         super.init()
         viewController.delegate = self
     }
@@ -39,42 +44,16 @@ final class SettingsCoordinator: Coordinator, ViewControllerRepresentable {
     func start() { }
 }
 
-final class EmailOpeningController: NSObject {
-
-    private var mailComposerVC: MFMailComposeViewController!
-
-    func openEmail(sendingTo recipient: String, subject: String, in viewController: UIViewController) {
-        if MFMailComposeViewController.canSendMail() {
-
-            mailComposerVC = MFMailComposeViewController()
-            mailComposerVC.mailComposeDelegate = self
-
-            mailComposerVC.setToRecipients([recipient])
-            mailComposerVC.setSubject(subject)
-
-            viewController.present(mailComposerVC, animated: true, completion: nil)
-        }
-    }
-}
-
-extension EmailOpeningController: MFMailComposeViewControllerDelegate {
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true)
-    }
-}
-
 // MARK: - SettingsViewControllerDelegate
 
 extension SettingsCoordinator: SettingsViewControllerDelegate {
     func viewController(_ viewController: SettingsViewController, didSelect indexPath: IndexPath) {
-        print(indexPath)
         reducer.handle(itemAt: indexPath) { action in
             switch action {
             case let .email(email, subject):
-                mailComposeController.openEmail(sendingTo: email, subject: subject, in: self.viewController)
+                emailSceneController.openEmail(sendingTo: email, subject: subject, in: self.viewController)
             case let .universalLink(link):
-                UIApplication.shared.open(link)
-                print("\(link.absoluteString) 🍒")
+                universalLinkController.open(link)
             }
         }
     }

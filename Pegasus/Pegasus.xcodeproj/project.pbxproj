@@ -88,6 +88,8 @@
 		27876E4D27EF7FAE00CB8F3A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27876E4C27EF7FAE00CB8F3A /* SettingsViewController.swift */; };
 		278FD06D27FFA6D000B73461 /* CATransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278FD06C27FFA6D000B73461 /* CATransition.swift */; };
 		278FD06F27FFA7CA00B73461 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278FD06E27FFA7CA00B73461 /* CollectionViewCell.swift */; };
+		2796346A281EB1AD00BB0BFD /* SettingsEmailSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27963469281EB1AD00BB0BFD /* SettingsEmailSceneController.swift */; };
+		2796346C281EB44600BB0BFD /* SettingsUniversalLinkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2796346B281EB44600BB0BFD /* SettingsUniversalLinkController.swift */; };
 		279D5AEB2803472F00A9206E /* RefinementCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279D5AEA2803472F00A9206E /* RefinementCollectionViewController.swift */; };
 		279D5AED2803487500A9206E /* RefinementCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279D5AEC2803487500A9206E /* RefinementCollectionViewLayout.swift */; };
 		279D5AEF2803496C00A9206E /* CollectionViewCompositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279D5AEE2803496C00A9206E /* CollectionViewCompositionalLayout.swift */; };
@@ -243,6 +245,8 @@
 		27876E4C27EF7FAE00CB8F3A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		278FD06C27FFA6D000B73461 /* CATransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CATransition.swift; sourceTree = "<group>"; };
 		278FD06E27FFA7CA00B73461 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		27963469281EB1AD00BB0BFD /* SettingsEmailSceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsEmailSceneController.swift; sourceTree = "<group>"; };
+		2796346B281EB44600BB0BFD /* SettingsUniversalLinkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUniversalLinkController.swift; sourceTree = "<group>"; };
 		279D5AEA2803472F00A9206E /* RefinementCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefinementCollectionViewController.swift; sourceTree = "<group>"; };
 		279D5AEC2803487500A9206E /* RefinementCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefinementCollectionViewLayout.swift; sourceTree = "<group>"; };
 		279D5AEE2803496C00A9206E /* CollectionViewCompositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCompositionalLayout.swift; sourceTree = "<group>"; };
@@ -633,17 +637,25 @@
 		27876E4527EF7EF600CB8F3A /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				27963468281EB19E00BB0BFD /* Controllers */,
 				27BF905A281DB66400F54BD8 /* Collection View */,
 				27BF904F281DAA8100F54BD8 /* Sections */,
-				27BF9049281D9EEF00F54BD8 /* SettingsCollectionView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		27963468281EB19E00BB0BFD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
 				27876E4827EF7F5400CB8F3A /* SettingsCollectionViewController.swift */,
-				27BF904B281D9FB900F54BD8 /* SettingsCollectionViewLayout.swift */,
 				27876E4627EF7F0300CB8F3A /* SettingsCoordinator.swift */,
+				27963469281EB1AD00BB0BFD /* SettingsEmailSceneController.swift */,
 				27BF9061281DF4CA00F54BD8 /* SettingsSceneReducer.swift */,
+				2796346B281EB44600BB0BFD /* SettingsUniversalLinkController.swift */,
 				27876E4C27EF7FAE00CB8F3A /* SettingsViewController.swift */,
 				27876E4A27EF7F8800CB8F3A /* SettingsViewModel.swift */,
 			);
-			path = Settings;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		27A3691327E77E2C00A837C8 /* Enumerations */ = {
@@ -744,11 +756,11 @@
 		27BF904F281DAA8100F54BD8 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
-				27BF9050281DAA8B00F54BD8 /* SettingsSection.swift */,
+				27BF9056281DAAFA00F54BD8 /* SettingsAboutItem.swift */,
 				27BF9052281DAABC00F54BD8 /* SettingsAppearanceItem.swift */,
 				27BF9054281DAADE00F54BD8 /* SettingsFeedbackItem.swift */,
-				27BF9056281DAAFA00F54BD8 /* SettingsAboutItem.swift */,
 				27BF9058281DB5F400F54BD8 /* SettingsItemGroupViewModel.swift */,
+				27BF9050281DAA8B00F54BD8 /* SettingsSection.swift */,
 			);
 			path = Sections;
 			sourceTree = "<group>";
@@ -756,6 +768,8 @@
 		27BF905A281DB66400F54BD8 /* Collection View */ = {
 			isa = PBXGroup;
 			children = (
+				27BF904B281D9FB900F54BD8 /* SettingsCollectionViewLayout.swift */,
+				27BF9049281D9EEF00F54BD8 /* SettingsCollectionView.swift */,
 				27BF905B281DB67100F54BD8 /* SettingsHeaderViewModel.swift */,
 				27BF905D281DB6D700F54BD8 /* SettingsItemCellViewModel.swift */,
 				27BF905F281DBA2F00F54BD8 /* SettingsCell.swift */,
@@ -1007,6 +1021,7 @@
 				27A3691A27E7919E00A837C8 /* PokemonEndpoint.swift in Sources */,
 				27A3691E27E791CC00A837C8 /* NetworkError.swift in Sources */,
 				2781FCB627EFBB390060EF60 /* String.swift in Sources */,
+				2796346C281EB44600BB0BFD /* SettingsUniversalLinkController.swift in Sources */,
 				27BF9051281DAA8B00F54BD8 /* SettingsSection.swift in Sources */,
 				2781D74927FE5721001CF6CC /* PokemonListSearchStrategy.swift in Sources */,
 				2781FCBE27F0E01E0060EF60 /* UIView.swift in Sources */,
@@ -1059,6 +1074,7 @@
 				272A161827E7F03E0057255F /* QueryKey.swift in Sources */,
 				2754FCEF27F5E8C700F3092A /* SearchController.swift in Sources */,
 				2773B73727D6D5E800C845DE /* PokemonListCollectionViewController.swift in Sources */,
+				2796346A281EB1AD00BB0BFD /* SettingsEmailSceneController.swift in Sources */,
 				27BF905E281DB6D700F54BD8 /* SettingsItemCellViewModel.swift in Sources */,
 				272A161627E7DA460057255F /* URLScheme.swift in Sources */,
 				279D5AEB2803472F00A9206E /* RefinementCollectionViewController.swift in Sources */,
