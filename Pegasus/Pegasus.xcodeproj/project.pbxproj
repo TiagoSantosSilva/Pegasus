@@ -115,7 +115,6 @@
 		2796349E281EDEB800BB0BFD /* ThemeEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2796349D281EDEB800BB0BFD /* ThemeEnvironment.swift */; };
 		279634A0281EE09200BB0BFD /* SettingsThemeChoiceApplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2796349F281EE09200BB0BFD /* SettingsThemeChoiceApplier.swift */; };
 		279634A3281EE66E00BB0BFD /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279634A2281EE66E00BB0BFD /* UserDefault.swift */; };
-		279634A5281EEB6000BB0BFD /* MulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279634A4281EEB6000BB0BFD /* MulticastDelegate.swift */; };
 		279634A7281EF29000BB0BFD /* SettingsItemGroupViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279634A6281EF29000BB0BFD /* SettingsItemGroupViewModelFactory.swift */; };
 		279634A9281EFF2500BB0BFD /* SnapshotReloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279634A8281EFF2500BB0BFD /* SnapshotReloadable.swift */; };
 		279634AB281F003600BB0BFD /* TopScrollable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279634AA281F003600BB0BFD /* TopScrollable.swift */; };
@@ -303,7 +302,6 @@
 		2796349D281EDEB800BB0BFD /* ThemeEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeEnvironment.swift; sourceTree = "<group>"; };
 		2796349F281EE09200BB0BFD /* SettingsThemeChoiceApplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsThemeChoiceApplier.swift; sourceTree = "<group>"; };
 		279634A2281EE66E00BB0BFD /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
-		279634A4281EEB6000BB0BFD /* MulticastDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MulticastDelegate.swift; sourceTree = "<group>"; };
 		279634A6281EF29000BB0BFD /* SettingsItemGroupViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemGroupViewModelFactory.swift; sourceTree = "<group>"; };
 		279634A8281EFF2500BB0BFD /* SnapshotReloadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotReloadable.swift; sourceTree = "<group>"; };
 		279634AA281F003600BB0BFD /* TopScrollable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScrollable.swift; sourceTree = "<group>"; };
@@ -775,7 +773,6 @@
 			isa = PBXGroup;
 			children = (
 				279634AE281F307B00BB0BFD /* CancellableStorage.swift */,
-				279634A4281EEB6000BB0BFD /* MulticastDelegate.swift */,
 				2796349D281EDEB800BB0BFD /* ThemeEnvironment.swift */,
 			);
 			path = Environment;
@@ -1239,7 +1236,6 @@
 				27A56ACC2803606100093A4B /* Refinement+Sections.swift in Sources */,
 				27BF9055281DAADE00F54BD8 /* SettingsFeedbackItem.swift in Sources */,
 				27A3690E27E7737A00A837C8 /* NavigationController.swift in Sources */,
-				279634A5281EEB6000BB0BFD /* MulticastDelegate.swift in Sources */,
 				27A3691227E77DC600A837C8 /* NavigationBar.swift in Sources */,
 				272A161C27E7F5E30057255F /* UICollectionView.swift in Sources */,
 				27276AE127F4BA1200F890B8 /* CollectionReusableView.swift in Sources */,
