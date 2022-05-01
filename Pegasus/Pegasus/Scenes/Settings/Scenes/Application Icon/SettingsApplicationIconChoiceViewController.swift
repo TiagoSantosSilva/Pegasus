@@ -46,6 +46,7 @@ final class SettingsApplicationIconChoiceViewController: ViewController {
 
     private func setupSubviews() {
         add(collectionViewController)
+        collectionViewController.setup(with: viewModel.groups)
     }
 }
 
@@ -55,5 +56,8 @@ extension SettingsApplicationIconChoiceViewController: SettingsApplicationIconCh
     func collectionViewController(_ collectionViewController: SettingsApplicationIconChoiceCollectionViewController,
                                   didSelectItemAt indexPath: IndexPath) {
         delegate?.viewController(self, didSelect: indexPath)
+
+        guard let icon = SettingsApplicationIcon(rawValue: indexPath.row) else { fatalError() }
+        UIApplication.showErrorMessage(title: "Icon chosen", message: icon.name)
     }
 }

@@ -14,4 +14,5 @@ enum Localizable {
     static let done: String = "Done"
     static let reset: String = "Reset"
     static let applicationIcon: String = "Application Icon"
+    static let theme: String = "Theme"
 }

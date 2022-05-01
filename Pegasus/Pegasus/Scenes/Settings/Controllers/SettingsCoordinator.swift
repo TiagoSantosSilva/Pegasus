@@ -51,7 +51,7 @@ final class SettingsCoordinator: Coordinator, ViewControllerRepresentable {
         case .applicationIcon:
             initiate(coordinator: SettingsApplicationIconChoiceCoordinator(dependencies: dependencies, navigator: navigator))
         case .theme:
-            return
+            initiate(coordinator: SettingsThemeChoiceCoordinator(dependencies: dependencies, navigator: navigator))
         }
     }
 }

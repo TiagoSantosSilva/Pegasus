@@ -98,6 +98,18 @@
 		2796347B281EB88B00BB0BFD /* SettingsApplicationIconChoiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2796347A281EB88B00BB0BFD /* SettingsApplicationIconChoiceCell.swift */; };
 		2796347D281EB8B800BB0BFD /* SettingsApplicationIconChoiceCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2796347C281EB8B800BB0BFD /* SettingsApplicationIconChoiceCellViewModel.swift */; };
 		2796347F281EB97100BB0BFD /* SettingsApplicationIconChoiceGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2796347E281EB97100BB0BFD /* SettingsApplicationIconChoiceGroupViewModel.swift */; };
+		27963481281EC51A00BB0BFD /* SettingsThemeChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27963480281EC51A00BB0BFD /* SettingsThemeChoiceViewController.swift */; };
+		27963483281EC52B00BB0BFD /* SettingsThemeChoiceCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27963482281EC52B00BB0BFD /* SettingsThemeChoiceCoordinator.swift */; };
+		27963485281EC53100BB0BFD /* SettingsThemeChoiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27963484281EC53100BB0BFD /* SettingsThemeChoiceViewModel.swift */; };
+		27963487281EC53C00BB0BFD /* SettingsThemeChoiceCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27963486281EC53C00BB0BFD /* SettingsThemeChoiceCollectionView.swift */; };
+		27963489281EC54400BB0BFD /* SettingsThemeChoiceCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27963488281EC54400BB0BFD /* SettingsThemeChoiceCollectionViewController.swift */; };
+		2796348B281EC55000BB0BFD /* SettingsThemeChoiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2796348A281EC55000BB0BFD /* SettingsThemeChoiceCell.swift */; };
+		2796348D281EC55700BB0BFD /* SettingsThemeChoiceCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2796348C281EC55700BB0BFD /* SettingsThemeChoiceCellViewModel.swift */; };
+		2796348F281EC56800BB0BFD /* SettingsThemeChoiceGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2796348E281EC56800BB0BFD /* SettingsThemeChoiceGroupViewModel.swift */; };
+		27963491281EC75400BB0BFD /* SettingsApplicationIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27963490281EC75400BB0BFD /* SettingsApplicationIcon.swift */; };
+		27963493281EC87B00BB0BFD /* SettingsApplicationIconChoiceCellViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27963492281EC87B00BB0BFD /* SettingsApplicationIconChoiceCellViewModelFactory.swift */; };
+		27963495281ECCFB00BB0BFD /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27963494281ECCFB00BB0BFD /* UIImage.swift */; };
+		27963497281ED64A00BB0BFD /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27963496281ED64A00BB0BFD /* UIApplication.swift */; };
 		279D5AEB2803472F00A9206E /* RefinementCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279D5AEA2803472F00A9206E /* RefinementCollectionViewController.swift */; };
 		279D5AED2803487500A9206E /* RefinementCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279D5AEC2803487500A9206E /* RefinementCollectionViewLayout.swift */; };
 		279D5AEF2803496C00A9206E /* CollectionViewCompositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279D5AEE2803496C00A9206E /* CollectionViewCompositionalLayout.swift */; };
@@ -263,6 +275,18 @@
 		2796347A281EB88B00BB0BFD /* SettingsApplicationIconChoiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsApplicationIconChoiceCell.swift; sourceTree = "<group>"; };
 		2796347C281EB8B800BB0BFD /* SettingsApplicationIconChoiceCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsApplicationIconChoiceCellViewModel.swift; sourceTree = "<group>"; };
 		2796347E281EB97100BB0BFD /* SettingsApplicationIconChoiceGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsApplicationIconChoiceGroupViewModel.swift; sourceTree = "<group>"; };
+		27963480281EC51A00BB0BFD /* SettingsThemeChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsThemeChoiceViewController.swift; sourceTree = "<group>"; };
+		27963482281EC52B00BB0BFD /* SettingsThemeChoiceCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsThemeChoiceCoordinator.swift; sourceTree = "<group>"; };
+		27963484281EC53100BB0BFD /* SettingsThemeChoiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsThemeChoiceViewModel.swift; sourceTree = "<group>"; };
+		27963486281EC53C00BB0BFD /* SettingsThemeChoiceCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsThemeChoiceCollectionView.swift; sourceTree = "<group>"; };
+		27963488281EC54400BB0BFD /* SettingsThemeChoiceCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsThemeChoiceCollectionViewController.swift; sourceTree = "<group>"; };
+		2796348A281EC55000BB0BFD /* SettingsThemeChoiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsThemeChoiceCell.swift; sourceTree = "<group>"; };
+		2796348C281EC55700BB0BFD /* SettingsThemeChoiceCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsThemeChoiceCellViewModel.swift; sourceTree = "<group>"; };
+		2796348E281EC56800BB0BFD /* SettingsThemeChoiceGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsThemeChoiceGroupViewModel.swift; sourceTree = "<group>"; };
+		27963490281EC75400BB0BFD /* SettingsApplicationIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsApplicationIcon.swift; sourceTree = "<group>"; };
+		27963492281EC87B00BB0BFD /* SettingsApplicationIconChoiceCellViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsApplicationIconChoiceCellViewModelFactory.swift; sourceTree = "<group>"; };
+		27963494281ECCFB00BB0BFD /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		27963496281ED64A00BB0BFD /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		279D5AEA2803472F00A9206E /* RefinementCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefinementCollectionViewController.swift; sourceTree = "<group>"; };
 		279D5AEC2803487500A9206E /* RefinementCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefinementCollectionViewLayout.swift; sourceTree = "<group>"; };
 		279D5AEE2803496C00A9206E /* CollectionViewCompositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCompositionalLayout.swift; sourceTree = "<group>"; };
@@ -687,6 +711,14 @@
 		2796346E281EB66600BB0BFD /* Theme */ = {
 			isa = PBXGroup;
 			children = (
+				2796348A281EC55000BB0BFD /* SettingsThemeChoiceCell.swift */,
+				2796348C281EC55700BB0BFD /* SettingsThemeChoiceCellViewModel.swift */,
+				27963486281EC53C00BB0BFD /* SettingsThemeChoiceCollectionView.swift */,
+				27963488281EC54400BB0BFD /* SettingsThemeChoiceCollectionViewController.swift */,
+				27963482281EC52B00BB0BFD /* SettingsThemeChoiceCoordinator.swift */,
+				2796348E281EC56800BB0BFD /* SettingsThemeChoiceGroupViewModel.swift */,
+				27963480281EC51A00BB0BFD /* SettingsThemeChoiceViewController.swift */,
+				27963484281EC53100BB0BFD /* SettingsThemeChoiceViewModel.swift */,
 			);
 			path = Theme;
 			sourceTree = "<group>";
@@ -694,14 +726,16 @@
 		2796346F281EB66E00BB0BFD /* Application Icon */ = {
 			isa = PBXGroup;
 			children = (
-				27963470281EB68500BB0BFD /* SettingsApplicationIconChoiceCoordinator.swift */,
-				27963472281EB6F400BB0BFD /* SettingsApplicationIconChoiceViewController.swift */,
-				27963474281EB6FF00BB0BFD /* SettingsApplicationIconChoiceViewModel.swift */,
-				27963476281EB70A00BB0BFD /* SettingsApplicationIconChoiceCollectionView.swift */,
-				27963478281EB71900BB0BFD /* SettingsApplicationIconChoiceCollectionViewController.swift */,
+				27963490281EC75400BB0BFD /* SettingsApplicationIcon.swift */,
 				2796347A281EB88B00BB0BFD /* SettingsApplicationIconChoiceCell.swift */,
 				2796347C281EB8B800BB0BFD /* SettingsApplicationIconChoiceCellViewModel.swift */,
+				27963492281EC87B00BB0BFD /* SettingsApplicationIconChoiceCellViewModelFactory.swift */,
+				27963476281EB70A00BB0BFD /* SettingsApplicationIconChoiceCollectionView.swift */,
+				27963478281EB71900BB0BFD /* SettingsApplicationIconChoiceCollectionViewController.swift */,
+				27963470281EB68500BB0BFD /* SettingsApplicationIconChoiceCoordinator.swift */,
 				2796347E281EB97100BB0BFD /* SettingsApplicationIconChoiceGroupViewModel.swift */,
+				27963472281EB6F400BB0BFD /* SettingsApplicationIconChoiceViewController.swift */,
+				27963474281EB6FF00BB0BFD /* SettingsApplicationIconChoiceViewModel.swift */,
 			);
 			path = "Application Icon";
 			sourceTree = "<group>";
@@ -870,6 +904,8 @@
 				2781FCBB27F0CC190060EF60 /* UIImage+System.swift */,
 				2781FCBD27F0E01E0060EF60 /* UIView.swift */,
 				2773B74127D6E21500C845DE /* UIViewController.swift */,
+				27963494281ECCFB00BB0BFD /* UIImage.swift */,
+				27963496281ED64A00BB0BFD /* UIApplication.swift */,
 			);
 			path = "UI Kit";
 			sourceTree = "<group>";
@@ -1065,11 +1101,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2796348D281EC55700BB0BFD /* SettingsThemeChoiceCellViewModel.swift in Sources */,
 				27276ADD27F4B6C500F890B8 /* PokemonListHeaderViewModelAttributer.swift in Sources */,
 				27A3691A27E7919E00A837C8 /* PokemonEndpoint.swift in Sources */,
 				27A3691E27E791CC00A837C8 /* NetworkError.swift in Sources */,
 				2781FCB627EFBB390060EF60 /* String.swift in Sources */,
 				2796346C281EB44600BB0BFD /* SettingsUniversalLinkController.swift in Sources */,
+				27963495281ECCFB00BB0BFD /* UIImage.swift in Sources */,
+				27963485281EC53100BB0BFD /* SettingsThemeChoiceViewModel.swift in Sources */,
 				27BF9051281DAA8B00F54BD8 /* SettingsSection.swift in Sources */,
 				2781D74927FE5721001CF6CC /* PokemonListSearchStrategy.swift in Sources */,
 				2781FCBE27F0E01E0060EF60 /* UIView.swift in Sources */,
@@ -1096,7 +1135,9 @@
 				276751E42804E59F00BC82FB /* GalleryCoordinator.swift in Sources */,
 				2781D75027FF98DC001CF6CC /* UIFont.swift in Sources */,
 				27EED01D27E945B9002FB119 /* PokemonListCollectionView.swift in Sources */,
+				27963493281EC87B00BB0BFD /* SettingsApplicationIconChoiceCellViewModelFactory.swift in Sources */,
 				27E01532281A161600725A81 /* Equalable.swift in Sources */,
+				2796348F281EC56800BB0BFD /* SettingsThemeChoiceGroupViewModel.swift in Sources */,
 				27876E4D27EF7FAE00CB8F3A /* SettingsViewController.swift in Sources */,
 				2754FD0A27F5F70700F3092A /* Bundle.swift in Sources */,
 				2754FD0127F5F5EB00F3092A /* JSONContent.swift in Sources */,
@@ -1118,12 +1159,15 @@
 				27276AFA27F522A700F890B8 /* ScrollView.swift in Sources */,
 				279D5AED2803487500A9206E /* RefinementCollectionViewLayout.swift in Sources */,
 				27DF73B727F1204B00EE35C8 /* PokemonListHeader.swift in Sources */,
+				27963481281EC51A00BB0BFD /* SettingsThemeChoiceViewController.swift in Sources */,
 				27276AF227F50E8600F890B8 /* PokemonDetailsCoordinator.swift in Sources */,
+				27963487281EC53C00BB0BFD /* SettingsThemeChoiceCollectionView.swift in Sources */,
 				27876E4927EF7F5400CB8F3A /* SettingsCollectionViewController.swift in Sources */,
 				27276AE527F4BB4900F890B8 /* PokemonListCellViewModel.swift in Sources */,
 				272A161827E7F03E0057255F /* QueryKey.swift in Sources */,
 				2754FCEF27F5E8C700F3092A /* SearchController.swift in Sources */,
 				2773B73727D6D5E800C845DE /* PokemonListCollectionViewController.swift in Sources */,
+				27963483281EC52B00BB0BFD /* SettingsThemeChoiceCoordinator.swift in Sources */,
 				2796346A281EB1AD00BB0BFD /* SettingsEmailSceneController.swift in Sources */,
 				27BF905E281DB6D700F54BD8 /* SettingsItemCellViewModel.swift in Sources */,
 				272A161627E7DA460057255F /* URLScheme.swift in Sources */,
@@ -1131,6 +1175,7 @@
 				27A3691827E7917D00A837C8 /* Endpoint.swift in Sources */,
 				272A162127E7F6460057255F /* CellDequeuable.swift in Sources */,
 				27BF9053281DAABC00F54BD8 /* SettingsAppearanceItem.swift in Sources */,
+				27963491281EC75400BB0BFD /* SettingsApplicationIcon.swift in Sources */,
 				27276AEB27F4CB9500F890B8 /* RefinementViewController.swift in Sources */,
 				272A161227E7D59D0057255F /* NetworkResponseParser.swift in Sources */,
 				27276AFC27F52C3500F890B8 /* PokemonListSearchController.swift in Sources */,
@@ -1152,11 +1197,14 @@
 				27BF9057281DAAFA00F54BD8 /* SettingsAboutItem.swift in Sources */,
 				2724B543280397580070B6D8 /* HeaderCollectionViewListCell.swift in Sources */,
 				276751E12804E3AD00BC82FB /* CollectionViewCompositionalLayoutFactory.swift in Sources */,
+				27963497281ED64A00BB0BFD /* UIApplication.swift in Sources */,
 				27276AE727F4C1BD00F890B8 /* NSDirectionalEdgeInsets.swift in Sources */,
 				272A162527E7F6760057255F /* Identifiable.swift in Sources */,
 				27A3692127E7AC1C00A837C8 /* CollectionView.swift in Sources */,
 				27A3692627E7B16A00A837C8 /* Color.swift in Sources */,
+				2796348B281EC55000BB0BFD /* SettingsThemeChoiceCell.swift in Sources */,
 				2796347D281EB8B800BB0BFD /* SettingsApplicationIconChoiceCellViewModel.swift in Sources */,
+				27963489281EC54400BB0BFD /* SettingsThemeChoiceCollectionViewController.swift in Sources */,
 				27A3691C27E791B400A837C8 /* HTTPMethod.swift in Sources */,
 				2781FCC227F0E6C50060EF60 /* HeaderKey.swift in Sources */,
 				27F74CF3280607B3002DD56A /* PokemonListOrderStrategy.swift in Sources */,

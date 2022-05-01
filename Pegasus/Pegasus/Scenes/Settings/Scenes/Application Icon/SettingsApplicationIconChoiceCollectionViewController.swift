@@ -25,18 +25,17 @@ final class SettingsApplicationIconChoiceCollectionViewController: CollectionVie
     // MARK: - Properties
 
     weak var delegate: SettingsApplicationIconChoiceCollectionViewControllerDelegate?
-
+    
     private let dataSource: DataSource
 
     // MARK: - Initialization
 
     override init() {
-        let listLayout = CollectionViewCompositionalLayoutFactory.makeHeader()
+        let listLayout = CollectionViewCompositionalLayoutFactory.makeClean()
         let collectionView = SettingsApplicationIconChoiceCollectionView(frame: .zero, collectionViewLayout: listLayout)
         self.dataSource = DataSource(collectionView: collectionView, cellProvider: Self.cellProvider)
         super.init(collectionViewLayout: listLayout)
         self.collectionView = collectionView
-        self.collectionView.backgroundColor = .systemPurple
     }
 
     // MARK: - Functions

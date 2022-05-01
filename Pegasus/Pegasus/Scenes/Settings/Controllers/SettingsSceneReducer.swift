@@ -45,7 +45,7 @@ struct SettingsSceneReducer: SettingsSceneReduceable {
         case .icon:
             completion(.scene(.applicationIcon))
         case .theme:
-            showErrorMessage("Soon ™️")
+            completion(.scene(.theme))
         }
     }
 
@@ -53,7 +53,7 @@ struct SettingsSceneReducer: SettingsSceneReduceable {
         guard let item = SettingsFeedbackItem(rawValue: row) else { fatalError() }
         switch item {
         case .review:
-            showErrorMessage("Soon ™️")
+            UIApplication.showErrorMessage(title: "Feature when?", message: "Soon ™️")
         case .suggestFeature:
             completion(.email(email: Constants.Email.destination, subject: Constants.Email.Feedback.subject))
         case .reportBug:
@@ -92,21 +92,5 @@ private extension SettingsSceneReducer {
             static let instagram: StaticString = "https://www.instagram.com/pegasuspokeapp/"
             static let twitter: StaticString = "https://twitter.com/PegasusPokeApp/"
         }
-    }
-}
-
-private extension SettingsSceneReducer {
-    func showErrorMessage(_ message: String) {
-        let alertWindow = UIWindow(frame: UIScreen.main.bounds)
-        alertWindow.rootViewController = UIViewController()
-
-        let alertController = UIAlertController(title: "Feature when?", message: message, preferredStyle: UIAlertController.Style.alert)
-        alertController.addAction(UIAlertAction(title: "Close", style: UIAlertAction.Style.cancel, handler: { _ in
-            alertWindow.isHidden = true
-        }))
-
-        alertWindow.windowLevel = UIWindow.Level.alert + 1
-        alertWindow.makeKeyAndVisible()
-        alertWindow.rootViewController?.present(alertController, animated: true, completion: nil)
     }
 }
