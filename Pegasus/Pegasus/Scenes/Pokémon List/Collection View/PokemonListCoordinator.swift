@@ -16,7 +16,7 @@ final class PokemonListCoordinator: Coordinator, ViewControllerRepresentable {
     // MARK: - Private Properties
 
     private let dependencies: DependencyContainable
-    private let navigator: Navigator
+    private let navigator: Navigatable
     private weak var listViewController: PokemonListViewControllable?
 
     // MARK: - Initialization

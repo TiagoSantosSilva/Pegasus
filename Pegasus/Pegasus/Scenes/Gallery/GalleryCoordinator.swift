@@ -15,7 +15,7 @@ final class GalleryCoordinator: Coordinator, ViewControllerRepresentable {
 
     // MARK: - Private Properties
 
-    private let navigator: Navigator
+    private let navigator: Navigatable
 
     // MARK: - Initialization
 

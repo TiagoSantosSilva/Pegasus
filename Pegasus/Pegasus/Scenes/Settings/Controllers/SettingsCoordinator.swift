@@ -5,7 +5,6 @@
 //  Created by Tiago on 26/03/2022.
 //
 
-import MessageUI
 import UIKit
 
 final class SettingsCoordinator: Coordinator, ViewControllerRepresentable {
@@ -16,7 +15,8 @@ final class SettingsCoordinator: Coordinator, ViewControllerRepresentable {
 
     // MARK: - Private Properties
 
-    private let navigator: Navigator
+    private let dependencies: DependencyContainable
+    private let navigator: Navigatable
     private let emailSceneController: SettingsEmailSceneControllable
     private let reducer: SettingsSceneReducer
     private let universalLinkController: SettingsUniversalLinkControllable
@@ -32,6 +32,7 @@ final class SettingsCoordinator: Coordinator, ViewControllerRepresentable {
         let viewController = SettingsViewController(collectionViewController: collectionViewController, viewModel: viewModel)
         let navigationController = NavigationController(rootViewController: viewController)
         self.navigator = Navigator(navigationController: navigationController)
+        self.dependencies = dependencies
         self.reducer = reducer
         self.emailSceneController = emailSceneController
         self.universalLinkController = universalLinkController
@@ -42,6 +43,17 @@ final class SettingsCoordinator: Coordinator, ViewControllerRepresentable {
     // MARK: - Coordinator
 
     func start() { }
+
+    // MARK: - Private Functions
+
+    private func handle(scene: SettingsScene) {
+        switch scene {
+        case .applicationIcon:
+            initiate(coordinator: SettingsApplicationIconChoiceCoordinator(dependencies: dependencies, navigator: navigator))
+        case .theme:
+            return
+        }
+    }
 }
 
 // MARK: - SettingsViewControllerDelegate
@@ -54,6 +66,8 @@ extension SettingsCoordinator: SettingsViewControllerDelegate {
                 emailSceneController.openEmail(sendingTo: email, subject: subject, in: self.viewController)
             case let .universalLink(link):
                 universalLinkController.open(link)
+            case let .scene(scene):
+                handle(scene: scene)
             }
         }
     }

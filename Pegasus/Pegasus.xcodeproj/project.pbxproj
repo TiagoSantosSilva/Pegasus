@@ -90,6 +90,14 @@
 		278FD06F27FFA7CA00B73461 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278FD06E27FFA7CA00B73461 /* CollectionViewCell.swift */; };
 		2796346A281EB1AD00BB0BFD /* SettingsEmailSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27963469281EB1AD00BB0BFD /* SettingsEmailSceneController.swift */; };
 		2796346C281EB44600BB0BFD /* SettingsUniversalLinkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2796346B281EB44600BB0BFD /* SettingsUniversalLinkController.swift */; };
+		27963471281EB68500BB0BFD /* SettingsApplicationIconChoiceCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27963470281EB68500BB0BFD /* SettingsApplicationIconChoiceCoordinator.swift */; };
+		27963473281EB6F400BB0BFD /* SettingsApplicationIconChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27963472281EB6F400BB0BFD /* SettingsApplicationIconChoiceViewController.swift */; };
+		27963475281EB6FF00BB0BFD /* SettingsApplicationIconChoiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27963474281EB6FF00BB0BFD /* SettingsApplicationIconChoiceViewModel.swift */; };
+		27963477281EB70A00BB0BFD /* SettingsApplicationIconChoiceCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27963476281EB70A00BB0BFD /* SettingsApplicationIconChoiceCollectionView.swift */; };
+		27963479281EB71900BB0BFD /* SettingsApplicationIconChoiceCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27963478281EB71900BB0BFD /* SettingsApplicationIconChoiceCollectionViewController.swift */; };
+		2796347B281EB88B00BB0BFD /* SettingsApplicationIconChoiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2796347A281EB88B00BB0BFD /* SettingsApplicationIconChoiceCell.swift */; };
+		2796347D281EB8B800BB0BFD /* SettingsApplicationIconChoiceCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2796347C281EB8B800BB0BFD /* SettingsApplicationIconChoiceCellViewModel.swift */; };
+		2796347F281EB97100BB0BFD /* SettingsApplicationIconChoiceGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2796347E281EB97100BB0BFD /* SettingsApplicationIconChoiceGroupViewModel.swift */; };
 		279D5AEB2803472F00A9206E /* RefinementCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279D5AEA2803472F00A9206E /* RefinementCollectionViewController.swift */; };
 		279D5AED2803487500A9206E /* RefinementCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279D5AEC2803487500A9206E /* RefinementCollectionViewLayout.swift */; };
 		279D5AEF2803496C00A9206E /* CollectionViewCompositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279D5AEE2803496C00A9206E /* CollectionViewCompositionalLayout.swift */; };
@@ -247,6 +255,14 @@
 		278FD06E27FFA7CA00B73461 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		27963469281EB1AD00BB0BFD /* SettingsEmailSceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsEmailSceneController.swift; sourceTree = "<group>"; };
 		2796346B281EB44600BB0BFD /* SettingsUniversalLinkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUniversalLinkController.swift; sourceTree = "<group>"; };
+		27963470281EB68500BB0BFD /* SettingsApplicationIconChoiceCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsApplicationIconChoiceCoordinator.swift; sourceTree = "<group>"; };
+		27963472281EB6F400BB0BFD /* SettingsApplicationIconChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsApplicationIconChoiceViewController.swift; sourceTree = "<group>"; };
+		27963474281EB6FF00BB0BFD /* SettingsApplicationIconChoiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsApplicationIconChoiceViewModel.swift; sourceTree = "<group>"; };
+		27963476281EB70A00BB0BFD /* SettingsApplicationIconChoiceCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsApplicationIconChoiceCollectionView.swift; sourceTree = "<group>"; };
+		27963478281EB71900BB0BFD /* SettingsApplicationIconChoiceCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsApplicationIconChoiceCollectionViewController.swift; sourceTree = "<group>"; };
+		2796347A281EB88B00BB0BFD /* SettingsApplicationIconChoiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsApplicationIconChoiceCell.swift; sourceTree = "<group>"; };
+		2796347C281EB8B800BB0BFD /* SettingsApplicationIconChoiceCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsApplicationIconChoiceCellViewModel.swift; sourceTree = "<group>"; };
+		2796347E281EB97100BB0BFD /* SettingsApplicationIconChoiceGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsApplicationIconChoiceGroupViewModel.swift; sourceTree = "<group>"; };
 		279D5AEA2803472F00A9206E /* RefinementCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefinementCollectionViewController.swift; sourceTree = "<group>"; };
 		279D5AEC2803487500A9206E /* RefinementCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefinementCollectionViewLayout.swift; sourceTree = "<group>"; };
 		279D5AEE2803496C00A9206E /* CollectionViewCompositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCompositionalLayout.swift; sourceTree = "<group>"; };
@@ -637,6 +653,7 @@
 		27876E4527EF7EF600CB8F3A /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				2796346D281EB66100BB0BFD /* Scenes */,
 				27963468281EB19E00BB0BFD /* Controllers */,
 				27BF905A281DB66400F54BD8 /* Collection View */,
 				27BF904F281DAA8100F54BD8 /* Sections */,
@@ -656,6 +673,37 @@
 				27876E4A27EF7F8800CB8F3A /* SettingsViewModel.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2796346D281EB66100BB0BFD /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				2796346F281EB66E00BB0BFD /* Application Icon */,
+				2796346E281EB66600BB0BFD /* Theme */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		2796346E281EB66600BB0BFD /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		2796346F281EB66E00BB0BFD /* Application Icon */ = {
+			isa = PBXGroup;
+			children = (
+				27963470281EB68500BB0BFD /* SettingsApplicationIconChoiceCoordinator.swift */,
+				27963472281EB6F400BB0BFD /* SettingsApplicationIconChoiceViewController.swift */,
+				27963474281EB6FF00BB0BFD /* SettingsApplicationIconChoiceViewModel.swift */,
+				27963476281EB70A00BB0BFD /* SettingsApplicationIconChoiceCollectionView.swift */,
+				27963478281EB71900BB0BFD /* SettingsApplicationIconChoiceCollectionViewController.swift */,
+				2796347A281EB88B00BB0BFD /* SettingsApplicationIconChoiceCell.swift */,
+				2796347C281EB8B800BB0BFD /* SettingsApplicationIconChoiceCellViewModel.swift */,
+				2796347E281EB97100BB0BFD /* SettingsApplicationIconChoiceGroupViewModel.swift */,
+			);
+			path = "Application Icon";
 			sourceTree = "<group>";
 		};
 		27A3691327E77E2C00A837C8 /* Enumerations */ = {
@@ -1031,6 +1079,7 @@
 				27276AF827F5209A00F890B8 /* PokemonDetailsScrollView.swift in Sources */,
 				27A56ACE280362A100093A4B /* RefinementHeader.swift in Sources */,
 				2724B53F280393AE0070B6D8 /* RefinementListCell.swift in Sources */,
+				2796347F281EB97100BB0BFD /* SettingsApplicationIconChoiceGroupViewModel.swift in Sources */,
 				2724B541280397320070B6D8 /* CollectionViewListCell.swift in Sources */,
 				27BF9060281DBA2F00F54BD8 /* SettingsCell.swift in Sources */,
 				2781FCBA27F0CB7B0060EF60 /* ViewControllerRepresentable.swift in Sources */,
@@ -1061,6 +1110,7 @@
 				279D5AEF2803496C00A9206E /* CollectionViewCompositionalLayout.swift in Sources */,
 				27BF904A281D9EEF00F54BD8 /* SettingsCollectionView.swift in Sources */,
 				2781FCB827F0CB590060EF60 /* DependencyContainer.swift in Sources */,
+				27963473281EB6F400BB0BFD /* SettingsApplicationIconChoiceViewController.swift in Sources */,
 				2773B73F27D6E17B00C845DE /* CollectionViewController.swift in Sources */,
 				27A3692D27E7B80800A837C8 /* PokemonListViewModel.swift in Sources */,
 				27BF9062281DF4CA00F54BD8 /* SettingsSceneReducer.swift in Sources */,
@@ -1084,6 +1134,7 @@
 				27276AEB27F4CB9500F890B8 /* RefinementViewController.swift in Sources */,
 				272A161227E7D59D0057255F /* NetworkResponseParser.swift in Sources */,
 				27276AFC27F52C3500F890B8 /* PokemonListSearchController.swift in Sources */,
+				27963471281EB68500BB0BFD /* SettingsApplicationIconChoiceCoordinator.swift in Sources */,
 				27876E4B27EF7F8800CB8F3A /* SettingsViewModel.swift in Sources */,
 				2773B73527D6D5D800C845DE /* PokemonListViewController.swift in Sources */,
 				27A56ACC2803606100093A4B /* Refinement+Sections.swift in Sources */,
@@ -1097,6 +1148,7 @@
 				272A162327E7F65D0057255F /* CellRegistable.swift in Sources */,
 				27A3692B27E7B2E600A837C8 /* UIColor.swift in Sources */,
 				27876E4727EF7F0300CB8F3A /* SettingsCoordinator.swift in Sources */,
+				2796347B281EB88B00BB0BFD /* SettingsApplicationIconChoiceCell.swift in Sources */,
 				27BF9057281DAAFA00F54BD8 /* SettingsAboutItem.swift in Sources */,
 				2724B543280397580070B6D8 /* HeaderCollectionViewListCell.swift in Sources */,
 				276751E12804E3AD00BC82FB /* CollectionViewCompositionalLayoutFactory.swift in Sources */,
@@ -1104,6 +1156,7 @@
 				272A162527E7F6760057255F /* Identifiable.swift in Sources */,
 				27A3692127E7AC1C00A837C8 /* CollectionView.swift in Sources */,
 				27A3692627E7B16A00A837C8 /* Color.swift in Sources */,
+				2796347D281EB8B800BB0BFD /* SettingsApplicationIconChoiceCellViewModel.swift in Sources */,
 				27A3691C27E791B400A837C8 /* HTTPMethod.swift in Sources */,
 				2781FCC227F0E6C50060EF60 /* HeaderKey.swift in Sources */,
 				27F74CF3280607B3002DD56A /* PokemonListOrderStrategy.swift in Sources */,
@@ -1113,7 +1166,9 @@
 				2773B73D27D6D7F100C845DE /* PokemonListCoordinator.swift in Sources */,
 				2773B74727D826A900C845DE /* NetworkEngine.swift in Sources */,
 				272B19F0280CCF8800977AFE /* Sequence.swift in Sources */,
+				27963475281EB6FF00BB0BFD /* SettingsApplicationIconChoiceViewModel.swift in Sources */,
 				27E01525281A098900725A81 /* Sequence+PokemonListGroupViewModel.swift in Sources */,
+				27963479281EB71900BB0BFD /* SettingsApplicationIconChoiceCollectionViewController.swift in Sources */,
 				2781FCC027F0E67B0060EF60 /* HTTPHeader.swift in Sources */,
 				2724B53D2803934B0070B6D8 /* RefinementCollectionView.swift in Sources */,
 				27A56AD0280374C100093A4B /* RefinementItemCellViewModel.swift in Sources */,
@@ -1130,6 +1185,7 @@
 				276751EA2804E5B700BC82FB /* GalleryCollectionViewController.swift in Sources */,
 				276751EC2804E73A00BC82FB /* TabBarController.swift in Sources */,
 				27876E3C27EF782B00CB8F3A /* AppCoordinator.swift in Sources */,
+				27963477281EB70A00BB0BFD /* SettingsApplicationIconChoiceCollectionView.swift in Sources */,
 				272A160E27E7CE0A0057255F /* NetworkManifest.swift in Sources */,
 				27A3691027E77DB000A837C8 /* NavigationBarAppearance.swift in Sources */,
 				27EED01B27E941F7002FB119 /* PokemonListCell.swift in Sources */,

@@ -7,9 +7,15 @@
 
 import UIKit
 
+enum SettingsScene {
+    case applicationIcon
+    case theme
+}
+
 enum SettingsSceneReduceAction {
     case email(email: String, subject: String)
     case universalLink(link: URL)
+    case scene(SettingsScene)
 }
 
 protocol SettingsSceneReduceable {
@@ -37,7 +43,7 @@ struct SettingsSceneReducer: SettingsSceneReduceable {
         guard let item = SettingsAppearanceItem(rawValue: row) else { fatalError() }
         switch item {
         case .icon:
-            showErrorMessage("Soon ™️")
+            completion(.scene(.applicationIcon))
         case .theme:
             showErrorMessage("Soon ™️")
         }
