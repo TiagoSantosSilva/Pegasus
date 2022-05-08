@@ -17,6 +17,22 @@ enum NetworkManifest {
         case prePath = "Pre-Path"
 
         var dictionary: String { "PokeAPI" }
+
+        static let dictionary: String = "PokeAPI"
+    }
+
+    enum PokeAPIEndpoint: String, BundleDictionaryRepresentable {
+        case details = "Details"
+
+        var dictionary: String { "Endpoints" }
+
+        static func value(for key: PokeAPIEndpoint) -> String {
+            guard let networking = Bundle.main.object(forInfoDictionaryKey: Constants.key) as? [String: [String: Any]],
+                  let pokeAPI = networking[PokeAPI.dictionary],
+                  let headers = pokeAPI[key.dictionary] as? [String: String],
+                let value = headers[key.rawValue] else { fatalError() }
+            return value
+        }
     }
 
     enum PokemonGoAPI: String, BundleDictionaryRepresentable {

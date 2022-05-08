@@ -37,10 +37,8 @@ final class PokemonDetailsViewController: ViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        Task {
-            let image = await viewModel.loadImage()
-            scrollView.configure(with: image)
-        }
+        displayDetails()
+        displayImage()
     }
 
     deinit {
@@ -49,4 +47,23 @@ final class PokemonDetailsViewController: ViewController {
 
     // MARK: - Functions
 
+    private func displayDetails() {
+        Task {
+            let result = await viewModel.loadDetails()
+            switch result {
+            case let .success(details):
+                print("\(details) 🍒")
+                scrollView.configure(with: details)
+            case .failure:
+                return
+            }
+        }
+    }
+
+    private func displayImage() {
+        Task {
+            let image = await viewModel.loadImage()
+            scrollView.configure(with: image)
+        }
+    }
 }

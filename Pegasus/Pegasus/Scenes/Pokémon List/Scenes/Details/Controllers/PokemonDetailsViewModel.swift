@@ -10,6 +10,7 @@ import UIKit
 protocol PokemonDetailsDataRepresentable: AnyObject {
     var name: String { get }
 
+    func loadDetails() async -> Result<PokemonDetailsModelViewModel, Error>
     func loadImage() async -> UIImage?
 }
 
@@ -33,6 +34,15 @@ final class PokemonDetailsViewModel: PokemonDetailsViewModelable {
     }
 
     // MARK: - Functions
+
+    func loadDetails() async -> Result<PokemonDetailsModelViewModel, Error> {
+        do {
+            let details = try await loader.loadDetails(number: pokemon.number)
+            return .success(PokemonDetailsModelViewModel(raw: details))
+        } catch {
+            return .failure(NetworkError.noData)
+        }
+    }
 
     func loadImage() async -> UIImage? {
         do {

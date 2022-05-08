@@ -25,6 +25,11 @@
 		</dict>
 		<key>PokeAPI</key>
 		<dict>
+			<key>Endpoints</key>
+			<dict>
+				<key>Details</key>
+				<string>pokemon/</string>
+			</dict>
 			<key>Pre-Path</key>
 			<string>/api/v2/</string>
 			<key>Host</key>
